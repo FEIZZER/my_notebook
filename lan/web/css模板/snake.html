@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪食蛇</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #container{
+        width: 1000px;
+        height: 550px;
+        border: 2px solid #000;
+        margin: 100px auto;
+    }
+    #ground{
+        width: 1000px;
+        height: 500px;
+        position: relative;
+    }
+    #button{
+        float: right;
+        height: 50px;
+        line-height: 50px;
+    }
+    button{
+        width: 50px;
+        height: 20px;
+        cursor: pointer;
+    }
+    .block{
+        width: 23px;
+        height: 23px;
+        background: #160344;
+        position: absolute;
+    }
+    .snakeBody{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background: #f57926;
+    }
+    .grass{
+        background: green;
+        height: 20px;
+        width: 20px;
+        float: left;
+    }
+    .food{
+        width: 20px;
+        height: 20px;
+        background:red;
+        position: absolute;
+    }
+</style>
+<body>
+    <div id="container">
+        <div id="ground"></div>
+        <div id="id">
+            <button id="start">开始</button>
+            <button id="pause">暂停</button>
+        </div>
+    </div>
+    <script>
+        let timer, snakebody,now_direction = 'left',block;
+        let b1 = document.getElementById('start');
+        b1.onclick = function(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                snakeMove(now_direction);
+            },150);
+            document.addEventListener('keydown', keyDown);
+        }
+        let b2 = document.getElementById('pause');
+        b2.onclick = function() {
+            clearInterval(timer);
+            document.removeEventListener('keydown', keyDown);
+        }
+        let ground = document.getElementById('ground');
+        for(let i=0;i<50;i++) {
+            for(let j=0;j<25;j++) {
+                let grass = document.createElement('div');
+                grass.className = 'grass';
+                ground.appendChild(grass);
+            }
+        }
+        createSnake();
+        createFood();
+        function createSnake() {
+            snakebody = [];
+            for(let i=0;i<4;i++) {
+                let body = document.createElement('div');
+                body.className = 'snakeBody';
+                body.style.left = i*20+400+'px';
+                body.style.top = 200+'px';  
+                ground.appendChild(body);
+                snakebody.push(body);
+            }
+        }
+        function createFood() {
+            let flag = false;
+            food = document.createElement('div');
+            food.className = 'food';
+            iLeft=parseInt(Math.random()*49)*20;
+            iTop=parseInt(Math.random()*24)*20;
+            for(let i=0;i<snakebody.length;i++) {
+                if(snakebody[i].offsetLeft == iLeft && snakebody[i].offsetTop == iTop) {
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag) {
+                createFood();
+            }
+            else {
+                food.style.left = iLeft + 'px';
+                food.style.top = iTop + 'px';
+                ground.appendChild(food);
+            }
+        }
+        function snakeMove(direction){
+            now_direction = direction;
+            let blockInBody = false;
+            let tailx = snakebody[snakebody.length-1].offsetLeft, taily = snakebody[snakebody.length-1].offsetTop;
+            if(block && block.offsetLeft == snakebody[0].offsetLeft && block.offsetTop == snakebody[0].offsetTop)
+                blockInBody = true;
+            for(let i = snakebody.length-1;i>0;i--) {    
+                if(block && block.offsetTop == snakebody[i].offsetTop && block.offsetLeft == snakebody[i].offsetLeft) {
+                    blockInBody = true;
+                }
+                snakebody[i].style.left = snakebody[i-1].offsetLeft + 'px';
+                snakebody[i].style.top = snakebody[i-1].offsetTop + 'px';
+            }
+            switch(direction) {
+                case 'left':
+                    snakebody[0].style.left = snakebody[0].offsetLeft - 20 + 'px';
+                    break;
+                case 'right':
+                    snakebody[0].style.left = snakebody[0].offsetLeft + 20 + 'px';
+                    break;
+                case 'up':
+                    snakebody[0].style.top = snakebody[0].offsetTop - 20 + 'px';
+                    break;
+                case 'down':
+                    snakebody[0].style.top = snakebody[0].offsetTop + 20 + 'px';
+                    break;
+            }
+            if(block && !blockInBody) {
+                let newBody = document.createElement('div');
+                newBody.className = 'snakeBody';
+                newBody.style.left = tailx;
+                newBody.style.top = taily;
+                ground.appendChild(newBody);
+                snakebody.push(newBody);
+                block.remove();
+                block = null;
+            }
+            eatFood();
+            snakeDead();
+        }
+        function eatFood(){
+            if(snakebody[0].offsetLeft == food.offsetLeft && snakebody[0].offsetTop == food.offsetTop) {
+                block = document.createElement('div');
+                block.className = 'block';
+                block.style.left = food.offsetLeft + 'px';
+                block.style.top = food.offsetTop + 'px';
+                ground.appendChild(block);
+                food.remove();
+                createFood();
+            }
+        }
+        function snakeDead(){
+            if(snakebody[0].offsetLeft == -20 || snakebody[0].offsetLeft == 1000 
+            || snakebody[0].offsetTop == -20 || snakebody[0].offsetTop == 500) {
+                console.log('you have dead');
+                window.location.reload();
+            }
+            for(let i=1;i<snakebody.length;i++) {
+                if(snakebody[i].offsetTop == snakebody[0].offsetTop 
+                && snakebody[i].offsetLeft == snakebody[0].offsetLeft) {
+                    console.log('you have dead');
+                    window.location.reload();
+                }
+            }
+           
+        }
+        function keyDown(e){
+            e = e || window.event;
+            switch(e.keyCode) {
+                case 37:
+                    if(now_direction != 'right')
+                        snakeMove('left');
+                    break;
+                case 38:
+                    if(now_direction != 'down')
+                        snakeMove('up');
+                    break;
+                case 39:
+                    if(now_direction != 'left')
+                        snakeMove('right');
+                    break;
+                case 40:
+                    if(now_direction != 'up')
+                        snakeMove('down');
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

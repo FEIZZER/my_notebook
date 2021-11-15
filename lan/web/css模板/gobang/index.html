@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: #dde1e7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        border-radius: 5px;
+        position: relative;
+        width: 800px;
+        height: 800px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        background-color:rgb(253, 175, 117);
+        box-shadow: -3px -3px 7px #ffffff00;
+        box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+    }
+    #chessboard{
+        font-size: 0;
+        border:black solid 0.5px;
+        background-color:rgb(253, 175, 117);
+        height: 700px;
+        width: 700px;
+    }
+    .box{
+        display: inline-block;
+        height: 48px;
+        width: 48px;
+        border: black solid 1px;
+    }
+    .chessplace{
+        position: absolute;
+        z-index: 6;
+        height: 34px;
+        width: 34px;
+        border-width:  2px;
+        border-radius: 18px;
+    }
+    .chessplace:hover{
+        border: black solid 2px;
+        border-radius: 20px;
+    }
+</style>
+<body>
+    <div class='container'>
+        <div id='chessboard'>
+        </div>
+    </div>
+</body>
+<script src="./module.js"></script>
+</html>

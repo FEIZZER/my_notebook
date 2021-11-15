@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #dde1e7;
+    }
+    .board-container{
+        font-size: 0;
+        padding: 25px;
+        position: relative;
+        margin: 300px auto;
+        background-color: #dde1e7;
+        box-shadow: -3px -3px 7px #ffffff83;
+        box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+        border-radius: 10px;
+    }
+    .key{
+        margin: 6px;
+        border-radius: 50%;
+        font-size: 20px;
+        line-height: 80px;
+        text-align: center;
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background-color: #d5dce6;
+        user-select: none;
+        box-shadow: -3px -3px 7px #ffffff83;
+        box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+    }
+    .keys:nth-child(2){
+        position: relative;
+        left: 43px;
+    }
+    .keys:nth-child(3) {
+        position: relative;
+        left: 86px;
+    }
+    .animation{
+        animation: keypushdown 300ms;
+    }
+    @keyframes keypushdown {
+        from{
+            box-shadow: -3px -3px 7px #ffffff83;
+            box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+        }
+        to{
+            color: #3498db;
+            box-shadow: inset -3px -3px 7px #ffffff83;
+            box-shadow: inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+        }
+    }
+    .space{
+        position: relative;
+        left: 162px;
+        line-height: 70px;
+        height: 70px;
+        width: 480px;
+        border-radius: 35px;
+    }
+</style>
+<body>
+    <div class="board-container">
+        <div>
+            <div class='key animation' id='q'>q</div>
+            <div class='key animation' id='w'>w</div>
+            <div class='key animation' id='e'>e</div>
+            <div class='key animation' id='r'>r</div>
+            <div class='key animation' id='t'>t</div>
+            <div class='key animation' id='y'>y</div>
+            <div class='key animation' id='u'>u</div>
+            <div class='key animation' id='i'>i</div>
+            <div class='key animation' id='o'>o</div>
+            <div class='key animation' id='p'>p</div>
+        </div>
+        <div class="keys">
+            <div class="key animation" id='a'>a</div>
+            <div class="key animation" id='s'>s</div>
+            <div class="key animation" id='d'>d</div>
+            <div class="key animation" id='f'>f</div>
+            <div class="key animation" id='g'>g</div>
+            <div class="key animation" id='h'>h</div>
+            <div class="key animation" id='j'>j</div>
+            <div class="key animation" id='k'>k</div>
+            <div class="key animation" id='l'>l</div>
+        </div>
+        <div class="keys">
+            <div class="key animation" id='z'>z</div>
+            <div class="key animation" id='x'>x</div>
+            <div class="key animation" id='c'>c</div>
+            <div class="key animation" id='v'>v</div>
+            <div class="key animation" id='b'>b</div>
+            <div class="key animation" id='n'>n</div>
+            <div class="key animation" id='m'>m</div>
+        </div>
+            <div class='space key animation' id='space'>space</div>
+    </div>
+</body>
+<script src="./module.js"></script>
+</html>

@@ -1,0 +1,37 @@
+*{
+    margin:0px auto;
+    padding: 0;
+}
+.navigation{
+    position: relative;
+}
+.naviContainImg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img1{
+    filter: blur(4px);
+}
+.img2{
+    filter: blur(0px);
+}
+.img3{
+    filter: blur(2px);
+}
+.img4{
+    filter: blur(4px);
+}
+.img5{
+    position: relative;
+    top:-10px;
+    filter: blur(3px);
+}
+.img6{
+    position: relative;
+    top:-10px;
+    filter: blur(4px);
+}

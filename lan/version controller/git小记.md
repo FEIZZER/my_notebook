@@ -1,0 +1,171 @@
+#  git 记录
+.gitignore文件规则及常见模板[[gitignore]]
+## git使用过程遇见的问题及解决
+
+- ##### 修改远程仓库的地址
+
+  ###### 查看当前 remote仓库 地址
+
+  ```
+  git remote -v  
+  ```
+
+  ```
+  git remote show origin2  //查看指定仓库，同时显示更多信息
+  ```
+
+  ######  设置 remote仓库
+
+  ```
+  git remote set-url origin [url]   //设置 remote仓库
+  git remote rm origin              //删除
+  git remote add origin [url]       //添加
+  ```
+
+  ###### 修改默认的pull和push分支
+
+  ```
+  git branch --set-upstream-to=origin/develop    //develop是新的分支名称
+  ```
+
+- ##### failed to push some refs to [host]  提示:Updates were rejected because the tip of your current branch is behind
+
+  ![image-20210721151124626](git%E5%B0%8F%E8%AE%B0.assets/image-20210721151124626.png) 
+
+  原因是由于：你的本地仓库落后于远程仓库，就是当前远程仓库有你本地仓库没有的新文件。可能是由于你的同事先于你提交了代码。
+
+  解决只需要先将 远程仓库更新的代码 pull进本地仓库，git会把远程代码和本地代码 合并merge，生成新的commit。这时再执行去
+
+  `git push` 指令即可。
+
+- ##### 记Git报错-refusing to merge unrelated histories
+
+  <img src="git%E5%B0%8F%E8%AE%B0.assets/image-20210721151748688.png" alt="image-20210721151748688" style="zoom:67%;" /> 
+
+  出现这个问题的最主要原因还是在于本地仓库和远程仓库实际上是独立的两个仓库。假如我之前是直接clone的方式在本地建立起远程github仓库的克隆本地仓库就不会有这问题了。
+
+  解决：以在pull命令后紧接着使用`--allow-unrelated-histories`选项来解决问题
+
+  ```
+  git pull origin master --allow-unrelated-histories
+  ```
+  
+- ##### 合并时出现的分支冲突问题
+
+  注意这时，git仓库正处于 处理冲突的状态中，可以通过`git merge --abort` 命令退出该状态。
+
+  ![image-20210721171133098](git%E5%B0%8F%E8%AE%B0.assets/image-20210721171133098.png)
+
+  打开冲突的文件可以看到，git对文件做了一些处理，分别表示这两个分支中造成冲突的内容，由你自己修改
+
+  <img src="git%E5%B0%8F%E8%AE%B0.assets/image-20210721171320022.png" alt="image-20210721171320022" style="zoom:67%;" />
+
+  修改完成后我们还需要自己进行手动 add 和commit。
+
+  
+
+##### VCS(Version Control System) 版本控制系统
+
+版本控制系统（VCS）最基本的功能是版本控制。所谓版本控制，意思就是在文件的修改历程中保留修改历史，让你可以方便地撤销之前对文件的修改操作。 vcs的情况就是由中央代码库 管理保存所有的代码和代码历史记录。
+
+##### DVCS(Distribute Version Control System)。 git是第一个DVCS
+
+分布式 VCS （Distributed VCS / DVCS）和中央式的区别在于，分布式 VCS 除了中央仓库之外，还有本地仓库：团队中每一个成员的机器上都有一份本地仓库，这个仓库里包含了所有的版本历史，或者换句话说，每个人在自己的机器上就可以提交代码、查看历史，而无需联网和中央仓库交互——当然，取而代之的，你需要和本地仓库交互。
+
+中央式 VCS 的中央仓库有两个主要功能：**保存版本历史**、**同步团队代码**。而在分布式 VCS 中，保存版本历史的工作转交到了每个团队成员的本地仓库中，中央仓库就只剩下了同步团队代码这一个主要任务。它的中央仓库依然也保存了历史版本，但这份历史版本更多的是作为团队间的同步中转站。
+
+
+
+### git工作模式
+
+#### git 的四个区域
+
+Working directory（工作目录），stage index（暂存区），local repositiry（本地代码库）是放在本地的。 remote （远程代码库）则是各类平台，github，gitee等等。
+
+使用 `git clone` 拉取项目后 项目路径下会有一个 .git 隐藏的文件，这就是我们的本地仓库。
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/git%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E5%85%B3%E7%B3%BB.png" alt="git工作区域关系" style="zoom:50%;" /> 
+
+#### 命令的使用以及他
+
+###### git push
+
+- `git push`  把本地仓库更新的代码提交远到程仓库
+
+- `git push origin feature1` 当需要把代码提交进一个远程项目的某一个分支时，需要使用。
+
+###### branch相关
+
+- `git branch`  查看本地仓库有哪些分支，当前分支上会有 *
+- `git branch feature1`  新建一个名为feature1的分支
+- `git checkout feature1` 切换分支
+- `git branch -d feature1` 删除这个分支，注意一个分支只是一个commit串的引用，删除引用后，commit还在，但是对于那些没有引用的野生commit，git会在一段时间后销毁。且不能删除 HEAD正在指向的branch
+
+#### 进阶的一些功能
+
+##### HEAD /  master和branch
+
+通过 `git log` 来查看 commit 记录
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/image-20210721162120255.png" alt="image-20210721162120255" style="zoom:80%;" /> 
+
+其中 HEAD表示当前所在分支 的引用，而master其实也就是一个 branch，不过他是默认的。HEAD其实是通过 指向 branch间接的指向一个个commit。master是一个默认的branch，在初始化一个git项目时是没有commit的，在我们创建第一个commit后，把 `master` 指向它，并把 `HEAD` 指向 `master`。如果我继续创建一个 commit，那么 HEAD 会带着 master 一起移动到最新的 commit。本质上 master与其他branch 没有区别，但一般把master分支作为主分支。
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIwLzE1ZmQ3NzlmOTgzYzgxZTc" alt="img" style="zoom:67%;" />   
+
+创建一个新分支，并切换到新分支后的示意图：
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YTEzMGIzY2Q" alt="img" style="zoom:67%;" />    
+
+当在这个新分支上 有新的 commit时就会：
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YTJhMzI2OTI" alt="img" style="zoom:67%;" /> 
+
+而这个时候，如果你再切换到 `master` 去 `commit`，就会真正地出现分叉了：
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YWIwODYxYTc" alt="img" style="zoom:67%;" /> 
+
+##### push的本质
+
+实质上，push做的事是：把当前 branch 的位置（即它指向哪个 commit）上传到远端仓库，并把它的路径上的 commits 一并上传。
+
+
+
+##### 使用merge
+
+`merge` 的意思是「合并」，它做的事也是合并：指定一个 `commit`，把它合并到当前的 `commit` 来。具体来讲，`merge` 做的事是：
+
+从目标 `commit` 和当前 `commit` （即 `HEAD` 所指向的 `commit`）分叉的位置起，把目标 `commit` 的路径上的所有 `commit` 的内容一并应用到当前 `commit`，然后自动生成一个新的 `commit`。比如执行 `git merge branch1`,如图
+
+<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIxLzE1ZmRkYzJhYWQ1YTAyNzk" alt="img" style="zoom:67%;" />
+
+##### 处理冲突 
+
+`merge` 在做合并的时候，是有一定的自动合并能力的：如果一个分支改了 A 文件，另一个分支改了 B 文件，那么合并后就是既改 A 也改 B，这个动作会自动完成；如果两个分支都改了同一个文件，但一个改的是第 1 行，另一个改的是第 2 行，那么合并后就是第 1 行和第 2 行都改，也是自动完成。但，如果两个分支修改了同一部分内容，`merge` 的自动算法就搞不定了。这种情况 Git 称之为：冲突（Conflict）。[[git小记#git使用过程遇见的问题及解决]]
+
+##### 使用merge的其他状况，合并的两个分支并不是 分叉的
+
+1. ###### master 领先于 branch1
+
+   这时候git什么都不会做
+
+2. ###### master落后于 branch1
+
+   这时那么 Git 会直接把 `HEAD`（以及它所指向的 `branch`，如果有的话）移动到目标 `commit`。这种情形其实很常见，因为这其实是 `pull` 操作的一种经典情形：本地的 `master` 没有新提交，而远端仓库中有同事提交了新内容到 `master`.那么这时如果在本地执行一次 `pull` 操作，就会由于 `HEAD` 落后于目标 `commit` （也就是远端的 `master`）而造成 “fast-forward”：
+
+   <img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIxLzE1ZmRkYzJiMjQ4Njc1OGE" alt="img" style="zoom:67%;" />
+
+   
+
+   
+
+
+
+
+
+
+
+
+
+
+

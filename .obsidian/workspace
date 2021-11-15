@@ -1,0 +1,101 @@
+{
+  "main": {
+    "id": "f711a18fdcd59789",
+    "type": "split",
+    "children": [
+      {
+        "id": "ca6d20c10aff8f88",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "lan/web/网络连接.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "12a63f81578ce207",
+    "type": "split",
+    "children": [
+      {
+        "id": "f5f133b393897b6f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02ee25dff784f524",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "f5f07c2905bbd39d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#vars",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ba4d7acd620f8597",
+    "type": "split",
+    "children": [
+      {
+        "id": "401176775b36a712",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9317f6e00d04124f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "lan/web/网络连接.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 157
+  },
+  "active": "ca6d20c10aff8f88",
+  "lastOpenFiles": [
+    "lan/web/网络连接.md",
+    "lan/web/xml解析.md",
+    "lan/web/rest接口测试.md",
+    "lan/web/require.js.md",
+    "lan/web/postman.md",
+    "base/Untitled.md",
+    "base/从一维码到二维码，或许也可能的三维码.md",
+    "base/计算机操作系统/高性能IO模型.md",
+    "base/计算机操作系统/基础数据类型.md",
+    "lan/web/jquery.md"
+  ]
+}

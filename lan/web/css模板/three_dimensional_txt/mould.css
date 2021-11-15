@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(219, 219, 228);
+
+}
+.text{
+    font-size: 10em;
+    font-weight: 900;
+    transform: rotate(-25deg) skew(25deg);
+    color: #fff;
+    text-shadow: -1px 1px 0 #eee;
+
+}
+.text::before{
+    content: 'XIOA JIE';
+    position: absolute;
+    color: rgba(0, 0, 0, 0.6);
+    filter:blur(20px);
+    z-index: -1;
+    left: -30px;
+    top: 30px;
+}

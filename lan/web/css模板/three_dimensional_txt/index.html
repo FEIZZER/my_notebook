@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-txt</title>
+    <link rel="stylesheet"  href="mould.css">
+</head>
+<body>
+    <div class="text">
+        <p>
+            XIAO JIE
+        </p>
+    </div>
+    <script>
+        let total = 15;
+        let shadow = '';
+        for(let i=1;i<=total;i++) {
+            shadow+=`-${i}px ${i}px 0 #eee,`;
+        }
+        shadow=shadow.slice(0,-1);
+        const text = document.querySelector('.text');
+        text.style.textShadow = shadow;
+    </script>
+</body>
+</html>

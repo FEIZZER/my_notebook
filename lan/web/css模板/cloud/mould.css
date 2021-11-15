@@ -1,0 +1,39 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    background: rgba(20,107, 207, 0.801);
+}
+.container{
+    width: 500px;
+    height: 500px;
+    position: relative;
+
+}
+
+.container .cloud{
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    position: absolute;
+    transform: translate(100px,120px);
+    border-radius: 50%;
+    box-shadow: 
+        39px -23px 0 0 #fff,
+        33px 28px 0 0 #fff,
+        90px -36px 0 0 #fff,
+        136px 0px 0 0 #fff,
+        93px 24px 0 0 #fff;
+    
+    animation: cloud 2s linear infinite;
+}
+@keyframes cloud{
+    100%{
+        transform: translate(150px, 120px);
+    }
+}

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(5, 2, 34);
+}
+.earth{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #0588e4;
+    background-image:url(./img/earth.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.7);
+
+    animation: bg 12s linear infinite;
+    /*动画*/
+}
+@keyframes bg{
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: 719px 0;
+    }
+}
+.earth img{
+    width: 100px;
+    height: 100px;
+}
+.earth::before{
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top:0;
+    background-image : url(./img/cloud.png);
+    
+    animation: bg 23s linear infinite;
+}

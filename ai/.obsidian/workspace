@@ -1,0 +1,81 @@
+{
+  "main": {
+    "id": "c1d8cfb5b9409f9e",
+    "type": "split",
+    "children": [
+      {
+        "id": "17d4d54a0999940b",
+        "type": "leaf",
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "第一个逻辑回归程序.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0745d983708d9b57",
+    "type": "split",
+    "children": [
+      {
+        "id": "7ae84a8d96f30310",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7b7f3d75d00f3b58",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "37c34eba09de82f8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f4822f3249b99978",
+    "type": "split",
+    "children": [
+      {
+        "id": "432dfb4b4c5c87a0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a320a2acd3589a24",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "第一个逻辑回归程序.md",
+    "Pillow.md",
+    "Untitled.md",
+    "Untitled 1.md",
+    "逻辑回归分类问题.md"
+  ]
+}

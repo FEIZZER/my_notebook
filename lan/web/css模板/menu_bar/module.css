@@ -1,0 +1,40 @@
+.menu_container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    /* 可以禁止文字被选中 */
+    user-select: none;
+}
+.menu_container input{
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    opacity: 1;
+
+}
+.menu_container .bt{
+    justify-content: space-between;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 6px;
+    height: 45px;
+    z-index: 9;
+    cursor: pointer;
+    display: flex;
+
+}
+
+.menu_container.bt span{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 9px;
+    left: 0;
+    background-color: #fff;
+    border-radius: 9px;
+    opacity: 1;
+    transform: all 0.5s ease-in-out;
+}

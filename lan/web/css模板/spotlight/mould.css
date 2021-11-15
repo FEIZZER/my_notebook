@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+h1{
+    color: transparent;
+    font-size: 3em;
+    background: linear-gradient(to right, #000, #fff, #000);
+    /*对背景裁切 */
+    -webkit-background-clip: text;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    animation:move_light 3s linear infinite;
+}
+@keyframes move_light{
+    0%{
+        background-color: -500% ;
+    }
+    100%{
+        background-position: 500%;
+    }
+}

@@ -2,8 +2,6 @@
 
 [文档](http://nodejs.cn/api/) 
 
-
-
 ###  模块的引用和循环引用
 
 ##### 引用规则
@@ -84,6 +82,11 @@ let module_test = require('./02.module.js');
 console.log(module_test.a);
 console.log(module_test.a_plus);
 ```
+
+##### exports和module.exports的区别
+
+module.exports才是真正的接口，exports只不过是它的一个辅助工具。　最终返回给调用的是module.exports而不是exports。
+所有的exports收集到的属性和方法，都赋值给了Module.exports。当然，这有个前提，就是module.exports本身不具备任何属性和方法。 **如果，module.exports已经具备一些属性和方法，那么exports收集来的信息将被忽略** con
 
 #### 包package的思想
 

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/nodejs/commonjs和es6.md",
+            "file": "lan/前端Vue/element-ui.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/nodejs/commonjs和es6.md",
+                "file": "lan/前端Vue/element-ui.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +87,8 @@
   },
   "active": "ca6d20c10aff8f88",
   "lastOpenFiles": [
+    "lan/前端Vue/element-ui.md",
+    "lan/前端Vue/vue-cli.md",
     "lan/nodejs/commonjs和es6.md",
     "lan/nodejs/node.js.md",
     "网络安全/RSA加密原理.md",
@@ -94,8 +96,6 @@
     "base/Untitled.md",
     "lan/web/利用jsencrypt.js进行加密.md",
     "lan/SpringBoot/SpringBoot项目中配合前端使用RSA加密敏感信息.md",
-    "lan/web/网络连接.md",
-    "lan/web/xml解析.md",
-    "lan/web/rest接口测试.md"
+    "lan/web/网络连接.md"
   ]
 }

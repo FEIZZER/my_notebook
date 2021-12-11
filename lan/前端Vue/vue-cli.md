@@ -70,11 +70,63 @@ router文件夹里是Vue-cli项目的路由设置，那个路径对于渲染哪�
 
 
 
+#### 在vue-cli中自定义校验规则
+
+在`data(){}`内,  `data(){ return{    }}`范围外定义自定义的校验规则,推荐使用lamda表达式,可以保留this关键字的指向.
+
+```vue
+<script>
+data() {
+    let repassword =  (rule, value, callback) => {
+        if (value != this.formData.password) {
+            callback(
+                new Error('两次密码输入不一致')
+            )
+        }
+        callback()
+    }
+    return {
+        formData: {
+            name: 'zs',
+            phonenum: '15153266878',
+            password: '',
+            password2: '',
+            email: 'hahah@qq.com'
+        },
+        rules: {
+            password: [
+                {required: true, min: 6, max: 20, message: '请输入6~20位的密码', trigger: 'blur'}
+            ],
+            password2: [
+                {required: true, message: '请输入您的确认密码', trigger: 'blur'},
+                {validator: repassword, trigger: 'blur'},
+            ],
+     }
+    }
+</script>
+```
 
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

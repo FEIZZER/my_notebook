@@ -824,3 +824,200 @@ integerList.toArray(integers);
 
 
 
+### java中的正则表达式
+
+java中处理正则表达式是通过`java.util.regex.*` (主要是Pattern和matcher类).
+
+#### Pattern类
+
+Pattern类用于创建一个正则表达式,也可以说创建一个匹配模式,它的构造方法是私有的,不可以直接创建,但可以通过`Pattern.complie(String regex)`简单工厂方法创建一个正则表达式, Java代码示例: 
+
+```java
+Pattern pattern =Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$");
+System.out.println(pattern.pattern());
+//^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*\\-]).{8,}$
+```
+
+###### pattern.pattern()方法
+
+pattern() 返回正则表达式的字符串形式,其实就是返回Pattern.complile(String regex)的regex参数
+
+###### pattern.slipt(String str)
+
+用于分割传入的得到字符串str,分割规则就是pattern的正则表达式,java代码.
+
+```java
+Pattern pattern =Pattern.compile("\\d+");
+String[] res = pattern.split("feizzer2heihei22");
+for(int i=0; i<res.length;i++) {
+    System.out.println(res[i]);
+}
+//feizzer
+//heihei
+```
+
+###### pattern.matcher(CharSequence str)
+
+matcher()方法传入一个字符串.返回一个Matcher类的对象,可以查看传入的字符串是否匹配该正则表达式. *CharSequence 是一个接口String类是他的实现类之一*.
+
+```java
+Pattern pattern =Pattern.compile("\\d+");
+String str = "1111";
+Matcher m = pattern.matcher(str);
+System.out.println(m.matches());
+```
+
+###### Pattern.matches(String regex, String str)
+
+Pattern类的一个静态方法,传入一个正则表达式字符串,一个带校验的字符串,直接返回Boolean对象. 其实在静态方法内部还是创建了一个Pattern对象.算是一种编写代码简化的解决方法.
+
+```java
+//该方法的源码
+public static boolean matches(String regex, CharSequence input) {
+    Pattern p = Pattern.compile(regex);
+    Matcher m = p.matcher(input);
+    return m.matches();
+}
+```
+
+#### Matcher类
+
+###### mattern.matches()
+
+要求被校验整条字符串通过正则表达式的校验,返回true 否则返回false.
+
+###### mattern.lookingAt()
+
+lookingAt()对前面的字符串进行匹配,只有匹配到的字符串在最前面才返回true 
+
+###### mattern.find()
+
+find()对字符串进行匹配,匹配到的字符串可以在任何位置. 
+
+##### Mathcer.start()/ Matcher.end()/ Matcher.group()
+
+当使用matches(),lookingAt(),find()执行匹配操作后,就可以利用以上三个方法得到更详细的信息. 
+start()返回匹配到的子字符串在字符串中的索引位置. 
+end()返回匹配到的子字符串的最后一个字符在字符串中的索引位置. 
+group()返回匹配到的子字符串 
+
+
+
+### Java中的日期处理   ==以jdk8更新的为主==
+
+##### JDK8以前
+
+对于日期时间的操作常用的类 `java.utils.Date` ,日期的加减时间计算时常用 `java.Utils.Calendar`.   日期转化时常用`java.text.DataFormat/SimpleDateFormat` 
+
+**缺点：** 这些有关的时间日期操作对象，都是可变的、线程不安全的，代码繁琐，性能低。
+
+#### JDK8推荐的日期处理方式  `java.time.*`中提供的类
+
+##### LocalDate LocalTime LocalDateTime三个类
+
+- LocalDate 只表示日期(年月日),不表示时间(时分秒) 不包含时区信息
+- LocalTime  只表示时间,不表示日期  不包含时区信息
+- LocalDateTime  表示日期和时间  不包含时区信息
+
+###### 创建日期的方法
+
+```java
+//获取当前时区的额当前时间
+LocalDateTime dateTimeNow = LocalDateTime.now();
+LocalDate dateNow = LocalDate.now();
+LocalTime timeNow = LocalTime.now();
+System.out.println(dateTimeNow + "  " + dateNow + "  " + timeNow);
+//指定日期或时间
+LocalDateTime dateTimeSpec = LocalDateTime.of(2021, 1, 1, 12, 0, 1);
+LocalDate dateSpec = LocalDate.of(2021, 1,1);
+LocalTime timeSpec = LocalTime.of(12, 0, 1);
+System.out.println(dateTimeSpec+"  "+dateSpec+"  "+timeSpec);
+```
+
+![image-20211211215726691](java%E9%AB%98%E7%BA%A7.assets/image-20211211215726691.png)
+
+###### ==注意JDK8中对时区的管理==
+
+尽管刚刚说到 LocalTime LocalDate LocalDateTime三个类是没有时区信息的,只保存所谓的时间信息.但是在now()方法自动生成当前时间的时候,会默认获取当前系统的时区来设置时间.
+
+ *可以传入一个ZoneId信息来设置时区, LocalTime time = LocalTime.now(ZoneId.of("Asia/Shanghai"))* 
+
+可以在`java.time.ZoneId`类的源码注释中查看更多地区时区相关的设置
+
+```java
+* <ul>
+* <li>EST - -05:00</li>
+* <li>HST - -10:00</li>
+* <li>MST - -07:00</li>
+* <li>ACT - Australia/Darwin</li>
+* <li>AET - Australia/Sydney</li>
+* <li>AGT - America/Argentina/Buenos_Aires</li>
+* <li>ART - Africa/Cairo</li>
+* <li>AST - America/Anchorage</li>
+* <li>BET - America/Sao_Paulo</li>
+* <li>BST - Asia/Dhaka</li>
+* <li>CAT - Africa/Harare</li>
+* <li>CNT - America/St_Johns</li>
+* <li>CST - America/Chicago</li>
+* <li>CTT - Asia/Shanghai</li>
+* <li>EAT - Africa/Addis_Ababa</li>
+* <li>ECT - Europe/Paris</li>
+* <li>IET - America/Indiana/Indianapolis</li>
+* <li>IST - Asia/Kolkata</li>
+* <li>JST - Asia/Tokyo</li>
+* <li>MIT - Pacific/Apia</li>
+* <li>NET - Asia/Yerevan</li>
+* <li>NST - Pacific/Auckland</li>
+* <li>PLT - Asia/Karachi</li>
+* <li>PNT - America/Phoenix</li>
+* <li>PRT - America/Puerto_Rico</li>
+* <li>PST - America/Los_Angeles</li>
+* <li>SST - Pacific/Guadalcanal</li>
+* <li>VST - Asia/Ho_Chi_Minh</li>
+* </ul>
+```
+
+
+
+###### 日期的加减操作 以LocalDateTime为例
+
+JDK8给新的日期类提供了丰富的API去操作加减运算:
+
+<img src="java%E9%AB%98%E7%BA%A7.assets/image-20211211222619516.png" alt="image-20211211222619516" style="zoom:67%;" /> 
+
+这里传入的参数都是Long类型,还可以传入负数实现减日期的操作
+
+```java
+LocalDateTime dateTime = LocalDateTime.now();
+System.out.println(dateTime.plusDays(-1L));
+```
+
+
+
+`dateTime.plusDays(1, ChronoUnit.MONTHS) `这个方法有两个参数,一个相加的数量,一个数相加的单位
+
+###### 获取日期中的年月日时分秒 还有星期
+
+<img src="java%E9%AB%98%E7%BA%A7.assets/image-20211211230319917.png" alt="image-20211211230319917" style="zoom: 64%;" /> 
+
+大部分方法返回的都是数值基本类型 ,除开 `getDayOfWeek()`和`getMonth()` 方法,他们因为是星期和月份又更多的延伸含义,所以是Enum枚举类型,直接打印得到的是类似SATURDAY这样的描述,也可以调用getValue()得到相应的数值类型.
+
+```java
+LocalDateTime dateTime = LocalDateTime.now();
+System.out.println("今天是" + dateTime);
+
+int dayOfYear = dateTime.getDayOfYear();
+System.out.println("今天是今年的第[" + dayOfYear + "]天");
+
+DayOfWeek dayOfWeek = dateTime.getDayOfWeek();
+System.out.println("今天是" + dayOfWeek + "，也是一周中的第" + dayOfWeek.getValue() + "天");
+```
+
+![image-20211211230845798](java%E9%AB%98%E7%BA%A7.assets/image-20211211230845798.png)
+
+##### 其他的日期操作
+
+###### 计算两个日期之间相隔多久 `java.time.Period` 
+
+
+

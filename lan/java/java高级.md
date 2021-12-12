@@ -1017,7 +1017,64 @@ System.out.println("今天是" + dayOfWeek + "，也是一周中的第" + dayOfW
 
 ##### 其他的日期操作
 
-###### 计算两个日期之间相隔多久 `java.time.Period` 
+###### 计算两个日期之间相隔多久 `java.time.Period` `java.time.Duration`
+
+```java
+//Period
+LocalDate date1 = LocalDate.of(2020, 11, 30);
+LocalDate date2 = LocalDate.of(2021, 12, 30);
+Period period = Period.between(date1, date2);
+System.out.println("date2与date1相差" + period.getYears() + "年, "
+                        + period.getMonths() + "个月，" + period.getDays() + "天，");
+//Duration  
+LocalDateTime localDateTime1 = LocalDateTime.of(2021, 12,1,0,1,10);
+LocalDateTime localDateTime2 = LocalDateTime.of(2021, 12, 2, 23,59,10);
+Duration duration = Duration.between(localDateTime1, localDateTime2);
+System.out.println("time2与time1相差" + duration.toDays() + "天， " + duration.toHours() + "小时，"
+        + duration.toMinutes() + "分钟，" + duration.getSeconds() + "秒");
+```
+
+![image-20211212112218470](java%E9%AB%98%E7%BA%A7.assets/image-20211212112218470.png)
+
+- Period对象的`getDays()`方法只会计算月份中 日子号数的差，并不会叠加。`getMonths()`同理。 且Period.between()只接受LocalDate类型的参数。
+
+- 调用Duration对象的方法获取相差时间时，是会叠加的。并且它的between()方法传入的参数为`Temporal`,根据多态性质可以传入跟多样的对象类型（包括`LocalDate` `LocalTime` `LocalDateTime`） 
+
+###### 改变日期格式 `java.time.format.DateTimeFormatter`
+
+```java
+DateTimeFormatter dateTimeFormatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+LocalDateTime localDateTime = LocalDateTime.now();
+String time_to_str1 = dateTimeFormatter1.format(localDateTime);
+System.out.println("原格式："+ localDateTime+ "   \n转换格式：" +time_to_str1);
+```
+
+![image-20211212120214804](java%E9%AB%98%E7%BA%A7.assets/image-20211212120214804.png)
+
+也可以用`DateTimeFormatter`类将符合的字符串转换成时间对象。
+
+```java
+LocalDateTime str_to_time = LocalDateTime.parse("2021-12-12 12:44:16" ,dateTimeFormatter1);
+System.out.println("字符串转时间对象"+str_to_time);
+```
+
+##### java中的统一时间戳 
+
+###### `java.time.Instant`
+[[UTC时间和GMT时间]]
+
+java的时间戳基于UTC（世界协调时间，是格林威治的当地时间，或者说格林威治是零时区）。
+
+```java
+LocalDateTime localDateTime = LocalDateTime.now();
+System.out.println("北京时间" + localDateTime.now());
+System.out.println("格林威治时间： "+localDateTime.toInstant(ZoneOffset.ofHours(8)));
+System.out.println("格林威治时间： "+Instant.now());
+```
+
+![image-20211212170504184](java%E9%AB%98%E7%BA%A7.assets/image-20211212170504184.png)
+
+可以直接通过`Instant.now()`方法获得当前的时间戳(格林威治当地时间).也可以用`LocalDatetime`对象调用`toInstant()`方法来获取，前面说过 `LocalDateTime`是不包括时区信息的，所以在转换时要带上时区偏移量作为参数，`ZoneOffset.ofHours(8)`就表明这个是东八区的时间。
 
 
 

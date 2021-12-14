@@ -225,3 +225,15 @@ export {
 }
 ```
 
+
+
+###### 获取供应商主要信息 ，法人姓名 返回的永远是null
+
+![image-20211214143553679](%E4%BD%BF%E7%94%A8aliyun%E7%9A%84oss%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8.assets/image-20211214143553679.png)
+
+
+
+###### 获取供应商其他信息，supplier不存在，只会返回空的数组
+
+![image-20211214143441980](%E4%BD%BF%E7%94%A8aliyun%E7%9A%84oss%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8.assets/image-20211214143441980.png)
+

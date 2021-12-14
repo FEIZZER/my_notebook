@@ -398,5 +398,4 @@ flexible灵活的，以为弹性布局。它之所以被称为 Flexbox ，是因
 
 6. ##### justify-self属性align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
 
-7. qunimade ba 这什么键帽啊，键
-
+   

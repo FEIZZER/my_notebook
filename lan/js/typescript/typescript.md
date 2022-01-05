@@ -120,7 +120,7 @@ function getLength(tar: string | number): number {
 }
 ```
 
-这个时候就需要我们使用类型断言， 断言有两种语法格式 
+通过*类型断言*这种方式可以告诉编译器，“相信我，我知道自己在干什么”。 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。 TypeScript会假设你，程序员，已经进行了必须的检查。这个时候就需要我们使用类型断言， 断言有两种语法格式 ：
 
 (tar as string)  或  (\<string\>tar) 。在react中.tsx中只能使用 as格式的语法。
 
@@ -134,4 +134,6 @@ function getLength(tar: string | number): number {
     }
 }
 ```
+
+#### typescript中的解构
 

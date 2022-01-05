@@ -335,6 +335,8 @@ let obj1 = new buildObject("FEIZZER")
 obj1.getName()
 ```
 
+
+
 ## ES6记录
 
 [es6小文档](https://es6.ruanyifeng.com/#docs/intro) 
@@ -545,10 +547,6 @@ console.log(date)
 在浏览器的js环境中新建`Date` 对象与node环境下基本一致，但是显示在浏览器上有区别，不管是在网页中还是在控制台中直接打印Date对象，浏览器都会根据时间戳信息和时区信息做格式转化。chrome大概是下面的格式，不同的浏览器有区别
 
 ​                Wed Dec 01 2021 07:23:23 GMT+0800 (中国标准时间)
-
-
-
-
 
 
 

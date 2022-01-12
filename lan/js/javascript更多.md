@@ -550,3 +550,66 @@ console.log(date)
 
 
 
+### js中独一无二的值Symbol()
+
+创建Symbol值时，不需要new，直接Symbol()。即使传入一样的参数，它所代表的值也是不一样的。
+
+```js
+let s1 = Symbol()
+let s2 = Symbol()
+let s3 = Symbol('feizzer')
+let s4 = Symbol('feizzer')
+console.log(s1 === s2, s3 === s4)
+//>> false false
+```
+
+###### 使用Symbol.for(param)产生一个新的Symbol值
+
+使用.for()产生新的Symbol值时，会先在全局范围内查看是否有使用同样参数通过.for()产生的Symbol值，如果有则直接返回它，如果没有再创建一个。
+
+#### 将Symbol值作为对象里的属性
+
+```js
+let feizzer = Symbol('feizzer')
+let obj = {
+    [feizzer]: 'symbol_feizzer',
+    feizzer: 'regular_feizzer',
+}
+console.log('symbol值的属性'+obj[feizzer])
+console.log('普通字符串属性'+obj.feizzer)
+console.log('普通字符串属性'+obj['feizzer'])
+```
+
+用这种方式将feizzer这个Symbol变量作为对象的属性，而第二个属性只是将feizzer字符串作为他的属性.
+
+![image-20220107114143192](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202201071141276.png)
+
+##### 获取对象的Symbol值属性
+
+Symbol值的对象属性很特殊，对象可以直接通过它访问值（不是私有的），但是普通的遍历属性键的方法却获取不到他。
+
+```js
+for(key in obj) {
+    console.log(key)
+}
+console.log(Object.getOwnPropertyNames(obj))
+console.log(Object.getOwnPropertySymbols(obj))
+```
+
+
+
+### js里的声明与解构
+
+```js
+let obj = { a: 12, b: '12', c: 'unkonw' }
+let {a: outA, b: outB, d: outD = 1} = obj
+```
+
+相当于如下的声明语句
+
+```js
+let outA = obj.a
+let outB = obj.b
+let outD = obj.d? obj.d:1
+```
+

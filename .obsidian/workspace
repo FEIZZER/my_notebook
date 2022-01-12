@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/java/java高级.md",
+            "file": "lan/js/javascript原理的学习.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/java/java高级.md",
+                "file": "lan/js/javascript原理的学习.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +87,8 @@
   },
   "active": "ca6d20c10aff8f88",
   "lastOpenFiles": [
+    "lan/js/javascript原理的学习.md",
+    "lan/js/typescript/typescript.md",
     "lan/java/java高级.md",
     "base/UTC时间和GMT时间.md",
     "lan/前端Vue/element-ui.md",
@@ -94,8 +96,6 @@
     "lan/nodejs/commonjs和es6.md",
     "lan/nodejs/node.js.md",
     "网络安全/RSA加密原理.md",
-    "网络安全/所谓Base64.md",
-    "base/Untitled.md",
-    "lan/web/利用jsencrypt.js进行加密.md"
+    "网络安全/所谓Base64.md"
   ]
 }

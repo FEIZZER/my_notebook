@@ -47,9 +47,20 @@ setTimeout(()=>{
 while(true){}
 ```
 
-**引入微任务后再看事件循环**
+**引入微任务宏任务后再看事件循环**
 
+刚刚提到的异步任务和==事件队列==其实可以细化一下, 异步任务分为**微任务（MicroTask）和宏任务(MacroTask)**，事件队列可以分为**任务队列（TaskQueue）**和**微任务队列（microTask）** 。前面说到，事件循环机制就是由这些任务队列实现的。在事件循环中，每一次循环成为一个tick，大致步骤如下：
 
+> 1. 执行一个宏任务，执行过程中如果遇到微任务就把他添加到微任务队列中
+> 2. 执行完毕后检查微任务队列是否有任务，立即依次执行微任务队列（将微任务队列全部执行完）
+> 3. 宏任务队列运行完毕，开始渲染工作，GUI线程接管。 
+> 4. 渲染完毕，开始下一个宏任务（下一个循环tick开始）。
+
+<img src="https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202201071100521.png" alt="未命名文件 (1)" style="zoom:37%;" />  
+
+微任务有 `Promise.then().catch()`    `Object.observe`    `MutationObserver`     `process.nextTick(Node.js 环境)`
+
+宏任务有 `setTimeout`   `setInterval` `UI交互`  `I/O`  `postMessage`   `MessageChannel`  `setImmediate(Node.js 环境)` 
 
 ###### nodejs环境下的事件循环
 

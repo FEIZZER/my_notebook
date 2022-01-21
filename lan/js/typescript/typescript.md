@@ -1,3 +1,5 @@
+[中文文档](https://typescript.bootcss.com/tutorials/typescript-in-5-minutes.html) 
+
 #### typescript的类型
 
 在ts中使用变量时可以进行变量类型的定义，大致语法如下：

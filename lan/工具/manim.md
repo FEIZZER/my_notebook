@@ -316,7 +316,19 @@ self.add(axes)
 
 在暂时不做了解
 
-#### ParametricFunction 绘制函数图像
+#### ParametricCurve 绘制函数图像
+
+```python
+pcurve = ParametricCurve(
+    lambda t: np.array([np.sin(3*t)*np.cos(t),			# 传入一个参数房产， 可以是lambda表达
+                        np.sin(t*3)*np.sin(t), 0]),     # 式，或def定义函数。
+    t_range=[0, 2*PI]    								# 表示参数方程中参数范围
+)
+```
+
+<img src="https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203011842384.png" alt="image-20220301184217274" style="zoom: 67%;" />
+
+##### 子类 FunctionGraph
 
 
 

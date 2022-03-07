@@ -1,5 +1,5 @@
 
-[[好看的颜色]]
+ [[好看的颜色]]
 #  css语法
 
 [文档链接](https://www.w3school.com.cn/css/css_syntax_descendant_selector.asp)

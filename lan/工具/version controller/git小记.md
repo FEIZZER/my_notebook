@@ -157,15 +157,44 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
    
 
-   
+
+#### git版本回退
+
+##### git reset 将HEAD重新指向我们希望的commit上去
+
+-  `git reset --soft + commit的版本号`  会将HEAD指向我们指定的commit版本， 但是会保留新commit中对文件做出的修改。
+
+  1. 通过`git log` 查看commit记录， 找到我i们希望回退到的版本id复制
+
+     ![image-20220301191319191](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203011913343.png)
+
+  2. 这里我们回退到 init版本的commit， 复制它的commit id。使用命令 `git reset --soft 7221`
+
+  3. 再次查看 `git log` , 发现 无效commit 已经抹去，但是该过程中对文件做出的修改保留了。
+
+     ![image-20220301194346876](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203011943952.png)
+
+- `git reset --mixed + commit版本号` 文件修改内容会保留，但是add操作会抹去
+
+- `git reset --hard + commit版本号` 会将文件修改的内容抹去，使用时要谨慎。
+
+##### git revert 
+
+设想这样一种情况， 我写了一段多余的代码希望将这次修改完全抹去。这时可以使用前面提到的 `git reset --hard` 重置HEAD指向。但是如果我已经将此次修改push到了远端，那么使用`git reset --hard`会使得本地代码落后于远端，那么下次push时只能强制push（需要权限）。这时可以考虑用 `git revert` 来代替。
+
+- `git revert + commit版本号` ==这里是将要覆盖的commit版本号加到后面， 理论上只能覆盖当前HEAD指向的commit==。
+
+  ![image-20220301200007463](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203012000565.png)
+
+  使用 ` git revert 53e79cf2cfe3d6b98510e882189c00e33716c346`后再次查看log
+
+  ![image-20220301200207283](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203012002380.png)
+
+  可以看到 `git revert` 是在我们要覆盖的commit后再添加一个之前的commit，避免让本地代码落后于远端代码，同时也保留了这个无效commit，以防以后有需要。
 
 
 
 
+#### commit合并
 
-
-
-
-
-
-
+​	

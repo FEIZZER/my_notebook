@@ -295,6 +295,133 @@ public class TestMain {
 - getFields(String name)：指定属性的名称
 - getDeclaredFields(String name)：
 
+### java的代理
+
+#### 静态代理
+
+静态代理的代理类是有自己手工实现的， 要代理的目标类时固定的。实现案例：
+
+```java
+public interface Hello {
+    void sayHello();
+}
+```
+
+被代理的目标类：
+
+```java
+public class HelloImp implements Hello {
+
+    @Override
+    public void sayHello() {
+        System.out.println("imp say hello");
+    }
+}
+```
+
+代理类也要实现 目标类实现的接口：
+
+```java
+public class HelloProxyStatic implements Hello{
+    private Hello helloImp1 = new HelloImp();
+    @Override
+    public void sayHello() {
+        System.out.println("before... ");
+        helloImp1.sayHello();
+        System.out.println("after... ");
+    }
+}
+```
+
+最后调用代理类， 实现增强或控制目标类方法的目的
+
+```java
+public class Gomain {
+    public static void main(String[] args) {
+        Hello helloProxy = new HelloProxyStatic();
+        helloProxy.sayHello();
+    }
+}
+```
+
+#### 动态代理
+
+静态代理非常简单直观 但是缺点也很明显，不够灵活。jdk动态代理依靠jdk反射机制来创建==代理类的对象==，并动态的指定要代理的==目标对象==。使用到了java反射包 `java.lang.reflect` 中的`InvocationHandler`, `Method` 和`Proxy`三个类。
+
+##### InvocationHandler接口
+
+**必须要实现这个接口， 然后在实现类里的invoke()方法中实现目标类方法的调用与增强**
+
+```java
+//InvocationHandler接口中的invoke()方法
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable;
+```
+
+该接口内部就一个方法`invoke` *注意与反射机制中method.invoke()方法区分*。有三个参数：
+
+- Object proxy  ; 由jdk创建的代理类对象
+- Method method;  目标类中的要执行的方法
+- Object[] args;    要执行的方法的参数
+
+##### Method类
+
+通过method.invoke()方法来实现
+
+##### Proxy类 是核心类 用于创建代理对象
+
+```java
+public static Object newProxyInstance(ClassLoader loader,
+						Class<?>[] interfaces,
+                        InvocationHandler h)  throws IllegalArgumentException
+```
+
+使用静态方法 `Proxy.newProxyInstance()` 来实现代理对象的创建。三个参数：
+
+- ClassLoader loader；  通过目标类对象来获取的类加载器
+- Class<?>[] interfaces;    目标类实现的接口
+- InvocationHandler h；  传入创建的InvocationHandler实现类对象。
+
+#### ==**实现步骤**==
+
+1. 创建接口 定义目标要实现的方法  *延用上面的Hello接口*
+2. 创建目标类完成接口                      *延用上面的HelloImp类*
+3. 创建InvocationHandler接口的实现类，在invoke()方法中完成 ==代理类对目标类方法的调用==与==增强功能==
+4. 使用 Proxy静态方法 `Proxy.newProxyInstance()` 创建代理对象，并将类型转化为目标类实现的接口类型。
+
+```java
+public class HelloProxyHandler implements InvocationHandler {
+    private Object subject;
+    HelloProxyHandler(Object hello) {
+        this.subject = hello;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("before....");
+        method.invoke(this.subject, args);
+        System.out.println("after....");
+        return null;
+    }
+}
+```
+
+```java
+public class Gomain {
+    public static void main(String[] args) {
+        Hello helloImp = new HelloImp();
+        InvocationHandler handler = new HelloProxyHandler(helloImp);
+        Hello hello = (Hello)Proxy.newProxyInstance(helloImp.getClass().getClassLoader(),
+                helloImp.getClass().getInterfaces(), handler);
+        //hello传递给 InvocationHandler方法中的proxy，sayHello方法传递给method 参数传递给args
+        hello.sayHello();
+    }
+}
+```
+
+==其实最后理解的关键就在于 newProxyInstance()创建并返回的代理类对象 是如何在调用sayHello()方法时 调用到InvocationHandler实现类中的invoke()方法的，并将参数信息都传递到==
+
+#### CGlib代理
+
 ### 被重写的equals()方法
 
 `equals()` 方法是在 object基类中定义的，其源码非常简单：实际就是把两个对象做 `==` ，比较两个对象的地址是否一样，或者说是否是两个一样的对象。

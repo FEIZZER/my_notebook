@@ -194,7 +194,48 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 
 
+#### commit和分支合并
 
-#### commit合并
+##### git rebase 有两种用法
+
+###### 在同一分支内对多个commit进行合并操作， 使用步骤：
+
+1. git log 查看当前commit信息， 选择要压缩合并的commit。这里我们将 c b 合并到commit a中。
+
+   ![image-20220312141418646](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203121414831.png)
+
+2. 使用命令 `git rebase -i HEAD~3`   其中3表示我一共要操作3个commit。进入如下vim界面
+
+   ![image-20220312141738675](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203121417784.png)
+
+   注释有很多解释信息， 其中pick表示要保留的commit， squash表示要压缩进被pick的commit。所以将 bc commit的前置命令修改为 squash 退出vim界面即可
+
+3. 进入信息确认的vim界面， 可以将  *1st commit message* 修改为你想要的commit信息。退出即可。
+
+   ![image-20220312142123485](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203121421584.png)
+
+4. 随后查看 log信息， 并且 a b c 三次commit的内容都保留了。
+
+   ![image-20220312142351465](https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203121423530.png)
+
+###### 重新定基一个分支
+
+**使用场景： ** 实际开发过程中， 我们从远程拉取最新代码放到main分支上，开出一个dev分支进行我们个人工作的开发。如果这个过程中有新的commit提交到远程main分支，这时候再想将dev分支合并到main分支该怎么办：
+
+传统方法当然是 先把main分支上新代码拉取下来， 再将dev与main分支merge合并（可能需要解决冲突）。这种方法的缺点就是会使：dev分支与main分支合并的记录保留下来（即是删除dev分支 也会保留）， 最后git路线会很混乱复杂。
+
+想要简化项目中分支合并路线的话可以使用 `git rebase` 代替： 在dev分支使用命令 `git rebase main` 会将main分支与dev分支分叉的commit点 重新定基到main分支的最新commit（可能有冲突需要解决），如下图所示 
+
+<img src="https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203121551765.gif" alt="git rebase" style="zoom:47%;" />
+
+这时候 main分支的HEAD点在 蓝色的D_commit处， dev分支的HEAD点在绿色的F_commit点。可以使用先切换到main分支 在使用`git rebase dev` 将HEAD移到最新处 *这时候dev和main两个分支其实已经是一样的了， 删除dev分支的话会真正的删除， 有点是简化， 缺点也是简化了一些信息*。
+
+
+
+
+
+
+
+
 
 ​	

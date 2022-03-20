@@ -1063,6 +1063,8 @@ System.out.println(dateTimeSpec+"  "+dateSpec+"  "+timeSpec);
 
 ![image-20211211215726691](java%E9%AB%98%E7%BA%A7.assets/image-20211211215726691.png)
 
+
+
 ###### ==注意JDK8中对时区的管理==
 
 尽管刚刚说到 LocalTime LocalDate LocalDateTime三个类是没有时区信息的,只保存所谓的时间信息.但是在now()方法自动生成当前时间的时候,会默认获取当前系统的时区来设置时间.
@@ -1118,8 +1120,6 @@ JDK8给新的日期类提供了丰富的API去操作加减运算:
 LocalDateTime dateTime = LocalDateTime.now();
 System.out.println(dateTime.plusDays(-1L));
 ```
-
-
 
 `dateTime.plusDays(1, ChronoUnit.MONTHS) `这个方法有两个参数,一个相加的数量,一个数相加的单位
 
@@ -1203,5 +1203,32 @@ System.out.println("格林威治时间： "+Instant.now());
 
 可以直接通过`Instant.now()`方法获得当前的时间戳(格林威治当地时间).也可以用`LocalDatetime`对象调用`toInstant()`方法来获取，前面说过 `LocalDateTime`是不包括时区信息的，所以在转换时要带上时区偏移量作为参数，`ZoneOffset.ofHours(8)`就表明这个是东八区的时间。
 
+##### 字符串如何转化为LocalDateTime
 
+###### 使用 `DateTimeFormatter` 类配置字符串格式
+
+```java
+String time = "2021-03-20 20:12:13";
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+LocalDateTime parse = LocalDateTime.parse(time, dateTimeFormatter);
+System.out.println(parse);
+```
+
+###### 也可以用于将 LocalDateTime 转化为适合的String
+
+```java
+String formatter_time = dateTimeFormatter.format(parse);
+```
+
+##### LocalDateTime对象如何得到时间戳
+
+```java
+//从LocalDateTime对象获取 Instant对象
+Instant instant = LocalDateTime.now().toInstant(ZoneOffset.ofHours(8));
+//Instant对象.toEpochMilli() 获取 Long类型的时间戳  指的是UTC时间经历的毫秒数
+// 也可以 getEpochSecond() 获取秒数
+long epochMilli = instant.toEpochMilli();
+Timestamp timestamp = new Timestamp(epochMilli);
+System.out.println(timestamp);
+```
 

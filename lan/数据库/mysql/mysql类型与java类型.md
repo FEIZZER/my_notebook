@@ -30,3 +30,16 @@
 |          longtext           |       VARCHAR        |                       java.lang.String                       |
 | enum('value1','value2',...) |         CHAR         |                       java.lang.String                       |
 | set('value1','value2',...)  |         CHAR         |                       java.lang.String                       |
+
+#### java中对于mysql时间类型的处理
+
+[[java高级#Java中的日期处理 以jdk8更新的为主]]
+
+|    mysql     | jdbcType返回值 |    java对应的类    |
+| :----------: | :------------: | :----------------: |
+|     date     |      DATE      |   java.sql.Date    |
+|   datetime   |    DATETIME    | java.sql.Timestamp |
+| timestamp(M) |   TIMESTAMP    | java.sql.Timestamp |
+|     time     |      TIME      |   java.sql.Time    |
+
+其中`java.sql.*`中的时间类大多继承字 `java.utils.Date` Date类对象是保存时区信息的， 在创建时会自动获取系统的时区。*在与JDK新的时间类转换时要注意时区信息的管理*。

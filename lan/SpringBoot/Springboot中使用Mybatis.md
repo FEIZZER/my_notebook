@@ -60,7 +60,7 @@ public interface TestDao {
 <!--这个xml文件实际就是通过映射sql语句来实现Dao接口里的关于查询的方法.一般一个映射文件对应一个Dao接口-->
 <mapper namespace="com.example.mybaitstest.dao.TestDao">
     <resultMap id="BaseResultMap" type="com.example.mybaitstest.entity.Test">
-        <!--指定数据表列与实体类属性之间的联系，一般要求两者字段完全一致，不然挥发传值-->
+        <!--指定数据表列与实体类属性之间的联系，一般要求两者字段完全一致，不然w传值-->
         <result column="id" jdbcType="BIGINT" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="class_name" jdbcType="BIGINT" property="class_name"/>

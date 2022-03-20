@@ -9,8 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/js/javascript原理的学习.md",
-            "mode": "source"
+            "file": "lan/数据库/mysql/mysql类型与java类型.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -68,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/js/javascript原理的学习.md",
+                "file": "lan/数据库/mysql/mysql类型与java类型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,6 +88,7 @@
   },
   "active": "ca6d20c10aff8f88",
   "lastOpenFiles": [
+    "lan/数据库/mysql/mysql类型与java类型.md",
     "lan/js/javascript原理的学习.md",
     "lan/js/typescript/typescript.md",
     "lan/java/java高级.md",
@@ -95,7 +97,6 @@
     "lan/前端Vue/vue-cli.md",
     "lan/nodejs/commonjs和es6.md",
     "lan/nodejs/node.js.md",
-    "网络安全/RSA加密原理.md",
-    "网络安全/所谓Base64.md"
+    "网络安全/RSA加密原理.md"
   ]
 }

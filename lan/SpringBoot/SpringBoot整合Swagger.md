@@ -151,4 +151,6 @@ public class Admin {
 
 - @`ApiModel(value = "admin实体类") ` 放在实体类之前
 - `@ApiModelProperty(value = "uid主键")` 放在实体类属性之前。
+- @ApiImplicitParams  
+- @ApiImplicitParam 
 

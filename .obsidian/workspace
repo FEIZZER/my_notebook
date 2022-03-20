@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/数据库/mysql/mysql类型与java类型.md",
+            "file": "lan/SpringBoot/Spring.md",
             "mode": "source",
             "source": false
           }
@@ -40,7 +40,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#vars",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/数据库/mysql/mysql类型与java类型.md",
+                "file": "lan/SpringBoot/Spring.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "ca6d20c10aff8f88",
   "lastOpenFiles": [
+    "lan/SpringBoot/Spring.md",
+    "lan/数据库/mybatis/mybatis原理学习.md",
+    "lan/数据库/mybatis/springboot中记录mybatis.md",
+    "lan/数据库/mysql/mysql语法记录.md",
+    "lan/SpringBoot/SpringBoot整合Swagger.md",
+    "lan/SpringBoot/SpringBoot.md",
     "lan/数据库/mysql/mysql类型与java类型.md",
     "lan/js/javascript原理的学习.md",
     "lan/js/typescript/typescript.md",
-    "lan/java/java高级.md",
-    "base/UTC时间和GMT时间.md",
-    "lan/前端Vue/element-ui.md",
-    "lan/前端Vue/vue-cli.md",
-    "lan/nodejs/commonjs和es6.md",
-    "lan/nodejs/node.js.md",
-    "网络安全/RSA加密原理.md"
+    "lan/java/java高级.md"
   ]
 }

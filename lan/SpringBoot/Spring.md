@@ -399,7 +399,7 @@ public class Product {
 1. @Component 普通组件
 2. @Service  建议用于service层和业务逻辑层
 3. @Controller  建议用于web层
-4. @Repository 用于     
+4. @Repository 用于 Dao层
 
 ###### 开启组件的扫描
 

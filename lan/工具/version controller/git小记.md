@@ -226,16 +226,8 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 想要简化项目中分支合并路线的话可以使用 `git rebase` 代替： 在dev分支使用命令 `git rebase main` 会将main分支与dev分支分叉的commit点 重新定基到main分支的最新commit（可能有冲突需要解决），如下图所示 
 
-<img src="https://gitee.com/feizzer/feizzer_gallery/raw/master/img/202203121551765.gif" alt="git rebase" style="zoom:47%;" />
+![202203121551765](https://s2.loli.net/2022/03/30/UdVmeE1Z5NQjCqG.gif)
 
 这时候 main分支的HEAD点在 蓝色的D_commit处， dev分支的HEAD点在绿色的F_commit点。可以使用先切换到main分支 在使用`git rebase dev` 将HEAD移到最新处 *这时候dev和main两个分支其实已经是一样的了， 删除dev分支的话会真正的删除， 有点是简化， 缺点也是简化了一些信息*。
 
 
-
-
-
-
-
-
-
-​	

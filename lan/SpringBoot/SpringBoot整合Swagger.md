@@ -150,7 +150,20 @@ public class Admin {
 ##### 实体类部分，如果 `Controller` 把实体类对象传回前端页面（直接 return的情况），添加对model的解释很有必要
 
 - @`ApiModel(value = "admin实体类") ` 放在实体类之前
+
 - `@ApiModelProperty(value = "uid主键")` 放在实体类属性之前。
-- @ApiImplicitParams  
-- @ApiImplicitParam 
+
+- @ApiImplicitParams   和  @ApiImplicitParam 
+
+  放在 **传参类型**为 **表单**的接口会比较合适
+
+  ```java
+  /*
+  * name参数名, example=默认值, value=参数内容提示
+  */
+  @ApiImplicitParams({
+     @ApiImplicitParam(name = "name", example = "feizzer", value = "用户名"),
+     @ApiImplicitParam(name = "password", example = "123456", value = "密码")
+  })
+  ```
 

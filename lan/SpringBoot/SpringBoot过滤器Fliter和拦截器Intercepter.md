@@ -128,5 +128,5 @@ public class HandleIntercepterConfig extends WebMvcConfigurerAdapter {
 
 #### 拦截器和过滤器的执行顺序
 
-![32361-20180530095349427-444141538.png](SpringBoot%E8%BF%87%E6%BB%A4%E5%99%A8Fliter%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8Intercepter.assets/32361-20180530095349427-444141538.png) 
+![32361-20180530095349427-444141538.png](https://s2.loli.net/2022/04/01/YL1Sm6zZlKoyTEw.png) 
 

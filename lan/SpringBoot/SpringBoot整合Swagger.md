@@ -122,7 +122,7 @@ Docket docket(){
 
 #### 添加接口描述
 
-<img src="SpringBoot%E6%95%B4%E5%90%88Swagger.assets/image-20210714210216333.png" alt="image-20210714210216333" style="zoom:37%;" /> 
+<img src="https://s2.loli.net/2022/04/01/JUXtFrbWdMEGuQf.png" alt="image-20210714210216333" style="zoom:37%;" /> 
 
 ##### 信息部分的添加已经有所展示
 

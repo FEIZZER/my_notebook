@@ -14,7 +14,7 @@
 
 ##### 创建与表相对应的实体类
 
-![image-20210419205547035](Springboot%E4%B8%AD%E4%BD%BF%E7%94%A8Mybaits.assets/image-20210419205547035.png)  表结构
+![image-20210419205547035](https://s2.loli.net/2022/04/02/fpNsBye4rAdEcoh.png)  表结构
 
 ```java
 //对应的实体类
@@ -79,7 +79,7 @@ public interface TestDao {
 
 ##### 注意点：
 
-<img src="Springboot%E4%B8%AD%E4%BD%BF%E7%94%A8Mybaits.assets/image-20210419210445699.png" alt="image-20210419210445699" style="zoom:50%;" /> 项目结构。
+<img src="https://s2.loli.net/2022/04/02/hkpx6T1JeDAbHwv.png" alt="image-20210419210445699" style="zoom:50%;" /> 项目结构。
 
 1. 需要在主程序类中指定Dao接口的扫描范围：
 

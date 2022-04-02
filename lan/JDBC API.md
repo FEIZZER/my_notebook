@@ -6,7 +6,7 @@
 2. JDBC DriverManager 管理不同的数据库驱动
 3. 各种数据库驱动由数据库厂商提供
 
-<img src="web/jsp.assets/image-20201024200743029.png" alt="image-20201024200743029" style="zoom:50%;" />  
+<img src="https://s2.loli.net/2022/04/02/DlkHAvG1hIEpnC3.png" alt="image-20201024200743029" style="zoom:50%;" />  
 
 ## java来连接数据库的四个步骤
 

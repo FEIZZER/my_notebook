@@ -1,6 +1,6 @@
 ### 简单的mysql架构分层
 
-<img src="mysql%E8%BF%9B%E9%98%B6.assets/1066923-20190221103706946-1180917597.png" alt="img" style="zoom:67%;" />
+<img src="mysql进阶.assets/1066923-20190221103706946-1180917597.png" alt="img" style="zoom:67%;" />
 
 ##### mysql常见引擎的区分
 

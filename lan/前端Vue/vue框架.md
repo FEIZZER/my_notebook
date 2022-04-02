@@ -6,13 +6,13 @@
 
 用户会对view进行操作，view捕获到这个操作把处理的去哪里发给controller，controller会决定调用 model的哪个接口处理数据，model变更后会通过observer返回给view层。这里的view模块是高度依赖model层的，因此view无法组件化，代码无法复用。
 
-<img src="vue%E6%A1%86%E6%9E%B6.assets/image-20201214195531955.png" alt="image-20201214195531955" style="zoom:50%;" /> 
+<img src="vue框架.assets/image-20201214195531955.png" alt="image-20201214195531955" style="zoom:50%;" /> 
 
 ##### mvp   model-view-presenter
 
 view不在依赖的model层，独立出来。但presenter部分手动同步逻辑麻烦，维护困难。
 
-<img src="vue%E6%A1%86%E6%9E%B6.assets/image-20201214200035711.png" alt="image-20201214200035711" style="zoom:50%;" /> 
+<img src="vue框架.assets/image-20201214200035711.png" alt="image-20201214200035711" style="zoom:50%;" /> 
 
 ##### mvvp  model-view-view-model
 
@@ -24,7 +24,7 @@ vue的数据模型都是简单的js对象，但是当数据发生改变时，视
 
 在渲染页面时，凡是被用到的数据property会被视为依赖项，每个data选项会有一个watcher。每当依赖项被修改时即依赖项调用了`setter()` ，watcher会检测到，并使相关的dom树重新渲染。具体见下图：
 
-<img src="vue%E6%A1%86%E6%9E%B6.assets/image-20201215190521927.png" alt="image-20201215190521927" style="zoom:67%;" /> 、
+<img src="vue框架.assets/image-20201215190521927.png" alt="image-20201215190521927" style="zoom:67%;" /> 、
 
 需要注意的是，依赖项不会随便增加，这也就是说直接给data里的js对象增加新的属性，其依赖项不会随之添加。有固定实现方法
 
@@ -229,7 +229,7 @@ Vue.set(vm.obj, 'b', 2);//正确的添加依赖项的方式。
   </script>
   ```
 
-  效果:<img src="vue%E6%A1%86%E6%9E%B6.assets/image-20201214221209696.png" alt="image-20201214221209696" style="zoom:50%;" /> 
+  效果:<img src="vue框架.assets/image-20201214221209696.png" alt="image-20201214221209696" style="zoom:50%;" /> 
   
 - v-model:  v-model本质上是一个语法糖。可以在标签和vue实例上建立双向的实时绑定，其实现可以理解为
 
@@ -588,7 +588,7 @@ slot基本用法
 <!--如不使用slot，外部使用时，组件内的标签不会被解析，利用slot插槽可以嵌入这些标签，并利用name和slot属性匹配。
 ```
 
-<img src="vue%E6%A1%86%E6%9E%B6.assets/image-20210108145437607.png" alt="image-20210108145437607" style="zoom:50%;" /> 
+<img src="vue框架.assets/image-20210108145437607.png" alt="image-20210108145437607" style="zoom:50%;" /> 
 
 #### transition过渡效果 动画效果
 

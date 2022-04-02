@@ -115,7 +115,7 @@ y = ["A", "B", "c"]
 plt.xticks(x,y)
 ```
 
-<img src="./Pillow.assets/xticks.png"  width="300"  height = "200" />
+![d293aefa-b23b-11ec-8dca-4889e7a5c18d](https://s2.loli.net/2022/04/02/viVlx3F7LwecRkz.png)
 
 
 

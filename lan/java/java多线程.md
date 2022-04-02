@@ -84,7 +84,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210425180559360.png" alt="image-20210425180559360" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210425180559360.png" alt="image-20210425180559360" style="zoom:80%;" /> 
 
 构造函数是在 main函数中调用的。main函数其实也是一个线程，它的Name的默认值就是 "main"。其实者并不奇怪因为线程"Thread-0"的产生，是在 start()语句执行后，构造函数执行时只有主函数所在的线程可以承载。
 
@@ -126,7 +126,7 @@ public class Gomain {
 }
 ```
 
-![image-20210425183456710](java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210425183456710.png)
+![image-20210425183456710](java多线程.assets/image-20210425183456710.png)
 
 this.getName()的值是 Thread1的线程名。而this.currentThread.getName()是Thread2，因为这里我们是 `thread2.start();`。由thread2创建的线程运行了 Thread1里的run函数。所以currentThread()指向的调用它的线程的引用自然就是thread2这个对象。
 
@@ -168,7 +168,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210425212927519.png" alt="image-20210425212927519" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210425212927519.png" alt="image-20210425212927519" style="zoom:80%;" /> 
 
 ##### getId()可以获得线程的唯一id
 
@@ -221,7 +221,7 @@ public class Gomain {
   }
   ```
 
-  ![image-20210425221353408](java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210425221353408.png) 
+  ![image-20210425221353408](java多线程.assets/image-20210425221353408.png) 
 
   注意这里的输出，我们看到尽管先输出了`true`，以为着打上中断状态在打印 "run"之前，但是打印语句依然执行了。说明打上中断并不会立即停止线程。这也是我们称interrupt()只是打上中断状态的一个方法的原因。
 
@@ -267,7 +267,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210425222517869.png" alt="image-20210425222517869" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210425222517869.png" alt="image-20210425222517869" style="zoom:80%;" /> 
 
 我们看到`i++`到370的时候，主函数中的interrupt()执行，线程对象抛出异常提早结束线程。此时线程的isInterrupted()是 `true`。
 
@@ -337,7 +337,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426174207917.png" alt="image-20210426174207917" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426174207917.png" alt="image-20210426174207917" style="zoom:80%;" /> 
 
 发现没有 name=a的情况，因为在多线程情况单实例的值被多次修改，主要是多个线程可以同时访问test(方法，法导致数据发生错误。
 
@@ -362,7 +362,7 @@ public class Recur {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426180928447.png" alt="image-20210426180928447" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426180928447.png" alt="image-20210426180928447" style="zoom:80%;" /> 
 
 注意这两个Thread线程中的recur是同一个对象，所以才会有同步的效果。不同的对象由不同的锁。
 
@@ -415,7 +415,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426184445550.png" alt="image-20210426184445550" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426184445550.png" alt="image-20210426184445550" style="zoom:80%;" /> 
 
 ###### 当一个线程发生异常时，持有的锁会自动释放
 
@@ -496,7 +496,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426214422953.png" alt="image-20210426214422953" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426214422953.png" alt="image-20210426214422953" style="zoom:80%;" /> 
 
 ###### synchronized(Object)  除this， 可以将任意对象作为锁
 
@@ -527,7 +527,7 @@ public class Recur {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426220029797.png" alt="image-20210426220029797" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426220029797.png" alt="image-20210426220029797" style="zoom:80%;" /> 
 
 可以看到的`fun1`和`fun2`已经时异步运行的了 。
 
@@ -562,7 +562,7 @@ public class Recur {
 
 两个Thread类：
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426221040221.png" alt="image-20210426221040221" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426221040221.png" alt="image-20210426221040221" style="zoom:80%;" /> 
 
 ```java
 package com.xiaojie;
@@ -579,7 +579,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426221158060.png" alt="image-20210426221158060" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210426221158060.png" alt="image-20210426221158060" style="zoom:80%;" /> 
 
 当传入两个一样 `"aa"`  ,就会被视为同一个String类对象，导致这两个方法变为同步方法。要解决这个问题可以显示的new String()。
 
@@ -654,7 +654,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210426223626664.png" alt="image-20210426223626664" style="zoom:80%;" />
+<img src="java多线程.assets/image-20210426223626664.png" alt="image-20210426223626664" style="zoom:80%;" />
 
 在多次运行后会出现最终值不等于1000的情况。这足以证明在巨大的线程访问中，volatile int i++ 并不是原子性的。要解决这种意外的出现依然是将 `count++`的代码段视为同步运行,想使用volatile关键字无法取代。
 
@@ -676,7 +676,7 @@ public class Gomain {
 }
 ```
 
-![image-20210504152446344](java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210504152446344.png)
+![image-20210504152446344](java多线程.assets/image-20210504152446344.png)
 
 notify()方法也是Object类的方法，也需要在同步代码块中使用。未获得锁使用也会报IllegalMonitorStateException异常。该方法用于通知可能等的线程，并释放锁*并不是立即释放，而是在当前同步块代码执行完毕后释放*。有多个等待线程，和一个notify方法时，会按照执行wait()方法的顺序将锁释放给第一个等待的线程，其他的线程继续等待。
 
@@ -750,7 +750,7 @@ public class Gomain {
 }
 ```
 
-![image-20210504154754785](java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210504154754785.png)
+![image-20210504154754785](java多线程.assets/image-20210504154754785.png)
 
 th2线程开始运行，并进入状态释放了锁，th1线程得以运行同步块中的代码，可以看到th1线程notify后并没有立即释放锁，而是在自己运行哇同步代码后释放锁，th2继续运行同步代码块中的内容。
 
@@ -778,7 +778,7 @@ notify()方法会按照执行wait()的倒序依次释放所有正在等待该锁
 5. TIMED_WAITING,有条件的等待，当线程调用sleep(睡眠时间)/wait(等待时间)/join(等待时间)/ LockSupport.parkNanos(等待时间)/LockSupport.parkUntil(等待时间)方法之后所处的状态，在指定的时间没有被唤醒或者等待线程没有结束，会被系统自动唤醒，正常退出.
 6.  TERMINATED, 执行完`run()`方法
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210507164944838.png" alt="image-20210507164944838" style="zoom:67%;" /> 
+<img src="java多线程.assets/image-20210507164944838.png" alt="image-20210507164944838" style="zoom:67%;" /> 
 
 ##### 通过管道实现线程之间的通信数据传输
 
@@ -821,7 +821,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210504173438799.png" alt="image-20210504173438799" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210504173438799.png" alt="image-20210504173438799" style="zoom:80%;" /> 
 
 ###### join(long)方法
 
@@ -909,7 +909,7 @@ public T get() {
 }
 ```
 
-###### 结构图<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210504214413333.png" alt="image-20210504214413333" style="zoom:50%;" /> 
+###### 结构图<img src="java多线程.assets/image-20210504214413333.png" alt="image-20210504214413333" style="zoom:50%;" /> 
 
 #### InheritableThreadLocal类的使用
 
@@ -951,7 +951,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210504224052893.png" alt="image-20210504224052893" style="zoom:80%;" /> 
+<img src="java多线程.assets/image-20210504224052893.png" alt="image-20210504224052893" style="zoom:80%;" /> 
 
 由此也可以确定，父子线程并不共享由ThreadLocal实现保存在各自线程中的值。
 
@@ -969,7 +969,7 @@ ThreadLocalMap getMap(Thread t) {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210504225355264.png" alt="image-20210504225355264" style="zoom:67%;" />这里显示的是Thread类中定义的这两个变量。
+<img src="java多线程.assets/image-20210504225355264.png" alt="image-20210504225355264" style="zoom:67%;" />这里显示的是Thread类中定义的这两个变量。
 
 ###### 重写createMap方法
 
@@ -1056,7 +1056,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210506194905557.png" alt="image-20210506194905557" style="zoom:67%;" /> 
+<img src="java多线程.assets/image-20210506194905557.png" alt="image-20210506194905557" style="zoom:67%;" /> 
 
 ###### 使用Condition类的await()和signal()方法实现 wait()/notify()机制
 
@@ -1119,7 +1119,7 @@ public class Gomain {
 }
 ```
 
-<img src="java%E5%A4%9A%E7%BA%BF%E7%A8%8B.assets/image-20210506200714984.png" alt="image-20210506200714984" style="zoom:67%;" /> 
+<img src="java多线程.assets/image-20210506200714984.png" alt="image-20210506200714984" style="zoom:67%;" /> 
 
 Condition类的await()方法相当于wait()方法，signal()方法相当与 notify()方法，只不过要注意在同步代码块中使用。另外由于await()和signal()方法都是在Condition类上，*Condition类对象由一个Lock对象创建*，这也意味着一个Lock对象可以生成多个Condition对象。对于争抢同一个的锁的线程可以通过`Condition`更加细分的实现锁的传递。
 

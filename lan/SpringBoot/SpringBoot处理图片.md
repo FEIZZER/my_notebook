@@ -64,15 +64,15 @@ public String addImage(HttpServletRequest request, @RequestParam("imageFile") Mu
 
 - 由于想要存入数据库的数据长度超过了该字段类型可接受的最大长度
 
-  ![image-20210731190918687](SpringBoot%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87.assets/image-20210731190918687.png) 
+  ![image-20210731190918687](https://s2.loli.net/2022/04/01/tDqMNszJvbrxX7U.png) 
 
 - 由于在Contrller里接收图片时用了 `MultipartFile` 类form表单需要加上 `enctype="multipart/form-data"`属性。[[jquery#POST提交数据时，常见的contentType类型]]
 
-  ![image-20210731191757037](SpringBoot%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87.assets/image-20210731191757037.png) 
+  ![image-20210731191757037](https://s2.loli.net/2022/04/01/Dd2uyjcPS5eHivb.png) 
   
 - 由于SpringBoot中单次上传下载文件的限制是 1MB，当上传的图片超过时会抛出如下异常
 
-  ![image-20210731193601197](SpringBoot%E5%A4%84%E7%90%86%E5%9B%BE%E7%89%87.assets/image-20210731193601197.png) 
+  ![image-20210731193601197](https://s2.loli.net/2022/04/01/jZldT2SCke3Qyvm.png) 
 
   解决：在application.yml中添加 如下配置。
 

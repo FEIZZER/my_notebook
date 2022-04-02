@@ -57,11 +57,13 @@ dense()层的实现运算为  $ouput=activation(dot(input,kernel)+bias)$
 
 ###### relu
 
-<img src="./tensorflow.keras 的API.assets/relu.png" width="250"/>. 总体就是执行max(0,x)函数 可设置alpha斜率，max_value最大值等参数
+<img src="https://s2.loli.net/2022/04/02/8aTmXnGb3zOIJhD.png" alt="image" style="zoom:50%;" />.
+
+ 总体就是执行max(0,x)函数 可设置alpha斜率，max_value最大值等参数
 
 ###### sigmoid
 
-<img src="./tensorflow.keras 的API.assets/sigmoid.png" width="250"/> 执行函数$y=\frac{1}{1+e^x}$ .
+<img src="https://s2.loli.net/2022/04/02/pH3AruvNzomjB9a.png" width="250"/> 执行函数$y=\frac{1}{1+e^x}$ .
 
 ######  softmax
 

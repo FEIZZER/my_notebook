@@ -13,7 +13,7 @@ https://blog.csdn.net/zj12352123/article/details/80576748
 
 ##### 在myeclipse或idea等IDE中如何编写Servlet
 
-<img src="javaweb%E7%A8%8B%E5%BA%8F.assets/image-20210316191329400.png" alt="image-20210316191329400" style="zoom:67%;" />  如图是项目在两个IDE中的结构。
+<img src="javaweb程序.assets/image-20210316191329400.png" alt="image-20210316191329400" style="zoom:67%;" />  如图是项目在两个IDE中的结构。
 
 对与servlet程序的配置内容在WEB-INF文件夹下的web.xml里
 
@@ -68,7 +68,7 @@ public class servlet extends HttpServlet {
 
 我们一般将servlet程序类继承HttpServlet类，而HttpServlet类又是继承的GenericServlet，GenericServlet则是实现了Servlet, ServletConfig, Serializable  这三个接口。
 
-<img src="javaweb%E7%A8%8B%E5%BA%8F.assets/image-20210318173113901.png" alt="image-20210318173113901" style="zoom:60%;" />  
+<img src="javaweb程序.assets/image-20210318173113901.png" alt="image-20210318173113901" style="zoom:60%;" />  
 
 ##### 刚刚提到的ServletConfig接口实现了什么有什么作用
 
@@ -140,7 +140,7 @@ setXxx()和getXxx的命名问题：
 
 get和set函数可以通过IDE帮助生成
 
-<img src="javaweb%E7%A8%8B%E5%BA%8F.assets/image-20210318171615792.png" alt="image-20210318171615792" style="zoom:50%;" /> 
+<img src="javaweb程序.assets/image-20210318171615792.png" alt="image-20210318171615792" style="zoom:50%;" /> 
 
 
 

@@ -55,7 +55,7 @@ public class BrandEntity implements Serializable {
 }
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190415154441232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rhem91MQ==,size_16,color_FFFFFF,t_70#center_500) 
+![20190415154441232](https://s2.loli.net/2022/04/02/PcsQ2lMOa5TUpwk.png)
 
 #### 在Controller层的传入的参数上加 `@Validated`注解
 

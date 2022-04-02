@@ -47,7 +47,7 @@
 
    'color_style_marker' 可以放入三个字符 如下图所示
 
-   <img src="matlab%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.assets/20190820112534642.png" alt="在这里插入图片描述" width="1200" />
+   <img src="https://s2.loli.net/2022/04/02/LSA9JpT6KqiUl2N.png" alt="在这里插入图片描述" width="1200" />
 
 ##### 窗口管理
 

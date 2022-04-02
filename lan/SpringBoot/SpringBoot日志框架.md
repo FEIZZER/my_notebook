@@ -55,13 +55,13 @@ logging.pattern.console=%d{yyyy‐MM‐dd} [%thread] %‐5level %logger{50} ‐ 
 logging.pattern.file=%d{yyyy‐MM‐dd} === [%thread] === %‐5level === %logger{50} ==== %msg%n
 ```
 
-可以在 Externial Libraries 中找：<img src="SpringBoot%20%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6.assets/image-20210801203844271.png" alt="image-20210801203844271" style="zoom:63%;" /> 这个包：
+可以在 Externial Libraries 中找：<img src="https://s2.loli.net/2022/04/01/5uOVQLJtCgGYPdF.png" alt="image-20210801203844271" style="zoom:63%;" /> 这个包：
 
-<img src="SpringBoot%20%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6.assets/image-20210801203922037.png" alt="image-20210801203922037" style="zoom:67%;" />  
+<img src="https://s2.loli.net/2022/04/01/cEzjMfotYxkmd7Q.png" alt="image-20210801203922037" style="zoom:67%;" />  
 
 ###### 当然 SLF4J也提供了 使用其他实现层类来进行日志输出的操作，如下图：
 
-<img src="SpringBoot%20%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6.assets/concrete-bindings.png" alt="img" style="zoom:70%;" />
+<img src="https://s2.loli.net/2022/04/01/LEcnlF6WXymzeMg.png" alt="img" style="zoom:70%;" />
 
 ##### 在SpringBoot项目中出现问题不同框架日志依赖不同问题
 
@@ -69,7 +69,7 @@ logging.pattern.file=%d{yyyy‐MM‐dd} === [%thread] === %‐5level === %logger
 
 通过偷换包的方法：且这些工作SpringBoot会帮我们完成，我只需要在加入依赖的时候 将这些项目原有的 日志框架排除即可。看看就行，实际有待查证。
 
-<img src="SpringBoot%20%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6.assets/legacy.png" alt="img" style="zoom:60%;" />
+<img src="https://s2.loli.net/2022/04/01/TtrPA2uIz8sZEgQ.png" alt="img" style="zoom:60%;" />
 
 
 

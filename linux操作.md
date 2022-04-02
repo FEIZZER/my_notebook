@@ -220,7 +220,7 @@ shutdown -r now  :  立刻重启
 
    要退出按q
 
-   <img src="linux%E6%93%8D%E4%BD%9C.assets/image-20210303150418778.png" alt="image-20210303150418778" style="zoom:50%;" /> 
+   ![image-20210303150418778](https://s2.loli.net/2022/04/02/KOXoS8HzCs9ZN1n.png) 
 
    其中VIRT表示虚拟内存，RES表示常驻内存， SHR表示共享内存。
 

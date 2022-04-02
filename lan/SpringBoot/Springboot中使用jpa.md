@@ -282,7 +282,7 @@ public class Classroom {
   }
   ```
 
-  ![image-20210410151402806](Springboot%E4%B8%AD%E4%BD%BF%E7%94%A8jpa.assets/image-20210410151402806.png)           ![image-20210410151324232](Springboot%E4%B8%AD%E4%BD%BF%E7%94%A8jpa.assets/image-20210410151324232.png) 
+  ![image-20210410151402806](https://s2.loli.net/2022/04/01/wktQ38APyXmo4jD.png)           ![image-20210410151324232](https://s2.loli.net/2022/04/01/V5xLwtI7p64fcMY.png) 
 
 - 懒查询问题
 
@@ -405,7 +405,7 @@ public class Classroom {
 
 属性inverseJoinColumns则是用于指定 另一个表 Teacher表的主键在第三关系表中的体现
 
-![image-20210411141656962](Springboot%E4%B8%AD%E4%BD%BF%E7%94%A8jpa.assets/image-20210411141656962.png)  这是最后形成的表结构。
+![image-20210411141656962](D:\notebook\lan\SpringBoot\Springboot中使用jpa.assets\image-20210411141656962.png)  这是最后形成的表结构。
 
 ###### 多对多关系表的数据库操作
 

@@ -10,11 +10,11 @@
 
 ##### 创建阿里云的accessKey用户
 
-![image-20210930195824101](%E4%BD%BF%E7%94%A8aliyun%E7%9A%84oss%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8.assets/image-20210930195824101.png)
+![image-20210930195824101](https://s2.loli.net/2022/04/01/KqYRheH1X2BoFGv.png)
 
 accesskey用户是访问阿里云api的密钥。在创建完用户后记得为他添加相关的权限。创建完成后的accessKey和accessSecret信息需要即是保存。
 
-![image-20210930200204944](%E4%BD%BF%E7%94%A8aliyun%E7%9A%84oss%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8.assets/image-20210930200204944.png)
+![image-20210930200204944](https://s2.loli.net/2022/04/01/YFzcAhsPfMpKHbm.png)
 
 
 
@@ -70,7 +70,7 @@ ossClient.shutdown();
 
 ##### 前后端分离场景下 安全高效的上传图片 
 
-![img](%E4%BD%BF%E7%94%A8aliyun%E7%9A%84oss%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8.assets/p139016.png)
+![img](https://s2.loli.net/2022/04/01/kiKWVSNTM2BQtul.png)
 
 ###### 服务器端controller层返回policy信息
 

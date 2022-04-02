@@ -8,7 +8,7 @@
 
 1. ##### 将下载的压缩包解压后，复制到静态资源目录下
 
-   <img src="SpringBoot%E4%B8%AD%E4%BD%BF%E7%94%A8Edit.md%E5%AE%9E%E7%8E%B0markdown%E7%BD%91%E9%A1%B5%E7%BC%96%E8%BE%91.assets/image-20210720223836340.png" alt="image-20210720223836340" style="zoom:67%;" />  
+   <img src="https://s2.loli.net/2022/04/01/2BS8ZLRrfGHI1jW.png" alt="image-20210720223836340" style="zoom:67%;" />  
 
 2. ##### 再需要使用 markdown编辑器的网页中引入 如下资源
 

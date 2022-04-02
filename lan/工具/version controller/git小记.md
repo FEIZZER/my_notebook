@@ -30,7 +30,7 @@
 
 - ##### failed to push some refs to [host]  提示:Updates were rejected because the tip of your current branch is behind
 
-  ![image-20210721151124626](git%E5%B0%8F%E8%AE%B0.assets/image-20210721151124626.png) 
+  ![image-20210721151124626](git小记.assets/image-20210721151124626.png) 
 
   原因是由于：你的本地仓库落后于远程仓库，就是当前远程仓库有你本地仓库没有的新文件。可能是由于你的同事先于你提交了代码。
 
@@ -40,7 +40,7 @@
 
 - ##### 记Git报错-refusing to merge unrelated histories
 
-  <img src="git%E5%B0%8F%E8%AE%B0.assets/image-20210721151748688.png" alt="image-20210721151748688" style="zoom:67%;" /> 
+  <img src="git小记.assets/image-20210721151748688.png" alt="image-20210721151748688" style="zoom:67%;" /> 
 
   出现这个问题的最主要原因还是在于本地仓库和远程仓库实际上是独立的两个仓库。假如我之前是直接clone的方式在本地建立起远程github仓库的克隆本地仓库就不会有这问题了。
 
@@ -54,11 +54,11 @@
 
   注意这时，git仓库正处于 处理冲突的状态中，可以通过`git merge --abort` 命令退出该状态。
 
-  ![image-20210721171133098](git%E5%B0%8F%E8%AE%B0.assets/image-20210721171133098.png)
+  ![image-20210721171133098](git小记.assets/image-20210721171133098.png)
 
   打开冲突的文件可以看到，git对文件做了一些处理，分别表示这两个分支中造成冲突的内容，由你自己修改
 
-  <img src="git%E5%B0%8F%E8%AE%B0.assets/image-20210721171320022.png" alt="image-20210721171320022" style="zoom:67%;" />
+  <img src="git小记.assets/image-20210721171320022.png" alt="image-20210721171320022" style="zoom:67%;" />
 
   修改完成后我们还需要自己进行手动 add 和commit。
 
@@ -84,7 +84,7 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 使用 `git clone` 拉取项目后 项目路径下会有一个 .git 隐藏的文件，这就是我们的本地仓库。
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/git%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E5%85%B3%E7%B3%BB.png" alt="git工作区域关系" style="zoom:50%;" /> 
+<img src="git小记.assets/git工作区域关系.png" alt="git工作区域关系" style="zoom:50%;" /> 
 
 #### 命令的使用以及他
 
@@ -107,23 +107,23 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 通过 `git log` 来查看 commit 记录
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/image-20210721162120255.png" alt="image-20210721162120255" style="zoom:80%;" /> 
+<img src="git小记.assets/image-20210721162120255.png" alt="image-20210721162120255" style="zoom:80%;" /> 
 
 其中 HEAD表示当前所在分支 的引用，而master其实也就是一个 branch，不过他是默认的。HEAD其实是通过 指向 branch间接的指向一个个commit。master是一个默认的branch，在初始化一个git项目时是没有commit的，在我们创建第一个commit后，把 `master` 指向它，并把 `HEAD` 指向 `master`。如果我继续创建一个 commit，那么 HEAD 会带着 master 一起移动到最新的 commit。本质上 master与其他branch 没有区别，但一般把master分支作为主分支。
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIwLzE1ZmQ3NzlmOTgzYzgxZTc" alt="img" style="zoom:67%;" />   
+<img src="git小记.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIwLzE1ZmQ3NzlmOTgzYzgxZTc" alt="img" style="zoom:67%;" />   
 
 创建一个新分支，并切换到新分支后的示意图：
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YTEzMGIzY2Q" alt="img" style="zoom:67%;" />    
+<img src="git小记.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YTEzMGIzY2Q" alt="img" style="zoom:67%;" />    
 
 当在这个新分支上 有新的 commit时就会：
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YTJhMzI2OTI" alt="img" style="zoom:67%;" /> 
+<img src="git小记.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YTJhMzI2OTI" alt="img" style="zoom:67%;" /> 
 
 而这个时候，如果你再切换到 `master` 去 `commit`，就会真正地出现分叉了：
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YWIwODYxYTc" alt="img" style="zoom:67%;" /> 
+<img src="git小记.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIyLzE1ZmUzMzU0YWIwODYxYTc" alt="img" style="zoom:67%;" /> 
 
 ##### push的本质
 
@@ -137,7 +137,7 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 从目标 `commit` 和当前 `commit` （即 `HEAD` 所指向的 `commit`）分叉的位置起，把目标 `commit` 的路径上的所有 `commit` 的内容一并应用到当前 `commit`，然后自动生成一个新的 `commit`。比如执行 `git merge branch1`,如图
 
-<img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIxLzE1ZmRkYzJhYWQ1YTAyNzk" alt="img" style="zoom:67%;" />
+<img src="git小记.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIxLzE1ZmRkYzJhYWQ1YTAyNzk" alt="img" style="zoom:67%;" />
 
 ##### 处理冲突 
 
@@ -153,7 +153,7 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
    这时那么 Git 会直接把 `HEAD`（以及它所指向的 `branch`，如果有的话）移动到目标 `commit`。这种情形其实很常见，因为这其实是 `pull` 操作的一种经典情形：本地的 `master` 没有新提交，而远端仓库中有同事提交了新内容到 `master`.那么这时如果在本地执行一次 `pull` 操作，就会由于 `HEAD` 落后于目标 `commit` （也就是远端的 `master`）而造成 “fast-forward”：
 
-   <img src="git%E5%B0%8F%E8%AE%B0.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIxLzE1ZmRkYzJiMjQ4Njc1OGE" alt="img" style="zoom:67%;" />
+   <img src="git小记.assets/aHR0cDovL3VzZXItZ29sZC1jZG4ueGl0dS5pby8yMDE3LzExLzIxLzE1ZmRkYzJiMjQ4Njc1OGE" alt="img" style="zoom:67%;" />
 
    
 
@@ -229,5 +229,4 @@ Working directory（工作目录），stage index（暂存区），local reposit
 ![202203121551765](https://s2.loli.net/2022/03/30/UdVmeE1Z5NQjCqG.gif)
 
 这时候 main分支的HEAD点在 蓝色的D_commit处， dev分支的HEAD点在绿色的F_commit点。可以使用先切换到main分支 在使用`git rebase dev` 将HEAD移到最新处 *这时候dev和main两个分支其实已经是一样的了， 删除dev分支的话会真正的删除， 有点是简化， 缺点也是简化了一些信息*。
-
 

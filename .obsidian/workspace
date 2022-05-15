@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/SpringBoot/SpringBoot中使用jwt实现登录认证.md",
+            "file": "lan/java/jdk8.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/SpringBoot/SpringBoot中使用jwt实现登录认证.md",
+                "file": "lan/java/jdk8.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,8 @@
   },
   "active": "ca6d20c10aff8f88",
   "lastOpenFiles": [
+    "lan/java/jdk8.md",
+    "lan/java/java高级.md",
     "lan/SpringBoot/SpringBoot中使用jwt实现登录认证.md",
     "base/计算机网络/jwt实现token认证.md",
     "lan/SpringBoot/使用token存储信息.md",
@@ -95,8 +97,6 @@
     "lan/SpringBoot/网络中的Request,Response,Session,Cookie等等.md",
     "lan/再战javaweb/Untitled.md",
     "lan/再战javaweb/javaweb程序.md",
-    "lan/工具/version controller/git小记.md",
-    "lan/SpringBoot/Spring.md",
-    "lan/数据库/mybatis/mybatis原理学习.md"
+    "lan/工具/version controller/git小记.md"
   ]
 }

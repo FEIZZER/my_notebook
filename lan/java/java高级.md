@@ -947,8 +947,6 @@ Integer[] integers = new Integer[integerList.size()];
 integerList.toArray(integers);
 ```
 
-### java中的lamda
-
 
 
 ### java中的正则表达式
@@ -1255,4 +1253,62 @@ System.out.println(timestamp);
   - 为什么JDK8要在接口中引入这样一个可实现的方法体：设想这样一个接口 List， 他在老版本中已经有了一系列的方法体，并且在编码过程中经常会以它为基础编写很多实现类。但是在新版本中，开发者认为需要添加一个新的（抽象）方法sort() 在List接口中，这时候老版本的项目想要切换到新版本。 项目中实现了该接口的实现类没有实现sort()这个方法， 必然会报错。违背向后兼容的要求。
 
 
+
+### java的注解 Annotation
+
+注解是jdk5.0引入的技术。	注解本身不是程序，但是可以对程序做出解释，被其他程序读取。它可以实现：
+
+- 编写文档 通过注解后的信息生成java自动文档。
+- 代码分析  通过代码中的注解对代码进行分析， 使用反射实现。
+- 编译检查  通过代码中标识的注解 让编译器实现基本的编译检查。
+
+##### JDK中的预设的几个注解
+
+- @Override ：检测被注解标注的方法是否继承自父类
+- @Deprecated： 表示被标注的方法不再推荐使用，*依然可以使用*。
+- SuppressWarning(value="all")  表示压制警告，  不显示warning
+
+#### 自定义自己的注解
+
+###### 格式  首先添加  元注解  然后定义自己的注解
+
+```java
+@元注解
+public @interface 注解名{}
+```
+
+##### 注解接口的定义
+
+###### 注解的本质
+
+注解其实就是一个接口，并继承了 `java.lang.Annotation`接口。
+
+```java
+public interface 注解名 extends java.lang.Annotation{}
+```
+
+###### 这个注解接口中可以定义抽象成员方法 *这些抽象方法也可以称为注解的属性*
+
+但是成员方法的返回类型只接受 `基本数据类型` `String` `枚举` `注解` `Class` `以上类型的数组` ，定义了成员方法(属性)在使用注解时就必须要赋值，也可以为属性定义一个默认的值。
+
+```java
+public @interface MyAnnotation {
+    int value() default 7;
+}
+```
+
+##### 元注解
+
+是用于描述注解的注解。
+
+- @Target()  表示注解可以作用的范围， 接收一个枚举类型 `java.lang.annotation.ElementType`,几个比较常见的值 。
+  - TYPE   可以作用在类 接口 注解接口 枚举类上
+  - FIELD   成员变量上
+  - METHOD   方法上
+- @Retention  表示注解可以保留到什么时候，接收一个枚举 `java.lang.annotation.RetentionPolicy`
+  - SOURCE  注解只保留到源文件（.java文件） 
+  - CLASS      注解只保留到 编译后的.class文件
+  - RUNTIME  JVM加载字节码文件后依然存在， 一般情况下我们自定义注解都是这个值。
+
+##### 演示
 

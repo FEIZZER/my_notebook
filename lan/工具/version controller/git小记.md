@@ -1,5 +1,8 @@
 #  git 记录
 .gitignore文件规则及常见模板[[gitignore]]
+
+[常见的git操作 oh shit git](https://ohshitgit.com/zh)
+
 ## git使用过程遇见的问题及解决
 
 - ##### 修改远程仓库的地址
@@ -229,4 +232,10 @@ Working directory（工作目录），stage index（暂存区），local reposit
 ![202203121551765](https://s2.loli.net/2022/03/30/UdVmeE1Z5NQjCqG.gif)
 
 这时候 main分支的HEAD点在 蓝色的D_commit处， dev分支的HEAD点在绿色的F_commit点。可以使用先切换到main分支 在使用`git rebase dev` 将HEAD移到最新处 *这时候dev和main两个分支其实已经是一样的了， 删除dev分支的话会真正的删除， 有点是简化， 缺点也是简化了一些信息*。
+
+
+
+#### 不小心提交一个铭敏感文件，并push到远程了 如何处理
+
+
 

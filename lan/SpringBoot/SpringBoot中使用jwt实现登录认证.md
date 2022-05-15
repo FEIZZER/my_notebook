@@ -142,7 +142,3 @@ public String sign(Algorithm algorithm) throws IllegalArgumentException, JWTCrea
 
 其中 `com.auth0.jwt.algorithms.Algorithm`类中定义了可节后是的算法之类以及如何使用。
 
-
-
-##### 
-

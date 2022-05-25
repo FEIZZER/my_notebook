@@ -1,4 +1,4 @@
-## java知识补足
+##  java知识补足
 
 
 
@@ -555,6 +555,12 @@ List是有序的Collection，使用此接口能够精确的控制每个元素插
 
 **ArrayList**实现了可变大小的数组（动态数组），它允许所有元素，包括null，存放是，且对象可以重复。其内部方法：`size`，`isEmpty`，`get`，`set` 方法 ，添加n个元素需要O(n)的时间。
 
+###### 注意Arrays.asList()这个方法返回的 ArrayList并不是这个`java.util.ArrayList`
+
+Arrays.asList()方法可以接收一个数组作为参数*数组类型必须为对象， 不能为基本数据类型*，将其转化为一个列表。也可以接收数组元素生成列表。 **其返回的对象类型 是Arrays类的内部类也叫 ArrayList**， 其中定义了一个用`final` 修饰的数组引用。这就意味着这个数组的长度不可修改，所以不能调用诸如 `add, remove, clear()`这些方法。
+
+==Arrays.asList方法返回的是数组的一个视图，也就是说对这个list的操作都会反映在原数组上==
+
 ##### LinkedList类
 
 LinkedList实现了List接口，允许null元素，它以链表的形式存放对象，这样就克服了ArrayList的插入、删除的不便，但查询效率不如ArrayList高。此外LinkedList提供额外的addFirst(), addLast(), getFirst(), getLast(), removeFirst() 和 removeLast()等方法在 LinkedList的首部或尾部。这些操作使LinkedList可被用作堆栈（stack），队列（queue）或双向队列（deque）。
@@ -568,6 +574,8 @@ LinkedList实现了List接口，允许null元素，它以链表的形式存放�
 ##### Stack 类
 
 `Stack` 继承于`Vector`类 ，实现了一个先进后出的栈结构。
+
+
 
 #### Set接口
 

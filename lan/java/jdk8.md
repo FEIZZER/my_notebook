@@ -276,13 +276,45 @@ a.stream()
 
 ==其他的一些转化方法：== mapToLong()  mapToInt,  mapToDouble等等
 
+#### 数组和Stream流之间互转
+
+##### 数组转Stream
+
+- 基本数据类型数组转流  Arrays.stream(array);
+- 对象数组转流     Arrays.stream(obs); 或   Stream.of(obs);
+
+##### Stream转数组
+
+可以使用终结操作 toArray() 将流 转化成数组。
+
+- 如果是基本类型的流如IntStream， 不需要参数直接接收返回值即可
+
+  ```java
+  ArrayList<Integer> a = new ArrayList<>();
+  a.add(1);a.add(2);a.add(22);
+  int[] ints = a.stream().mapToInt(value -> value).toArray();
+  ```
+
+- 如果是泛型流Stream\<T\> , 就需要添加参数，指定返回值类型，否则返回 Object[]数组。
+
+  ```java
+  ArrayList<Integer> a = new ArrayList<>();
+  a.add(1);a.add(2);a.add(22);
+  Integer[] integers = a.stream().toArray(new IntFunction<Integer[]>() {
+      @Override
+      public Integer[] apply(int value) {
+          return new Integer[value];
+      }
+  });
+  ```
+
+  **其中value值代表的是数组的长度，这里可以用方法引用简化**
+
 #### 并行流
 
 当流中的数据量非常大时 可以考虑使用多线程流，` .parallel()` 方法 或者 `.parallelStream()`方法
 
 ==注意这样产生的多线程流是非线程安全的==
-
-
 
 #### 方法引用
 

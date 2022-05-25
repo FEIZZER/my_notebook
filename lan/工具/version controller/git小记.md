@@ -237,5 +237,19 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 #### 不小心提交一个铭敏感文件，并push到远程了 如何处理
 
+*git filter-branch 不推荐很复杂，我也不会*
+
+##### 使用 git-filter-repo 脚本
+
+[项目地址](https://github.com/newren/git-filter-repo/) 这是一个python项目，可以使用pip安装到一个虚拟环境中， 使用时需要`conda activate`激活该环境
+
+删除项目中所有git-filter_test文件的历史记录， 删除后需要强制push到远端
+
+```
+git filter-repo --invert-paths --path "git-filter_test"    
+```
+
+
+
 
 

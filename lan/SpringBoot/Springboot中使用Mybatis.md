@@ -1,4 +1,4 @@
-[[mybaits分页插件]]
+							SpringBoot中使用pagehelper实现Mybatis分页管理]]
 
 ## 在SpringBoot中使用Mybaits
 

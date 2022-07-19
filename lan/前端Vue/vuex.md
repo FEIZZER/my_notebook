@@ -20,7 +20,7 @@ vuex则是将 共享的数据抽离出来，形成一个全局单例的管理模
 
 ### Vuex核心学习
 
- <img src="vuex.assets/vuex.png" alt="vuex" style="zoom: 80%; float:left" />
+ <img src="https://s2.loli.net/2022/06/09/xTZeb7cqOIjyk6U.png" alt="vuex" style="zoom: 80%; float:left" />
 
 
 

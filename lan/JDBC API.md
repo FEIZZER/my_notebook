@@ -234,3 +234,4 @@ write_down.write(chs,0,len);
 
 ### BlOB类型，二进制文件可以存放图片音频视频。
 
+​    

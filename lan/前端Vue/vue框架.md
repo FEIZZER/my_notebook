@@ -12,7 +12,7 @@
 
 view不在依赖的model层，独立出来。但presenter部分手动同步逻辑麻烦，维护困难。
 
-<img src="vue框架.assets/image-20201214200035711.png" alt="image-20201214200035711" style="zoom:50%;" /> 
+<img src="https://s2.loli.net/2022/06/09/qK2vbxJyd8XAuB9.png" alt="image-20201214200035711" style="zoom:50%;" /> 
 
 ##### mvvp  model-view-view-model
 

@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "ca6d20c10aff8f88",
+        "id": "2afbbca800a18c2b",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/java/java设计模式/职责型模式.md",
+            "file": "lan/数据库/mysql/mysql语法记录.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/java/java设计模式/职责型模式.md",
+                "file": "lan/数据库/mysql/mysql语法记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -86,17 +86,17 @@
     "direction": "horizontal",
     "width": 160
   },
-  "active": "ca6d20c10aff8f88",
+  "active": "2afbbca800a18c2b",
   "lastOpenFiles": [
+    "lan/数据库/mysql/mysql语法记录.md",
+    "lan/SpringBoot/Springboot中使用Mybatis.md",
+    "lan/SpringBoot/SpringBoot中使用pagehelper实现Mybatis分页管理.md",
+    "mybaits分页插件.md",
     "lan/java/java设计模式/职责型模式.md",
     "lan/java/java设计模式/接口型模式.md",
     "lan/java/java设计模式/单例模式实践.md",
     "lan/java/jdk8.md",
     "lan/java/java高级.md",
-    "lan/SpringBoot/SpringBoot中使用jwt实现登录认证.md",
-    "base/计算机网络/jwt实现token认证.md",
-    "lan/SpringBoot/使用token存储信息.md",
-    "lan/前端Vue/前端浏览器的存储技术.md",
-    "lan/SpringBoot/网络中的Request,Response,Session,Cookie等等.md"
+    "lan/SpringBoot/SpringBoot中使用jwt实现登录认证.md"
   ]
 }

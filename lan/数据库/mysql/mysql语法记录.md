@@ -91,5 +91,5 @@ select * form A left join B on A.id = B.id where B.id != null
 
 ##### 外连接 
 
-实际上mysql并支持 outter join这样的外连接语法，但是可以通过配合使用 `union` 字段来实现外连接的效果。因为外连接兼有合并去重的效果。不做过多的展示。
+实际上mysql并不支持 outter join这样的外连接语法，但是可以通过配合使用 `union` 字段来实现外连接的效果。因为外连接兼有合并去重的效果。不做过多的展示。
 

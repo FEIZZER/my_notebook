@@ -1320,3 +1320,59 @@ public @interface MyAnnotation {
 
 ##### 演示
 
+###### 自己编写的一个@Autorun注解
+
+```java
+package com.feizzer.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Autorun {
+}
+```
+
+###### 测试类
+
+```java
+package com.feizzer.annotation;
+
+public class Test {
+    @Autorun
+    public void test1() {
+        System.out.println("test...");
+    }
+}
+```
+
+###### 测试代码 ==通过反射机制==实现 添加了注解的方法自动运行
+
+```java
+package com.feizzer.annotation;
+import com.xiaojie.dateTest.Gomian;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+
+public class Gomain {
+    public static void main(String[] args)
+            throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException,
+            InstantiationException, IllegalAccessException {
+        Class clazz = Class.forName("com.feizzer.annotation.Test");
+        Method[] methods = clazz.getMethods();
+        if (methods != null) {
+            for (Method method : methods) {
+                boolean annotationPresent = method.isAnnotationPresent(Autorun.class);
+                if (annotationPresent) {
+                    method.invoke(clazz.getConstructor().newInstance(null), null);
+                }
+            }
+        }
+    }
+}
+```
+

@@ -1,4 +1,4 @@
-### JDK8新增函数式编程
+###   JDK8新增函数式编程
 
 ###### 函数式编程思想
 
@@ -176,7 +176,7 @@ default Stream<E> stream() {
     
     ==注意，这里的key是不可以重复的，即不能出现两个元素在第一个Function参数里返回一样的（equals()函数返回true）值， 否则会抛出异常  illegalStateException: Duplicate key [重复的key值]==
     
-    ![image-20220513220910937](https://s2.loli.net/2022/05/13/7VKd2hN3MRjCy8c.png)
+    ![image-20220513220910937](D:\notebook\lan\java\jdk8.assets\7VKd2hN3MRjCy8c.png)
   
 - 查找与匹配
 

@@ -320,7 +320,8 @@ self.add(axes)
 
 ```python
 pcurve = ParametricCurve(
-    lambda t: np.array([np.sin(3*t)*np.cos(t),			# 传入一个参数房产， 可以是lambda表达
+    lambda t: np.array([np.sin(3*t)*np.cos(t),	
+                        # 传入一个参数房产， 可以是lambda表达
                         np.sin(t*3)*np.sin(t), 0]),     # 式，或def定义函数。
     t_range=[0, 2*PI]    								# 表示参数方程中参数范围
 )

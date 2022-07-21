@@ -143,6 +143,18 @@ shutdown -r now  :  立刻重启
 
 10. find和locate 查找文件和目录
 
+    find  目录  [-option]  常见的option选项如下：
+
+    -name  "*.txt"   以txt结尾的文件
+
+    -type f      文件类型为普通为文件。 d是目录文件，p是管道文件
+
+    -ctime  5   创建时间在近5天内的
+
+    -mtine 5    修改时间
+
+    -size  +100K   文件大小大于100k的
+
     
 
 11. touch  新建文件

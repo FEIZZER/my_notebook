@@ -38,7 +38,7 @@ func timeDemo() {
   fmt.Println(t)
   ```
 
-  ![image-20220722172732899](C:\Users\yongjianwu\Desktop\NOTEBOOK\my_notebook\lan\Golang\Go的一些标准包\time时间处理.assets\image-20220722172732899.png) 
+  ![image-20220722172732899](.\time时间处理.assets\image-20220722172732899.png) 
 
 - 可以使用time.ParseInLocation()指定时区信息
 

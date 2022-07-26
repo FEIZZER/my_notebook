@@ -1,3 +1,15 @@
+## cm或powershell中的一些使用
+
+##### 直接ssh连接
+
+```shell
+ssh [-p port] userName@ip
+```
+
+### 命令行使用fetch
+
+
+
 ##### powershell的执行策略
 
 - 查看当前的执行策略 `get-executionPolicy` 

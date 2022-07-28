@@ -15,7 +15,7 @@
 ##### find 命令
 
 1. find / -name "service.log"
-2.  翻译文件是什么
+2.  翻译文件是什么文件
 3. find / -name "*.conf"
 4. find /tmp/ -user root ! -name "f*"
 5. find /etc/ -type f -size +100k

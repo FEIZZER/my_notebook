@@ -47,7 +47,7 @@ sudo yum-config-manager \
 
 ###### 安装docker
 
-```
+```shell
 yum install docker-ce docker-ce-cli containerd.io
 ```
 
@@ -77,7 +77,7 @@ systemctl enable docker
 - `docker search [option] <images>`  去远程仓库搜索与 images 有关的镜像。可选的opiton：
   - -s 30 只显示 stars数在30以上的的镜像
 - `docker pull <image:tag> `从远程仓库依据 镜像名和tag 拉取镜像，tag缺省是就是latest
-- `docker rmi <image:tage>`  删除本地的镜像，tag缺省就是latest
+- `docker rmi <image:tag>`  删除本地的镜像，tag缺省就是latest
 
 ##### 容器命令
 

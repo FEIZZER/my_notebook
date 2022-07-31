@@ -222,7 +222,7 @@ shutdown -r now  :  立刻重启
 
    可以通过 `ls -l` 或 `ll` 命令查看文件权限
 
-   ![image-20220725100547702](.\linux操作.assets\image-20220725100547702.png)  
+   ​		  
 
    chown user filename  修改文件拥有者
 

@@ -78,6 +78,7 @@ systemctl enable docker
   - -s 30 只显示 stars数在30以上的的镜像
 - `docker pull <image:tag> `从远程仓库依据 镜像名和tag 拉取镜像，tag缺省是就是latest
 - `docker rmi <image:tag>`  删除本地的镜像，tag缺省就是latest
+- `docker system df   `    查看docker中镜像的状态（占用空间等）
 
 ##### 容器命令
 
@@ -100,3 +101,20 @@ systemctl enable docker
   - -t ，显示日志生成的时间，，默认是中时区
   - --tail \<n\> , 显示最后n条logs
 
+###### ==容器重要命令== 
+
+- `docker  attach <container_id>`  进入正在运行的容器。直接使用exit退出，会导致容器的挂关闭
+  -  ctrl + p + q 退出该容器而不关闭容器  
+
+- `docker exec -it <container_id> /bin/bash`    进入正在运行的日期，可以直接使用exit退出，容器进程不会关闭。
+- `docker cp <container_id>: /bin/tmp  /bin/tmp`    将容器的文件复制到宿主机
+
+
+
+- `docker export <container_id>  test.tar`  将一个容器的导出为 *.tar文件
+- cat test.tar | docker import  -  镜像用户名/镜像名:tag     将一个tar包导入为镜像
+  - 注意运行该镜像时 要携带COMMAND。。 负责会报错 ：docker: Error response from daemon: No command specified.
+
+
+
+ 

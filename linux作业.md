@@ -124,10 +124,18 @@ l 在vi的一般模式中，如何查找string这个单词
 
 l 在vi的一般模式中，如何替换word1 为word2, 如果要实现确认机制应该怎么做？
 
-​	- 
+​	- s/word1/word2/g
 
 l 在vi的一般模式下，如何存盘，离开，存盘后离开，强制存盘后离开
 
+​	- wq!
+
 l 在vi的一般模式下，如何在打开的文件中再打开一个文件，同时显示两个文件，并在两个文件中跳转编辑
 
+​	-vs/sp filename   ctrl+6
+
 l 如何用vi对比两个文件的差异
+
+	- :diffthis      :diffoff
+
+:disappointed: 

@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/数据库/mysql/mysql语法记录.md",
+            "file": "lan/工具/docker/docker的网络配置.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/数据库/mysql/mysql语法记录.md",
+                "file": "lan/工具/docker/docker的网络配置.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",

@@ -2,5 +2,6 @@
   "alwaysUpdateLinks": true,
   "defaultViewMode": "preview",
   "legacyEditor": false,
-  "livePreview": true
+  "livePreview": true,
+  "promptDelete": false
 }

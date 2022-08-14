@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/工具/docker/docker的网络配置.md",
-            "mode": "source",
+            "file": "lan/工具/kubernetes/Service.md",
+            "mode": "preview",
             "source": false
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/工具/docker/docker的网络配置.md",
+                "file": "lan/工具/kubernetes/Service.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2afbbca800a18c2b",
   "lastOpenFiles": [
+    "lan/工具/kubernetes/Service.md",
+    "lan/工具/kubernetes/pv和pvc.md",
+    "lan/工具/kubernetes/p.md",
+    "lan/工具/kubernetes/StatefuSet.md",
+    "lan/工具/docker/docker的网络配置.md",
     "lan/数据库/mysql/mysql语法记录.md",
     "lan/SpringBoot/Springboot中使用Mybatis.md",
     "lan/SpringBoot/SpringBoot中使用pagehelper实现Mybatis分页管理.md",
     "mybaits分页插件.md",
-    "lan/java/java设计模式/职责型模式.md",
-    "lan/java/java设计模式/接口型模式.md",
-    "lan/java/java设计模式/单例模式实践.md",
-    "lan/java/jdk8.md",
-    "lan/java/java高级.md",
-    "lan/SpringBoot/SpringBoot中使用jwt实现登录认证.md"
+    "lan/java/java设计模式/职责型模式.md"
   ]
 }

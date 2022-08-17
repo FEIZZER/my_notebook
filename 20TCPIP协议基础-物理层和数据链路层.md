@@ -90,3 +90,5 @@ ip netns exec ns2 tcpdump  -w /ns.pcap
 
 ![image-20220816161619784](20TCPIP协议基础-物理层和数据链路层.assets/image-20220816161619784.png)
 
+![image-20220817143048694](20TCPIP协议基础-物理层和数据链路层.assets/image-20220817143048694.png) 
+

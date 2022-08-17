@@ -56,3 +56,37 @@ ip link set veth-2.1 netns ns2
 
 给veth和bridge分配ip地址
 
+ip netns  exec ns1 ip addr add 101.190.1.1/24 dev veth-1.1
+
+ip netns exec ns2 ip addr add 101.190.1.2/24 dev veth-2.1
+
+在ns1中ping ns2的地址
+
+![image-20220816151559102](20TCPIP协议基础-物理层和数据链路层.assets/image-20220816151559102.png) 
+
+
+
+
+
+设置ns1中veth mtu为1000
+
+ ip netns exec ns1 ip link set mtu 1000 dev veth1
+
+![image-20220816152158212](20TCPIP协议基础-物理层和数据链路层.assets/image-20220816152158212.png) 
+
+在ns2里面运行tcpdump抓包
+
+ip netns exec ns2 tcpdump  -w /ns.pcap
+
+把抓到的包移动到window下使用wireshark根据查看
+
+不修改mtu发送普通的包抓
+
+![image-20220816153442199](20TCPIP协议基础-物理层和数据链路层.assets/image-20220816153442199.png) 
+
+修改ns1 和ns2 的mtu为1000， 然后ns1ping ns2长度为1500的包
+
+
+
+![image-20220816161619784](20TCPIP协议基础-物理层和数据链路层.assets/image-20220816161619784.png)
+

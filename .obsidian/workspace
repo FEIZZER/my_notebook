@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/工具/kubernetes/Service.md",
-            "mode": "preview",
+            "file": "网络基本功/数据包的物理传输.md",
+            "mode": "source",
             "source": false
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/工具/kubernetes/Service.md",
+                "file": "网络基本功/数据包的物理传输.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",

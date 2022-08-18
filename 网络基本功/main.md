@@ -1,6 +1,9 @@
 ##### 	OSI七层模型   TCP/IP四层模型    五层协议的对比
 
-<img src="main.assets/osi七层模型和tcpip四层模型.png" alt="osi七层模型和tcpip四层模型" style="zoom: 50%;" /> 
+<img src="main.assets/osi七层模型和tcpip四层模型.png" alt="osi七层模型和tcpip四层模型" style="zoom: 50%;" />  
+
+- OSI  open system  interconnection 开放式系统互联参考模型
+-  
 
 
 

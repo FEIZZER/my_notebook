@@ -2,8 +2,13 @@
 
 <img src="main.assets/osi七层模型和tcpip四层模型.png" alt="osi七层模型和tcpip四层模型" style="zoom: 50%;" />  
 
-- OSI  open system  interconnection 开放式系统互联参考模型
--  
+#### 应用层协议
+
+##### 应用层
+
+#### 运输层
+
+
 
 
 

@@ -186,7 +186,7 @@ $.ajax({
 
 ###### POST提交数据时，常见的contentType类型
 [[前后端传送数据时的几种Content-type]]
-- application/x-www-form-urlencoded 这是最常见POST提交数据类似，是提交表单数据时的类型，也是默认的（如果不设置表单的 enctype属性的话）。
+- application/x-www-form-urlencoded 这是最常见POST提交数据类型，是提交表单数据时的类型，也是默认的（如果不设置表单的 enctype属性的话）。
 - application/json   传递序列化后的js对象数据
 - multipart/form-data，在表单中设置了`enctype="multipart/form-data"` 属性值会出现这样的情况，
 - text/xml使用的会跟少，以后在做了解。

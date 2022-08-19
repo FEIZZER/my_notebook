@@ -1,4 +1,5 @@
 ### 实际场景中注意点
+[[http协议详解#各种MIME类型]]
 
 #### 以application/json编码 post数据
 

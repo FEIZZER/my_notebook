@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/前端Vue/vue-cli项目中使用markdown编辑器.md",
-            "mode": "preview",
+            "file": "lan/Golang/Go基础记录.md",
+            "mode": "source",
             "source": false
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/前端Vue/vue-cli项目中使用markdown编辑器.md",
+                "file": "lan/Golang/Go基础记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,6 +88,8 @@
   },
   "active": "2afbbca800a18c2b",
   "lastOpenFiles": [
+    "lan/Golang/Golang的项目管理.md",
+    "lan/前端Vue/vue-cli项目中使用markdown编辑器.md",
     "lan/前端Vue/vue-cli动态路由.md",
     "网络基本功/http协议详解.md",
     "lan/前端Vue/前后端传送数据时的几种Content-type.md",
@@ -95,8 +97,6 @@
     "网络基本功/数据包的物理传输.md",
     "网络基本功/物理层知识点汇总.md",
     "lan/工具/kubernetes/Service.md",
-    "lan/工具/kubernetes/pv和pvc.md",
-    "lan/工具/kubernetes/p.md",
-    "lan/工具/kubernetes/StatefuSet.md"
+    "lan/工具/kubernetes/pv和pvc.md"
   ]
 }

@@ -12,9 +12,16 @@ go get 命令可以借助代码管理工具通过远程拉取或更新代码包�
 
 从 v1.11版本引入了GO MODULE 作为依赖解决方案。
 
+#### GO MODULE模式使用
 
+使用命令`go env -w GO111MODULE=on`开启GO111MODULE=on  全局使用GO MODULE项目管理模式。 几个常用的命令
 
+- `go mod init`  初始化一个模块
+- `go mod tidy`  增加缺失的包，删除多余的包
 
+- `go mod download`  下载模块到本地缓存 缓存路径 `GOPATH/pkg/mod/cache`
+- `go mod edit`  使用命令编辑go.mod文件
+- `go mod vendor`将依赖拷贝到项目的/vendor目录下
 
 
 

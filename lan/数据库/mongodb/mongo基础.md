@@ -6,6 +6,51 @@
 
 mongodb数据库是一个nosql数据库。由c++实现的分布式文件存储数据库系统
 
+#### mongodb配置操作
+
+##### 配置文件
+
+在`/etc/mongpdb.conf`目录下  [[mongo配置文件]]
+
+##### 用户和权限配置
+
+###### 创建一个管理员用户
+
+```shell
+db.createUser(
+   {user: "admin", pwd: "1234",
+    roles: [{role: "root", db: "admin"}]
+   }
+)
+```
+
+user和pwd分别指定用户名和密码。。 roles中的role指定该用户是一个管理员用户，db表示用户信息存储在admin表中。
+
+==此时mongo数据虽然有用户信息， 但是登录仍然不需要认证。 需要修改配置文件中的auth字段为true==
+
+###### 创建普通用户
+
+mongodb用户管理较为复杂，这里先不做深入了解了
+
+> 1. 数据库用户角色：read、readWrite；
+> 2. 数据库管理角色：dbAdmin、dbOwner、userAdmin;
+> 3. 集群管理角色：clusterAdmin、clusterManager、4. clusterMonitor、hostManage；
+> 4. 备份恢复角色：backup、restore；
+> 5. 所有数据库角色：readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase
+> 6. 超级用户角色：root
+> 7. 内部角色：__system
+
+> 1. Read：允许用户读取指定数据库
+> 2. readWrite：允许用户读写指定数据库
+> 3. dbAdmin：允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile
+> 4. userAdmin：允许用户向system.users集合写入，可以在指定数据库里创建、删除和管理用户
+> 5. clusterAdmin：只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限。
+> 6. readAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读权限
+> 7. readWriteAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的读写权限
+> 8. userAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的userAdmin权限
+> 9. dbAdminAnyDatabase：只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限。
+> 10. root：只在admin数据库中可用。超级账号，超级权限
+
 #### 基本CRUD操作
 
 ##### 数据库创建删除
@@ -61,9 +106,14 @@ mongodb数据库是一个nosql数据库。由c++实现的分布式文件存储�
 
 ###### 更新操作符
 
+
+
 ##### 查询数据
 
 ##### 删除数据
+
+- `db.collection_name.deleteMany({name: "feizzer"})`  删除集合中所有name字段为feizzer的数据，传入一个空{} 会删除集合中所有数据
+- `db.collection_name.deleteOne({name: "feizzer"})`    仅删除一条匹配的数据
 
 
 

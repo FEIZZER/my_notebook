@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "lan/Golang/Go基础记录.md",
+            "file": "lan/数据库/mongodb/mongo基础.md",
             "mode": "source",
             "source": false
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/Golang/Go基础记录.md",
+                "file": "lan/数据库/mongodb/mongo基础.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "2afbbca800a18c2b",
   "lastOpenFiles": [
+    "lan/数据库/mongodb/mongo配置文件.md",
+    "lan/Golang/Go基础记录.md",
+    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
     "lan/Golang/Golang的项目管理.md",
     "lan/前端Vue/vue-cli项目中使用markdown编辑器.md",
     "lan/前端Vue/vue-cli动态路由.md",
     "网络基本功/http协议详解.md",
     "lan/前端Vue/前后端传送数据时的几种Content-type.md",
     "MIME.md",
-    "网络基本功/数据包的物理传输.md",
-    "网络基本功/物理层知识点汇总.md",
-    "lan/工具/kubernetes/Service.md",
-    "lan/工具/kubernetes/pv和pvc.md"
+    "网络基本功/数据包的物理传输.md"
   ]
 }

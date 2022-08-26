@@ -100,11 +100,81 @@ fmt.Printf("pointer= %p, cap= %d", &new_a1, cap(new_a1))
 
 ###### 类方法的奇怪语法糖
 
-- 一个类的实现方法，无论是值传递还是引用传递，都可以使用**地址或对象本身**调用。但是最终传递的参数还由方法定义时决定的。
+golang中的类struct可以通过**值类型接收者 和 引用类型接收者**两个方式定义**类方法**，不同类型之间却是可以调用的
 
-    
+```go
+type Person interface {
+   Eat()
+   Walk()
+}
+type Man struct {
+   staff string
+}
+func (p *Man) Eat() {
+   p.staff = "eat"
+   fmt.Println("man eat" + p.staff)
+}
+func (p Man) Walk() {
+   p.staff = "walk"
+   fmt.Println("man walk")
+}
+func TypeTest() {
+   man := Man{"man"}
+   man.Walk()
+   man.Eat()
+   (&man).Walk()
+   (&man).Eat()
+}
+```
 
-  
+上面的代码都可以编译通过运行，这是因为编译器会主动的将调用者的类型进行转化。**但是依然会有不同种类型不能调用的情况：**
+
+- **`值类型` 不能被寻址的情况**,如果值类型不能寻址 那么他就不能调用引用接收者的方法。下面这段代码就会编译出错，因为编译器尝试给`createMan()`方法返回的右值调用pointer method方法失败了。然后尝试插入取值符号，但是失败了。及不可以被寻址
+
+  > 左值和右值的定义；
+
+  ```go
+  func createMan() Man {
+     return Man{"man"}
+  }
+  func TypeTest() {
+     createMan().Eat()
+  }
+  ```
+
+- **用引用接收实现的接口** 
+
+但是不同的类型方法实现对应的不同的方法集：
+
+![image-20220825100426199](Go基础记录.assets/image-20220825100426199.png) 
+
+其实就是实现了**值接收者**的类方法 默认也实现了**引用接收者**的类方法*只不过不能调用*。 而实现了**引用接收者**类方法不会去实现**值接收者**的类方法。 所以当使用**引用接收方法**实现了接口。程序认为只有 `&man 指针类型`实现了接口，而`man 值类型`没有实现该接口。
+
+```go
+func TypeTest() {
+   man := Man{"man"}
+    /* var p Person = &man  
+       会编译报错 Cannot use 'man' (type Man) as the type Person Type does not implement 'Person' as the 	 	
+       'Eat' method has a pointer receive
+    */
+   var p Person = man
+   fmt.Println(p)
+}
+```
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
 
 
 

@@ -6,7 +6,7 @@
 
 ![ARP报文格式](http://www.bytekits.com/res/img/gather/arp/1603877232381.png) 
 
-- 帧类型  固定为0806 表示为ARP协议类型
+- 帧类型==其实是以太帧的部分==  固定为0806 表示为ARP协议类型 
 - HardWare Type硬件类型； 表示链路层协议
 - Protocol Type协议类型； 表示网络层协议， ip协议为08 00
 - 硬件地址长度： 指明了硬件MAC地址的长度 为6  表示48bit

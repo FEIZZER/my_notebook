@@ -43,7 +43,13 @@ func TODO() Context {
 
 #### 超时控制
 
-##### context.
+要保证程序的健壮性， 避免服务端因为长时间响应消耗资源，很多web框架或rpc框架都有设置超时控制。
 
-##### 
+##### context.WithTimeout 和 context.WithDeadline 
+
+这两个方法本质是一样的，因`WithTimeout`内部用的就是`WithDeadline`方法。区别在于`WithTimeout`使用持续时间作为参数，`WithDeadline`方法使用时间对象作为参数。
+
+
+
+
 

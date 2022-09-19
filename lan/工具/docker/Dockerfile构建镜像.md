@@ -46,17 +46,17 @@ CMD ./k8s-demo_v
 
 ###### FROM
 
-格式   `FROM \<image\>`    或   `FROM  \<image\>:\<tag\>`  *一个特殊的基础镜像scratch 空镜像  `FROM scratch `表示不以任何镜像为基础* 
+格式   `FROM <image>`    或   `FROM  <image>:<tag>`  *一个特殊的基础镜像scratch 空镜像  `FROM scratch `表示不以任何镜像为基础* 
 
 所谓定制镜像，那一定是以一个镜像为基础，在其上进行定制。就像我们之前运行了一个 `nginx` 镜像的容器，再进行修改一样，基础镜像是必须指定的。而 `FROM` 就是指定 **基础镜像**，因此一个 `Dockerfile` 中 `FROM` 是必备的指令，并且必须是第一条指令。
 
 ###### MAINTAINER
 
-格式  `MAINTAINER  \<user_name\>  \<user_msg\>`
+格式  `MAINTAINER  <user_name>  <user_msg>`
 
 ###### COPY复制文件
 
-格式   `COPY [--chown=\<user\>:\<group\>] \<源路径\>... \<目标路径\>`  。从构建的上下文目录中的源路径文件或目录复制到新一层的镜像文件目标路径处。此外，还需要注意一点，使用 `COPY` 指令，源文件的各种元数据都会保留。比如读、写、执行权限、文件变更时间等。这个特性对于镜像定制很有用
+格式   `COPY [--chown=<user>:<group>] <源路径>... <目标路径>`  。从构建的上下文目录中的源路径文件或目录复制到新一层的镜像文件目标路径处。此外，还需要注意一点，使用 `COPY` 指令，源文件的各种元数据都会保留。比如读、写、执行权限、文件变更时间等。这个特性对于镜像定制很有用
 
 ###### ADD 更高级的文件复制
 
@@ -66,11 +66,11 @@ ADD指令的格式和概念和COPY指令基本上一致。但是在此基础上�
 
 ###### RUN
 
-格式为  `RUN \<command\>`     RUN是容器操作指令而CMD是容器启动时指令
+格式为  `RUN <command>`     RUN是容器操作指令而CMD是容器启动时指令
 
 ###### CMD
 
-- CMD ["executable","param1',"param2"] 使用 exec 执行，推荐方式。
+- CMD ["executable","param1',"param2"] 使用 exec 执行，推荐使用。
 - CMD command param1 param2 在 /bin/sh 中执行，提供给需要交互的应用。
 - CMD ["param1","param2"] 提供给 ENTRYPOINT 的默认参数。
    指定启动容器时执行的命令，每个Dockerfile 只能有一条 CMD命令。如果指定了多条命令，只有最后一条会被执行。

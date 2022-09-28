@@ -4,10 +4,6 @@ docker-machine
 
 docker-swarm
 
-
-
-
-
 ## docker
 
 docker是一个开源的应用容器引擎，基于go语言。时开发者能够打包他们的应用以及依赖包到一个可移植的容器中去。

@@ -1,4 +1,4 @@
-[mongo中文官网](https://mongodb.net.cn/)
+mongo中文官网](https://mongodb.net.cn/)
 
 ### mongo基础
 
@@ -10,7 +10,7 @@ mongodb数据库是一个nosql数据库。由c++实现的分布式文件存储�
 
 ##### 配置文件
 
-在`/etc/mongpdb.conf`目录下  [[mongo配置文件]]
+在`/etc/mongodb.conf`目录下  [[mongo配置文件]]
 
 ##### 用户和权限配置
 

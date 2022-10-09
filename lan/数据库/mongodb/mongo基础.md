@@ -110,6 +110,8 @@ mongodb用户管理较为复杂，这里先不做深入了解了
 
 ##### 查询数据
 
+
+
 ##### 删除数据
 
 - `db.collection_name.deleteMany({name: "feizzer"})`  删除集合中所有name字段为feizzer的数据，传入一个空{} 会删除集合中所有数据
@@ -120,6 +122,8 @@ mongodb用户管理较为复杂，这里先不做深入了解了
 #### **聚合操作**
 
 ##### 聚合管道
+
+
 
 - \$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。
 - \$match：用于过滤数据，只输出符合条件的文档。\$match使用MongoDB的标准查询操作。
@@ -139,6 +143,38 @@ mongodb用户管理较为复杂，这里先不做深入了解了
 
 
 ##### 单一聚合
+
+- `db.collection_name.count()` 
+- `db.collection_name.distinct()` 
+
+#### mongo的索引
+
+- 索引是存储引擎级别的概念，建立在集合之上。
+- 基于 B-tree的数据结构
+- 能够帮助更快的检索数据
+- 存储特定的字段或字段值，并按照一定的顺序排序。默认在id字段建立唯一索引。
+- 在建立索引时，消耗计算资源和存储资源。 插入文档时，会引起索引顺序的重排。
+
+###### db.collection_name.getIndexes() 查看集合索引
+
+###### db.collection_name.IndexSize() 查看索引大小
+
+###### db.collection_name.dropIndexes() 删除集合所有的索引
+
+###### db.collection_name.dropIndex("索引名称")  删除集合的指定索引
+
+##### db.collection_name.createIndex(keys, options)
+
+###### keys字段 为要创建的索引字段
+
+实例：`db.collection_name.createIndex({"colName": 1})` ，为colName字段创建升序索引
+
+- 1： 升序创建索引
+- -1： 降序创建索引
+
+
+
+###### options可选参数列表
 
 
 

@@ -2,15 +2,17 @@
 
 ##### 三种打印级别
 
+Print系列(Print|Printf|Println),Fatal系(Fatal|Fatalf|Fatalln)和Panic系列(Panic|Panicf|Panicln)来使用
+
 ```go
 log.Println("print")
+// 一条会触发fatal的函数，Fatal系列函数会在写入日志信息后调用os.Exit(1)。
 log.Fatalln("fatal")
-log.Panicln("fatal")
+// Panic系列函数会在写入日志信息后panic。
+log.Panicln("panic")
 ```
 
-不做任何配置，直接进行日志输出，会将日志打印到控制台。*其中panic级别不会输出到控制台，因为程序异常退出了* 
-
-
+不做任何配置，直接进行日志输出，会将日志打印到控制台。
 
 ##### func SetOutput(w io.Writer)
 
@@ -23,6 +25,10 @@ if err != nil {
 }
 log.SetOutput(logFile)
 log.Println("print")
-log.Fatalln("fatal")
-log.Panicln("fatal")
 ```
+
+
+
+
+
+##### 

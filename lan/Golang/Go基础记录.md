@@ -144,25 +144,25 @@ func TypeTest() {
 
 - **用引用接收实现的接口** 
 
-但是不同的类型方法实现对应的不同的方法集：
+  但是不同的类型方法实现对应的不同的方法集：
 
-![image-20220825100426199](Go基础记录.assets/image-20220825100426199.png) 
+  ![image-20220825100426199](Go基础记录.assets/image-20220825100426199.png) 
 
-其实就是实现了**值接收者**的类方法 默认也实现了**引用接收者**的类方法*只不过不能调用*。 而实现了**引用接收者**类方法不会去实现**值接收者**的类方法。 所以当使用**引用接收方法**实现了接口。程序认为只有 `&man 指针类型`实现了接口，而`man 值类型`没有实现该接口。
+  其实就是实现了**值接收者**的类方法 默认也实现了**引用接收者**的类方法*只不过不能调用*。 而实现了**引用接收者**类方法不会去实现**值接收者**的类方法。 所以当使用**引用接收方法**实现了接口。程序认为只有 `&man 指针类型`实现了接口，而`man 值类型`没有实现该接口。
 
-```go
-func TypeTest() {
-   man := Man{"man"}
-    /* var p Person = &man  
-       会编译报错 Cannot use 'man' (type Man) as the type Person Type does not implement 'Person' as the 	 	
-       'Eat' method has a pointer receive
-    */
-   var p Person = man
-   fmt.Println(p)
-}
-```
+  ```go
+  func TypeTest() {
+     man := Man{"man"}
+      /* var p Person = &man  
+         会编译报错 Cannot use 'man' (type Man) as the type Person Type does not implement 'Person' as the 	 	
+         'Eat' method has a pointer receive
+      */
+     var p Person = man
+     fmt.Println(p)
+  }
+  ```
 
-
+  
 
 ####  go的闭包特性
 
@@ -189,6 +189,11 @@ func closure() func() int {
 
 
 
+### Go里面类型的理解
+
+go的变量值包括  \<type, value\> 两个部分。其中的`type`为`concrete type ` ， *区别与静态类型static type*。  static type静态类型就是编码时给变量定义的类型，而concrete type具体类型则是runtime系统看见的类型，所以也可以叫动态类型或运行时类型。
+
+在进行类型断言时，能否成功就是取决于**`concrete type`**。     对变量进行反射时，反射的类型也是**`concrete type`**
 ### Go并发编程
 
 

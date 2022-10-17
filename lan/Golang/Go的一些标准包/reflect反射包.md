@@ -1,11 +1,18 @@
+
+### Go语言的反射
+
+在计算机科学领域，反射是指能够自描述和自控制的应用。反射通过采用某种机制来实现对自己行为的描述（self-representation）和监测（examination），并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。
+
 #### `reflect.Typeof()` 获取 类型对象  `reflect.Type`
 
-程序通过类型对象可以访问任意值的类型信息。==Typeof() 方法获取到的类型不是变量的，而是变量指向的值的== 
+
+
+程序通过类型对象可以访问任意值的类型信息。==Typeof() 方法获取到的类型是变量值的**concrete type**== 
 
 ```go
 var a int = 1
 typeOfA := reflect.TypeOf(a)
-fmt.Println(typeOfA.Name(), typeOfA.Kind()
+fmt.Println(typeOfA.Name(), typeOfA.Kind())
 // >> int   int
 ```
 

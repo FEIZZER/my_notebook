@@ -7,6 +7,7 @@
 #### 接口类型的非平凡（可能发生的错误）
 
 [[Go基础记录#Go里面类型的理解]]
+[Go基础记录](Go基础记录.md)
 
 ##### 做\=\=比较的不确定性
 
@@ -48,14 +49,16 @@ func main() {
 
 ###### 含有空指针的非空接口
 
-*go在对变量值进行判断是否为**nil**，是根据动态类型是否为**nil**来判断的。* 如果动态类型不为nil 但是动态值为nil，这时候如果调用方法程序会发生崩溃。
+  *go中对**静态类型为接口的变量** 判断是否为**nil**时，是根据动态类型是否为**nil**来判断的。* 如果动态类型不为nil 但是动态值为nil，这时候如果调用方法程序会发生崩溃。
 
 ```go
 func test(i1 interface1) {
-   i1.run()   //程序发生空指针错误
+   fmt.Println(i1 == nil) 	// false
+   i1.run()   				//程序发生空指针错误
 }
 func main() {
    var imp1 *Imp
+   fmt.Println(imp1 == nil) //true
    test(imp1)
 }
 ```
@@ -183,4 +186,46 @@ func TypeTest() {
 
 #### 类型断言
 
-类型断言是一个在接口值上的操作，结构类似于`x.(T)`。 
+类型断言是一个在接口值上的操作，结构类似于`x.(T)`。 分为两种情况
+
+**如果T是一个具体的类型**，那么类型断言就会检查x的动态类型是否就是这个具体类型。*必须完全一致，存在继承或被继承关系也不行*。
+
+**如果T是一个接口类型**， 那么类型断言会检查x的动态类型是不是满足了这个接口类型T。
+
+**总结**， 类型断言是一个接口值的表达式，从一个接口类型转变为拥有另一套方法的接口类型(*不可以直接认为是静态类型发生了改变*)，但是保留了接口值中的动态类型和动态值。
+
+一般来说，都是将拥有方法数量少的类型转化为数量多的类型，==但是反过来转化也是可行的。==
+
+```go
+type interface1 interface {
+   walk() int
+}
+type interface2 interface {
+   interface1
+   run() int
+}
+type Imp struct {}
+func (i Imp) walk() int { return 0 }
+func (i Imp) run() int { return 1 }
+func main() {
+   var inter2 interface2 = Imp{}
+   inter2.run()
+   inter1 := inter2.(interface1)  // 转化为interface1的接口类型
+    inter1.run()  //inteface1的接口类型化没有run()方法， 编译不通过
+}
+```
+
+##### 断言使用方式
+
+- switch语句中直接使用`type`关键字
+
+  ```go
+  switch imp2.(type){
+  case nil:
+     return
+  case interface1:
+     return
+  }
+  ```
+
+- 

@@ -1,0 +1,126 @@
+{
+  "main": {
+    "id": "f711a18fdcd59789",
+    "type": "split",
+    "children": [
+      {
+        "id": "88251e86f985f607",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2afbbca800a18c2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lan/Golang/goroutine和通道.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b15066e15ef2a843",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lan/Golang/goroutine和通道.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "12a63f81578ce207",
+    "type": "split",
+    "children": [
+      {
+        "id": "f5f133b393897b6f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "02ee25dff784f524",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f5f07c2905bbd39d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ba4d7acd620f8597",
+    "type": "split",
+    "children": [
+      {
+        "id": "401176775b36a712",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9317f6e00d04124f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "lan/Golang/goroutine和通道.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 160
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "b15066e15ef2a843",
+  "lastOpenFiles": [
+    "lan/Golang/Go的一些标准包/sync并发编程包.md",
+    "lan/Golang/goroutine和通道.md",
+    "lan/Golang/go中的接口与类的实践.md",
+    "lan/Golang/Go基础记录.md",
+    "lan/Golang/Go的一些标准包/reflect反射包.md",
+    "lan/Golang/go中的接口与实践.md",
+    "lan/工具/kubernetes/k8s安装文档.md",
+    "lan/工具/docker/docker.md",
+    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
+    "lan/数据库/mongodb/mongo基础.md"
+  ]
+}

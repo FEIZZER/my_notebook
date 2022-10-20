@@ -105,11 +105,7 @@ func ConcurrentRun(strToHandle []string, resChan chan<- string) {
 
 避免数据竞争的方式大致有三种思路：
 
-##### 避免对数据纪念性写操作
-
-##### 避免多个goroutine对数据的访问
-
-##### 避免多个goroutine同时对数据进行访问
-[sync并发编程包](sync并发编程包.md)
-
+- 避免对数据进行写操作
+- 避免多个goroutine对数据的访问
+- 避免多个goroutine同时对数据进行访问[sync并发编程包](sync并发编程包.md)
 

@@ -1,8 +1,21 @@
 ### 并发编程实践
 
-#### 使用带有goroutine数量限制并发
+#### 限制goroutine数量 限制并发
 
-
+```go
+var limitGoroutine = make(chan int, 3)
+func Go() {
+	for {
+		limitGoroutine <- 0
+		go func() {
+			time.Sleep(3 * time.Second)
+			fmt.Println("=====")
+			<- limitGoroutine
+		}()
+	}
+}
+//一次性会打印三行"======", 同一时间最多只有三个协程
+```
 
 #### goroutine并发编程踩坑记录
 
@@ -86,6 +99,26 @@ type Mutex struct {
 - **woken**        当前锁是否有goroutine被唤醒。 0没有goroutine被唤醒， 1有goroutine正在加锁过程中。
 
 - **locked**        当前锁是否被goroutine持有。 0未被持有， 1已被持有。
+
+#### sync.RWMutex读写互斥锁
+
+RWMutex一般都是基于互斥锁，条件变量（condition variables）或者信号量（semaphores）等并发原语来实现。**Go标准库中的RWMutex是基于Mutex实现的。**
+
+- **readers-writers**基于对读和写的优先级不同，设计和实现也分为三类：
+- **Read-preferring**：读优先的设计可以提供很高的并发性，但是，在竞争激烈的情况不可能导致写饥饿。这是因为，如果有大量的读，这种设计会导致只有所有的读都释放了锁之后，写才可能获取到锁。
+- **Writer-preferring**：写优先的设计意味着，如果已经有一个writer在等待请求锁的话，它会阻止新来的请求锁的reader获取到锁，所以优先保证writer。当然，如果有一些reader已经请求了锁的话，新请求的writer也会等待已经存在的reader都释放锁之后才能获取。写优先级设计中的优先权是针对新来的请求而言的。这种设计主要避免了writer的饥饿问题。
+
+*go中的RWMutex设计时基于 writer-preferring, 一个阻塞的Lock()调用会排除新的read请求， 优先请求到锁。*
+
+##### RwMutex提供的方法
+
+- Rlock():读锁定
+- RUnlock()：解除读锁定
+- Lock(): 写锁定，与Mutex完全一致
+- Unlock()：解除写锁定，与Mutex完全一致
+- Locker():   方便获取具体的锁对象。
+
+==RWMutex适合**多读少写**的数据访问情况， 对于普通的数据竞争由于RWMutex额外的记簿消耗性能可能反而会下降== 
 
 
 

@@ -3,11 +3,11 @@
 
 在计算机科学领域，反射是指能够自描述和自控制的应用。反射通过采用某种机制来实现对自己行为的描述（self-representation）和监测（examination），并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。
 
+reflect包中定义了两个非常重要的类型：`reflect.Type`和`reflect.Value`
+
 #### `reflect.Typeof()` 获取 类型对象  `reflect.Type`
 
-
-
-程序通过类型对象可以访问任意值的类型信息。==Typeof() 方法获取到的类型是变量值的**concrete type**== 
+程序通过类型对象可以访问任意值的类型信息。==Typeof() 方法获取到的类型是变量值的**concrete type**== 。换言之 `reflect.type`就是接口值的动态类型。
 
 ```go
 var a int = 1
@@ -34,6 +34,12 @@ fmt.Println(typeOfA.Name(), typeOfA.Kind())
 
 - Kind() Kind描述的变量的基础类型（不是静态类型）。函数返回的是定义在reflect包中的枚举类型,如下：
 
+  - **基本数据类型** 	bool， string，各种数字类型
+  - **聚合类型**             Array， Struct
+  - **引用类型**             Chan， Func， Ptr， Slice， Map
+  - **接口类型**             Interface
+  - **Invalid**               reflect.value的零值就属于invalid
+  
   ```go
   type Kind uint
   const (
@@ -66,8 +72,9 @@ fmt.Println(typeOfA.Name(), typeOfA.Kind())
      UnsafePointer
   )
   ```
-
+  
   ==Slice  Map   Chan,属于引用类型但是Kind仍然是独立种类。==
+  
 
 ##### 反射可以获取结构体中成员变量的类型信息
 
@@ -93,7 +100,7 @@ type StructField struct {
 }
 ```
 
-==通过Type属性可以访问到该成员变量的 类型对象==
+通过Type属性可以访问到该成员变量的 类型对象
 
 #### `reflect.Valueof()` 获取 `reflect.Value`对象
 
@@ -104,6 +111,12 @@ type StructField struct {
   其他方法也类似，且返回的值均是范围最大类型
 
 - Interface() interface {}  ；  将值以 interface{} 类型返回，可以通过类型断言转换为指定类型
+
+##### 使用反射对象`reflect.value`修改变量的值
+
+使用`reflect.Value`去设置对象的值的时候， 需要非常小心。这个过程非常日期导致程序崩溃。
+
+
 
 ##### 访问结构体中成员变量的值
 

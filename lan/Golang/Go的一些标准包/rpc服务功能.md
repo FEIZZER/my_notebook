@@ -61,11 +61,9 @@ func main() {
 
 默认是gob  ，暂时不做学习
 
-
-
 ##### http上rpc服务
 
-Go 语言内在的 RPC 框架已经支持在 Http 协议上提供 RPC 服务。但是http框架上的rpc服务编码依然是内置的gob编码，其他语言依然无法访问。[protobuf数据序列化](protobuf数据序列化.md)
+Go 语言内在的 RPC 框架已经支持在 Http 协议上提供 RPC 服务。但是http框架上的rpc服务编码依然是内置的gob编码，其他语言依然无法访问。[protobuf数据序列化](protobuf数据序列化.md)     [go的grpc的功能](go的grpc的功能.md)
 
 
 

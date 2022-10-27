@@ -195,13 +195,7 @@ func closure() func() int {
 
  不正确的偶然间的使用闭包往往会给程序带来难以调式的问题，在平时的编程中需要理解避免误用。
 
-
-
-### Go里面类型的理解
-
-go的变量值包括  \<type, value\> 两个部分。其中的`type`为`concrete type ` ， *区别与静态类型static type*。  static type静态类型就是编码时给变量定义的类型，而concrete type具体类型则是runtime系统看见的类型，所以也可以叫动态类型或运行时类型。
-
-在进行类型断言时，能否成功就是取决于**`concrete type`**。     对变量进行反射时，反射的类型也是**`concrete type`**
+![img](Go基础记录.assets/v2-87cb23a1113cd12383f5cc63d0aa5546_1440w.webp)
 
 
 

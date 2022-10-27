@@ -1,8 +1,8 @@
 ### Linux的shell配置文件
 
-<img src="全局和个人shell配置文件.assets/未命名文件 (4).png" alt="未命名文件 (4)" style="zoom:80%;" />**优先级:   ** 
+<img src="全局和个人shell配置文件.assets/未命名文件 (4).png" alt="未命名文件 (4)" style="zoom:80%;" />大致的**执行优先级:   ** 
 
-
+/etc/profile >>> /etc/profile.d/*sh >>> ~/.bash_profile >>> ~/.bashrc >>> /etc/basgrc
 
 ##### issue配置文件中转移字符的含义
 
@@ -36,7 +36,7 @@
 
 
 
-##### ~/.profile文件
+##### ~/.bash_profile文件
 
 
 

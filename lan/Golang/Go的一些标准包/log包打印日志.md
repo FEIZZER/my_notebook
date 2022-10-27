@@ -2,7 +2,7 @@
 
 ##### 三种打印级别
 
-Print系列(Print|Printf|Println),Fatal系(Fatal|Fatalf|Fatalln)和Panic系列(Panic|Panicf|Panicln)来使用
+Print系列(Print|Printf|Println),Fatal系(Fatal|Fatalf|Fatalln)和Panic系列(Panic|Panicf|Panicln)
 
 ```go
 log.Println("print")

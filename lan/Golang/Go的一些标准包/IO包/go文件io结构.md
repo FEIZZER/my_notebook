@@ -18,3 +18,6 @@ type Reader interface {
 }
 ```
 
+
+
+##### Writer接口

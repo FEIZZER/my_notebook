@@ -72,7 +72,7 @@
 ##### 读文件
 
 - `func (file *File) Read(b []byte) (n int, err Error)`
-  - 读取数据到b中
+  - 读取数据到b中,一次读取len(b)个字节。需要循环读取获取所有数据。==读出来的内容开头有一个EOF==
 - `func (file *File) ReadAt(b []byte, off int64) (n int, err Error)`
   - 从off开始读取数据到b中
 - `func Remove(name string) Error`

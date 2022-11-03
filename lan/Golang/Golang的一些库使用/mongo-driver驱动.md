@@ -86,8 +86,6 @@ client.Database("database_name").collection("collection_name")
   type A []interface{}
   ```
 
-
-
 #### CURD操作
 [[mongo-driver驱动#opt参数使用详解]]
 

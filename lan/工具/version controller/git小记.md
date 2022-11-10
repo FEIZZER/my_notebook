@@ -237,7 +237,7 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 #### 不小心提交一个铭敏感文件，并push到远程了 如何处理
 
-*git filter-branch 不推荐很复杂，我也不会*
+*git filter-branch 不推荐使用 很复杂，我也不会*
 
 ##### 使用 git-filter-repo 脚本
 

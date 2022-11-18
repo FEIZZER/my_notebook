@@ -114,7 +114,7 @@ type StructField struct {
 
 ##### 使用反射对象`reflect.value`修改变量的值
 
-使用`reflect.Value`去设置对象的值的时候， 需要非常小心。这个过程非常日期导致程序崩溃。
+使用`reflect.Value`去设置对象的值的时候， 需要非常小心。这个过程非常容易导致程序崩溃。
 
 
 

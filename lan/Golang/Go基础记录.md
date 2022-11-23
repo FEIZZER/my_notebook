@@ -100,6 +100,10 @@ fmt.Printf("pointer= %p, cap= %d", &new_a1, cap(new_a1))
 
 
 
+##### map类型
+
+
+
 #### Golang的接口和类
 
 ==首先golang中， 类和接口赋值时是值传递， 似乎只有**切片和map**是引用传递的==

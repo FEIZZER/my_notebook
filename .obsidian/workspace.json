@@ -54,9 +54,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "c3439a5df856f677",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lan/Golang/面向并发的内存模型.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -114,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/Golang/Go的一些标准包/rpc服务功能.md",
+                "file": "lan/Golang/面向并发的内存模型.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,11 +143,10 @@
     "direction": "horizontal",
     "width": 160
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "a64dd1933578f4ab",
+  "active": "c3439a5df856f677",
   "lastOpenFiles": [
+    "lan/Golang/Golang的项目管理.md",
+    "lan/Golang/Go的一些标准包/time时间处理.md",
     "lan/Golang/Go的一些标准包/go的grpc的功能.md",
     "lan/Golang/Go的一些标准包/rpc服务功能.md",
     "lan/Golang/Go基础记录.md",
@@ -143,8 +154,6 @@
     "lan/Golang/goroutine和通道.md",
     "lan/Golang/Go的一些标准包/sync并发编程包.md",
     "lan/Golang/go中的接口与类的实践.md",
-    "lan/Golang/Go的一些标准包/reflect反射包.md",
-    "lan/Golang/go中的接口与实践.md",
-    "lan/工具/kubernetes/k8s安装文档.md"
+    "lan/Golang/Go的一些标准包/reflect反射包.md"
   ]
 }

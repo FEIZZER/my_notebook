@@ -1,3 +1,5 @@
+go  `interface{}`  转换 `[]interface{}`
+
 ###  Go的包导入
 
 [(2条消息) 彻底搞懂golang的GOROOT和GOPATH_知更鸟女孩的博客-CSDN博客_goroot和gopath](https://blog.csdn.net/qq_38151401/article/details/105729884) 

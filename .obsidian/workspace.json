@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/Golang/面向并发的内存模型.md",
+                "file": "lan/Golang/go runtime详解.md",
                 "mode": "source",
                 "source": false
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/Golang/面向并发的内存模型.md",
+                "file": "lan/Golang/go runtime详解.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",

@@ -116,8 +116,6 @@ type StructField struct {
 
 使用`reflect.Value`去设置对象的值的时候， 需要非常小心。这个过程非常容易导致程序崩溃。
 
-
-
 ##### 访问结构体中成员变量的值
 
 - Field(i int) Value  ； 根据索引，返回索引对应的结构体成员字段的反射值对象。当值不是结构体或索引超界时发生宕机
@@ -128,6 +126,8 @@ type StructField struct {
 
 
 
-#### Go语言中的类型
+#### 常用方法
 
-go是静态类型语言，**go中的任意变量在编译时都会确定一个静态类型，运行时不可变。**
+- `reflect.indirect()` 
+- `reflect.New()` 
+

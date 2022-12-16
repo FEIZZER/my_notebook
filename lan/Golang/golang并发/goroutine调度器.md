@@ -1,6 +1,6 @@
 [思否文章](https://segmentfault.com/a/1190000041938854?utm_source=sf-similar-article)
 
-[z知乎文章](https://zhuanlan.zhihu.com/p/111370792)
+[知乎文章](https://zhuanlan.zhihu.com/p/111370792)
 
 调度是操作系统的核心功能了，从计算机诞生以来，任务的调度就一直在不断改进与发展，以不断适应计算机的发展. 单任务、多任务、并发、并行等调度. 到如今云计算时代分布式调度也十分成熟
 

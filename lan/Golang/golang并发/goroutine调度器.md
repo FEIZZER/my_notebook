@@ -53,5 +53,87 @@
 
 ### GMP源码部分
 
+GMP的源码可以从一下三个文件入手：
 
+- **runtime/amd_64.s**        涉及到进程启动以及对CPU执行指令进行控制的汇编代码，进程的初始化部分也在这里面
+- **runtime/runtime2.go**  这里主要是运行时中一些重要数据结构的定义，比如g、m、p以及涉及到接口、defer、panic、map、slice等核心类型
+- **runtime/proc.go**            一些核心方法的实现，涉及gmp调度等核心代码在这里
+
+#### G的源码实现分析
+
+g  m p的源码均在 `/runtime/runtime2.go`文件中
+
+##### G的源码结构
+
+```go
+type g struct {
+	// Stack parameters.
+	// stack describes the actual stack memory: [stack.lo, stack.hi).
+	// stackguard0 is the stack pointer compared in the Go stack growth prologue.
+	// It is stack.lo+StackGuard normally, but can be StackPreempt to trigger a preemption.
+	// stackguard1 is the stack pointer compared in the C stack growth prologue.
+	// It is stack.lo+StackGuard on g0 and gsignal stacks.
+	// It is ~0 on other goroutine stacks, to trigger a call to morestackc (and crash).
+	stack       stack   // offset known to runtime/cgo
+	stackguard0 uintptr // offset known to liblink
+	stackguard1 uintptr // offset known to liblink
+
+	_panic         *_panic // innermost panic - offset known to liblink
+	_defer         *_defer // innermost defer
+	m              *m      // current m; offset known to arm liblink
+	sched          gobuf
+	syscallsp      uintptr        // if status==Gsyscall, syscallsp = sched.sp to use during gc
+	syscallpc      uintptr        // if status==Gsyscall, syscallpc = sched.pc to use during gc
+	stktopsp       uintptr        // expected sp at top of stack, to check in traceback
+	param          unsafe.Pointer // passed parameter on wakeup
+	atomicstatus   uint32
+	stackLock      uint32 // sigprof/scang lock; TODO: fold in to atomicstatus
+	goid           int64
+	schedlink      guintptr
+	waitsince      int64      // approx time when the g become blocked
+	waitreason     waitReason // if status==Gwaiting
+	preempt        bool       // preemption signal, duplicates stackguard0 = stackpreempt
+	paniconfault   bool       // panic (instead of crash) on unexpected fault address
+	preemptscan    bool       // preempted g does scan for gc
+	gcscandone     bool       // g has scanned stack; protected by _Gscan bit in status
+	gcscanvalid    bool       // false at start of gc cycle, true if G has not run since last scan; TODO: remove?
+	throwsplit     bool       // must not split stack
+	raceignore     int8       // ignore race detection events
+	sysblocktraced bool       // StartTrace has emitted EvGoInSyscall about this goroutine
+	sysexitticks   int64      // cputicks when syscall has returned (for tracing)
+	traceseq       uint64     // trace event sequencer
+	tracelastp     puintptr   // last P emitted an event for this goroutine
+	lockedm        muintptr
+	sig            uint32
+	writebuf       []byte
+	sigcode0       uintptr
+	sigcode1       uintptr
+	sigpc          uintptr
+	gopc           uintptr         // pc of go statement that created this goroutine
+	ancestors      *[]ancestorInfo // ancestor information goroutine(s) that created this goroutine (only used if debug.tracebackancestors)
+	startpc        uintptr         // pc of goroutine function
+	racectx        uintptr
+	waiting        *sudog         // sudog structures this g is waiting on (that have a valid elem ptr); in lock order
+	cgoCtxt        []uintptr      // cgo traceback context
+	labels         unsafe.Pointer // profiler labels
+	timer          *timer         // cached timer for time.Sleep
+	selectDone     uint32         // are we participating in a select and did someone win the race?
+
+	// Per-G GC state
+
+	// gcAssistBytes is this G's GC assist credit in terms of
+	// bytes allocated. If this is positive, then the G has credit
+	// to allocate gcAssistBytes bytes without assisting. If this
+	// is negative, then the G must correct this by performing
+	// scan work. We track this in bytes to make it fast to update
+	// and check for debt in the malloc hot path. The assist ratio
+	// determines how this corresponds to scan work debt.
+	gcAssistBytes int64
+}
+```
+
+这个结构体中比较重要几个字段：
+
+- **stack**   是协程栈的地址信息，需要注意的是m0绑定的g0是在进程被分配的系统栈上分配协程栈的，而其他协程栈都是在堆上进行分配的。
+- **gobuf**  保存了协程执行的上下文信息，这里也可以看到协程切换的上下文信息极少；sp代表cpu的rsp寄存器的值，pc代表CPU的rip寄存器值、bp代表CPU的rbp寄存器值；ret用来保存系统调用的返回值，ctxt在gc的时候使用。 关于gobuf结构体的理解。
 

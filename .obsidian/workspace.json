@@ -61,8 +61,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/Golang/Golang性能/数据结构对性能的影响.md",
-                "mode": "source",
+                "file": "lan/linux/linux进程概念与操作.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -126,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/Golang/Golang性能/数据结构对性能的影响.md",
+                "file": "lan/linux/linux进程概念与操作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,17 +143,25 @@
     "direction": "horizontal",
     "width": 160
   },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false
+    }
+  },
   "active": "c3439a5df856f677",
   "lastOpenFiles": [
-    "lan/Golang/Go基础记录.md",
+    "lan/前端Vue/vue框架.md",
+    "Untitled 1.canvas",
     "lan/Golang/Golang性能/数据结构对性能的影响.md",
+    "Untitled.canvas",
+    "lan/Golang/Go基础记录.md",
     "lan/Golang/go runtime详解.md",
     "lan/Golang/Golang的项目管理.md",
     "lan/Golang/Go的一些标准包/time时间处理.md",
     "lan/Golang/Go的一些标准包/go的grpc的功能.md",
-    "lan/Golang/Go的一些标准包/rpc服务功能.md",
-    "网络基本功/rpc远程调用技术.md",
-    "lan/Golang/goroutine和通道.md",
-    "lan/Golang/Go的一些标准包/sync并发编程包.md"
+    "lan/Golang/Go的一些标准包/rpc服务功能.md"
   ]
 }

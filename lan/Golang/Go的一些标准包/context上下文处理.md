@@ -73,5 +73,25 @@ func TODO() Context {
 
 
 
+#### Context源码大纲
+
+Context接口一共实现了四个方法
+
+```go
+type Context interface {
+	Deadline() (deadline time.Time, ok bool)
+	Done() <-chan struct{}
+	Err() error
+	Value(key interface{}) interface{}
+}
+```
+
+- Deadline()
+- Done()
+- Err()
+- Value() 
+
+
+
 
 

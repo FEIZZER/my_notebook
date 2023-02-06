@@ -232,3 +232,74 @@ func main() {
 
 #### interface在内部的定义实现
 
+接口在golang内部的实现有两种：
+
+- 其中 `runtime.iface` 结构体表示包含方法的接口
+
+  ```go
+  type iface struct { // 16 字节
+   tab  *itab
+   data unsafe.Pointer
+  }
+  ```
+
+- 其中`runtime.eface`结构体表示不含方法的接口 （空接口）
+
+  ```go
+  type eface struct { // 16 字节
+   _type *_type
+   data  unsafe.Pointer
+  }
+  ```
+
+  
+
+##### eface类型
+
+eface类型中包含的 `runtime._type`类型， Go 语言类型的运行时表示。下面是运行时包中的结构体，其中包含了很多类型的元信息，例如：类型的大小、哈希、对齐以及种类等。 结构体定义如下：
+
+```go
+type _type struct {
+	size       uintptr
+	ptrdata    uintptr // size of memory prefix holding all pointers
+	hash       uint32
+	tflag      tflag
+	align      uint8
+	fieldalign uint8
+	kind       uint8
+	alg        *typeAlg
+	// gcdata stores the GC type data for the garbage collector.
+	// If the KindGCProg bit is set in kind, gcdata is a GC program.
+	// Otherwise it is a ptrmask bitmap. See mbitmap.go for details.
+	gcdata    *byte
+	str       nameOff
+	ptrToThis typeOff
+}
+```
+
+- size字段 存储了类型占用的内存空间
+- 
+
+##### iface类型
+
+这里我们主要关注 `itab`类型， 每个itab类型都占32字节， 该类型可以看成是 **接口类型和具体类型**的组合， 分别用 `_type`类型和`interfacetype`类型来表示。另外`hash`是对`_type.hash`的拷贝，当我们想将 `interface` 类型转换成具体类型时，可以使用该字段快速判断目标类型和具体类型 `runtime._type`是否一致，`fun`是一个动态大小的数组，它是一个用于动态派发的虚函数表，存储了一组函数指针。虽然该变量被声明成大小固定的数组，但是在使用时会通过原始指针获取其中的数据，所以 `fun` 数组中保存的元素数量是不确定的；
+
+```go
+type itab struct { // 32 字节
+ inter *interfacetype
+ _type *_type
+ hash  uint32
+ _     [4]byte
+ fun   [1]uintptr
+}
+```
+
+### 关于接口和结构的使用技巧
+
+#### 空接口和空结构体
+
+-  本质上空接口是一个可以指向任意值的指针类型。 所以一个空接口的**实际大小是2个机器字长**，一个是其指向的值的地址， 一个是自身的methods信息
+
+- 空结构体的宽度就是0字节， 占用了0字节的内存空间。
+
+  因此在golang中推荐使用 **`map[string]struct{}`** 类型来代替表示set结构

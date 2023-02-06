@@ -67,8 +67,6 @@ button.ToolIcon_type_button[title="Export"] {
   flex-grow: 1;
 }
 
-<<<<<<< HEAD
-=======
 .excalidraw-prompt-button {
   width: 9em;
 }
@@ -80,7 +78,6 @@ button.ToolIcon_type_button[title="Export"] {
   justify-content: space-evenly;
 }
 
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
 li[data-testid] {
   border: 0 !important;
   margin: 0 !important;
@@ -198,11 +195,7 @@ li[data-testid] {
 
 .excalidraw-release .modal {
   max-height: 80%;
-<<<<<<< HEAD
-  max-width: 100ch;
-=======
   max-width: 42em;
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
 }
 
 .excalidraw .Island .scrollbar {
@@ -294,11 +287,7 @@ textarea.excalidraw-wysiwyg {
 }
 
 label.color-input-container > input {
-<<<<<<< HEAD
-  max-width: 8rem;
-=======
-  max-width: 7rem;
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
+  max-width: 5rem;
 }
 
 .excalidraw .FixedSideContainer_side_top {
@@ -310,8 +299,6 @@ label.color-input-container > input {
 
 .excalidraw-hidden {
   display: none !important;
-<<<<<<< HEAD
-=======
 }
 
 .excalidraw .panelColumn .buttonList {
@@ -320,5 +307,18 @@ label.color-input-container > input {
 
 .excalidraw button {
   width: initial;
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
+}
+
+.excalidraw input[type="color"] {
+  width: 1.65rem;
+  height: 1.65rem;
+}
+
+.excalidraw input[type="color"]::-webkit-color-swatch {
+    height: 1.65rem;
+}
+
+
+.excalidraw input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
 }

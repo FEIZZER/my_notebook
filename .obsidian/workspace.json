@@ -4,67 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "24210d06e99d7dac",
+        "id": "c2356a33131cc664",
         "type": "tabs",
         "children": [
           {
-            "id": "0657b4b62c569e4a",
+            "id": "2afbbca800a18c2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lan/Golang/Go基础记录.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4d6cda1ff33cb683",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
               "state": {
-<<<<<<< HEAD
-                "file": "Excalidraw/Drawing 2023-01-15 18.23.17.excalidraw.md"
-              }
-            }
-          }
-        ]
-=======
-                "file": "lan/Golang/goroutine和通道.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "b15066e15ef2a843",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lan/Golang/Go的一些标准包/rpc服务功能.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "35dca1800ef96e30",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lan/Golang/Go的一些标准包/rpc服务功能.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a64dd1933578f4ab",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lan/Golang/Go的一些标准包/rpc服务功能.md",
-                "mode": "source",
-                "source": false
+                "file": "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md"
               }
             }
           }
         ],
-        "currentTab": 3
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -106,7 +72,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 300
   },
   "right": {
     "id": "ba4d7acd620f8597",
@@ -122,11 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-<<<<<<< HEAD
-                "file": "Excalidraw/Drawing 2023-01-15 18.23.17.excalidraw.md",
-=======
-                "file": "lan/Golang/Go的一些标准包/rpc服务功能.md",
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
+                "file": "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,41 +109,22 @@
     "hiddenItems": {
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
-<<<<<<< HEAD
       "canvas:Create new canvas": false,
       "command-palette:打开命令面板": false,
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "0657b4b62c569e4a",
+  "active": "4d6cda1ff33cb683",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2023-01-15 18.20.38.excalidraw.md",
-    "Excalidraw/Drawing 2023-01-15 18.19.26.excalidraw.md",
-    "Excalidraw/Drawing 2023-01-15 18.18.04.excalidraw.md",
-    "Pasted image 20220330162935.png",
-    "Excalidraw/Drawing 2023-01-15 18.17.14.excalidraw.md",
-    "Excalidraw/Drawing 2023-01-15 18.11.49.excalidraw.md",
-    "Excalidraw/Drawing 2023-01-15 18.10.52.excalidraw.md",
-    "lan/Golang/goroutine和通道.md",
-    "Excalidraw/Drawing 2023-01-15 18.07.07.excalidraw.md",
-    "lan/Golang/Go的一些标准包/rpc服务功能.md"
-=======
-      "command-palette:打开命令面板": false,
-      "canvas:Create new canvas": false
-    }
-  },
-  "active": "a64dd1933578f4ab",
-  "lastOpenFiles": [
-    "未命名 1.canvas",
-    "未命名.canvas",
-    "lan/linux/linux进程概念与操作.md",
-    "lan/前端Vue/vue框架.md",
-    "Untitled 1.canvas",
-    "lan/Golang/Golang性能/数据结构对性能的影响.md",
-    "Untitled.canvas",
+    "lan/Golang/Go的一些标准包/unsafe包的常见使用.md",
+    "lan/Golang/Go的一些标准包/异常处理.md",
     "lan/Golang/Go基础记录.md",
-    "lan/Golang/go runtime详解.md",
-    "lan/Golang/Golang的项目管理.md"
->>>>>>> 1f029e6b2edc9edc0cdd45efd99de950c258c716
+    "lan/Golang/go中的接口与类的实践.md",
+    "lan/Golang/Go的一些标准包/reflect反射包.md",
+    "lan/Golang/go中的接口与实践.md",
+    "lan/工具/kubernetes/k8s安装文档.md",
+    "lan/工具/docker/docker.md",
+    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
+    "lan/数据库/mongodb/mongo基础.md"
   ]
 }

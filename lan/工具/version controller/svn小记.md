@@ -90,9 +90,16 @@
 2. 对这个bug-id生成一个 codereview。  codereview的命令 `autoreview-cops -n [bug-id] -f [filepath]`, *其中filepath可以用逗号隔开， 不要加空格*
 3. code-review通过后， 可以使用这个bug-id和 review-id 提交代码
 4. 执行`svn ci`
+5. 提交完代码后， `svn log` 可能会又延迟
 
 ##### 查看代码规模
 
 `svn diff -r 4418:4419 | grep + |wc -l`
+
+
+
+##### 只提交部分代码
+
+`svn ci [path] [path]`   文件路径之间用空格隔开。
 
 #### 学习一下在linux同时使用git和svn管理一个项目

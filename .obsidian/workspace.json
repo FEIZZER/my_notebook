@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "c2356a33131cc664",
+        "id": "5374922095e21f13",
         "type": "tabs",
         "children": [
           {
-            "id": "4ced98c4b9185fd5",
+            "id": "2ecd198e4d2c2dbf",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,8 +103,10 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "4ced98c4b9185fd5",
+  "active": "2ecd198e4d2c2dbf",
   "lastOpenFiles": [
+    "lan/数据库/mongodb/mongo聚合操作.md",
+    "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",
     "lan/Golang/Go基础记录.md",
     "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md",
     "lan/Golang/Go的一些标准包/unsafe包的常见使用.md",
@@ -107,8 +114,6 @@
     "lan/Golang/go中的接口与类的实践.md",
     "lan/Golang/Go的一些标准包/reflect反射包.md",
     "lan/Golang/go中的接口与实践.md",
-    "lan/工具/kubernetes/k8s安装文档.md",
-    "lan/工具/docker/docker.md",
-    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md"
+    "lan/工具/kubernetes/k8s安装文档.md"
   ]
 }

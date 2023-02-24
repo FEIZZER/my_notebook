@@ -121,6 +121,8 @@ mongodb用户管理较为复杂，这里先不做深入了解了
 
 #### **聚合操作**
 
+[aggreate聚合操作符](https://www.mongodb.com/docs/v4.4/reference/operator/aggregation-pipeline/)
+
 ##### 聚合管道
 
 - \$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。

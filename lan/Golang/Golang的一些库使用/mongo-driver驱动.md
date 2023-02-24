@@ -114,9 +114,7 @@ fmt.Println(res)
 
 
 
-
-
-##### 插入数据
+##### 插入数据kubec
 
 ###### collection.insertOne
 

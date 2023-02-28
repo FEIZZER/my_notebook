@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
+                "file": "lan/linux/linux使用iptables配置防火墙.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
+                "file": "lan/linux/linux使用iptables配置防火墙.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +105,7 @@
   },
   "active": "2ecd198e4d2c2dbf",
   "lastOpenFiles": [
+    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
     "lan/数据库/mongodb/mongo聚合操作.md",
     "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",
     "lan/Golang/Go基础记录.md",
@@ -113,7 +114,6 @@
     "lan/Golang/Go的一些标准包/异常处理.md",
     "lan/Golang/go中的接口与类的实践.md",
     "lan/Golang/Go的一些标准包/reflect反射包.md",
-    "lan/Golang/go中的接口与实践.md",
-    "lan/工具/kubernetes/k8s安装文档.md"
+    "lan/Golang/go中的接口与实践.md"
   ]
 }

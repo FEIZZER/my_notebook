@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "5374922095e21f13",
+        "id": "e9bd6bc01d2e2220",
         "type": "tabs",
         "children": [
           {
-            "id": "2ecd198e4d2c2dbf",
+            "id": "c7e1b5c6bd30e690",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/linux/linux使用iptables配置防火墙.md",
+                "file": "lan/linux/linux使用firewalld配置防火墙.md",
                 "mode": "source",
                 "source": false
               }
@@ -38,7 +38,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "byModifiedTime"
               }
             }
           },
@@ -61,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "ba4d7acd620f8597",
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/linux/linux使用iptables配置防火墙.md",
+                "file": "lan/linux/linux使用firewalld配置防火墙.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -96,20 +96,27 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "canvas:新建白板": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
-      "canvas:Create new canvas": false,
       "command-palette:打开命令面板": false,
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "2ecd198e4d2c2dbf",
+  "active": "c7e1b5c6bd30e690",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.png",
+    "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.md",
+    "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",
+    "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md",
+    "Excalidraw/Drawing 2023-01-15 15.45.12.excalidraw.md",
+    "未命名 1.canvas",
+    "未命名.canvas",
+    "Untitled.canvas",
+    "lan/linux/linux使用iptables配置防火墙.md",
     "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
     "lan/数据库/mongodb/mongo聚合操作.md",
-    "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",
     "lan/Golang/Go基础记录.md",
-    "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md",
     "lan/Golang/Go的一些标准包/unsafe包的常见使用.md",
     "lan/Golang/Go的一些标准包/异常处理.md",
     "lan/Golang/go中的接口与类的实践.md",

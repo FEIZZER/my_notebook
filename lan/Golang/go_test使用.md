@@ -51,32 +51,68 @@ func Test_Test(t *testing.T) {
 
 - **flags for test binary**  常见的
 
-  
+
+
+#### 性能测试函数 BenchmarkXXX()
+
+###### 基准测试基本使用
+
+```go
+package sliceTest
+import (
+	"fmt"
+	"testing"
+)
+func BenchmarkExample(b *testing.B) {
+	//do something...
+	for i := 0; i < 100; i++ {
+		fmt.Println("love")
+	}
+}
+```
+
+随后使用如下命令开启**基准测试**， `go test  -v  -bench=.  [filePath]`
+
+![image-20230303110550696](go_test使用.assets/image-20230303110550696.png) 
+
+##### 参数和falg的使用
+
+-  上述图片中没有添加 *filePath*参数， 程序会找到目录下的所有 xxx_test.go中的 基准测试的函数运行。
+
+- **-bench**  要运行基准测试， -bench是必须的， 用来指定运行哪些基准测试的函数， 接受使用正则表达式过滤。
+
+  -  -bench=.    表示运行所有
+  - -bench=Example$  表示运行所有以Example基准测试函数
+
+- **-benchmem**  添加该falg 来打印程序的内存使用情况。 `go test  -v  -bench=. -benchmem` 
+
+  ![image-20230303133015075](go_test使用.assets/image-20230303133015075.png) 
+
+- **-cpu** 会影响到测试程序中的 `GOMAXPROCS`
+
+- **-benchtime**  用来指定完成基准测试的时间和次数
+
+  - 时间默认为1s。 `go test  -v  -bench=.   -benchtime=10s`指定完成一个基准测试函数的时间为10s
+  - 还可以用来指定入参`b testing.B`中的`b.N` 的值 。 `go test  -v  -bench=.   -benchtime=999x` 指定`b.N`为999
+
+- **-count** count方式也是控制执行次数。 不过是指定 BenchmarkXXX函数的执行次数。
+
+##### 并发测试的场景
+
+如果被测试的方法在真实的环境中存在并发调用， 那么在基准测试中也应该使用并行测试来了解其基本性能。
+
+```go
+package testTest
+import "testing"
+func BenchmarkParalle(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			//do something...
+		}
+	})
+}
+```
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- 踩踩踩
+ 

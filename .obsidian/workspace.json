@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "af603110e69f6ca0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lan/linux/linux内核/linux内核组成.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -77,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/linux/linux使用firewalld配置防火墙.md",
+                "file": "lan/linux/linux内核/linux内核组成.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,8 +116,18 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "c7e1b5c6bd30e690",
+  "active": "af603110e69f6ca0",
   "lastOpenFiles": [
+    "lan/linux/linux内核/linux操作系统的分段机制.md",
+    "base/计算机操作系统/cpu寄存器介绍.md",
+    "base/计算机操作系统/Untitled.md",
+    "lan/linux/linux内核/linux操作系统的分段分页机制.md",
+    "lan/linux/linux内核/linux操作系统的分页机制.md",
+    "lan/linux/linux内核/linux操作系统的分页.md",
+    "lan/linux/linux内核/Untitled 1.md",
+    "lan/linux/linux内核/linux内核组成.assets/v2-6c70faca9dfa104ed7ab8f7948334919_720w.webp",
+    "lan/linux/linux内核/linux内核组成.assets/v2-6c70faca9dfa104ed7ab8f7948334919_720w-1679985165425-6.webp",
+    "lan/linux/linux内核/linux内核组成.assets",
     "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.png",
     "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.md",
     "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",

@@ -25,8 +25,21 @@ zone是firewall预设的几类防火墙策略模板， 一个有九类。其配�
 |  block   |      任何流入的数据包阻断，会做响应。但是允许数据包流出      |
 |   drop   | 任何流入的网络数据包都将被丢弃， 且不做回应， 提高效率。但是允许数据包流出 |
 
-![image-20230228173551642](linux使用firewalld配置防火墙.assets/image-20230228173551642.png)
+#### firewalld命令行 `firewall-cmd`
 
+##### 查看预定义信息
 
+- `firewall-cmd --get-zones`  	 查看firewall中可用的zone
+- `firewall-cmd --getservices`   查看firewall中可用的服务定义
+- `firewall-cmd --get-icmptypes ` 查看防火墙可用的icmp阻塞类型
 
- 
+#####  全局阻断
+
+- `firewall-cmd --panic-on`		 拒绝所有的报
+- `firewall-cmd --panic-off`       取消拒绝所有的报
+- `firewall-cmd --query-panic`   查看当前是否开启全局阻断
+
+##### 区域管理
+
+`firewall-cmd --get-default-zone`  查看网络连接或者接口的默认区域
+

@@ -111,11 +111,10 @@ systemctl enable docker
 
 - `docker  attach <container_id>`  进入正在运行的容器。直接使用exit退出，会导致容器的挂关闭
   -  ctrl + p + q 退出该容器而不关闭容器  
-
 - `docker exec -it <container_id> /bin/bash`    进入正在运行的日期，可以直接使用exit退出，容器进程不会关闭。
 - `docker cp <container_id>: /bin/tmp  /bin/tmp`    将容器的文件复制到宿主机
-
-
+- `docker ps -f status=exited` 查看指定状态的容器
+  - `docker ps -qf status=exited | xargs docker rm` 删除所有已经退出的容器	
 
 - `docker export <container_id>  test.tar`  将一个容器的导出为 *.tar文件
 - cat test.tar | docker import  -  镜像用户名/镜像名:tag     将一个tar包导入为镜像

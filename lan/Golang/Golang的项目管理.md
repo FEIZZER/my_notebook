@@ -36,6 +36,8 @@ golang最初推出的时候并没有这样的包管理方式，而是采用GOPAT
 
 go1.16开始默认的模块管理方式就改为了go modules.  go modules一经推出，就饱受诟病。最大的问题是如果go.mod文件中使用了绝对路径指定了模块路径，如果在git push时将每个模块的go.mod文件都上传到了服务器，那么在git pull到其他机器，由于路径可能不一样，如果进行git push操作的是macOS或Linux，而进行git pull操作的是Windows，那路径肯定是不一样的。所以每一次git pull时，都要修改模块的路径，尤其是当模块很多时，简直是一场噩梦。当然，你可以选择不上传go.mod文件，但go modules机制要求每一个模块的根目录必须有一个go.mod文件，所以即使不上传go.mod文件，你仍然需要为每一个模块创建新的go.mod文件。
 
+[Go Modules Reference - The Go Programming Language](https://go.dev/ref/mod#go-get)
 
+[(26条消息) 史上最全的Go语言模块（Module）管理详解（基于Go1.19）_go module_蒙娜丽宁的博客-CSDN博客](https://blog.csdn.net/nokiaguy/article/details/126827058)
 
 #### 工作区概念

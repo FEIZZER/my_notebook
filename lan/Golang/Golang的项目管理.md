@@ -36,7 +36,54 @@ golang最初推出的时候并没有这样的包管理方式，而是采用GOPAT
 
 go1.16开始默认的模块管理方式就改为了go modules.  go modules一经推出，就饱受诟病。最大的问题是如果go.mod文件中使用了绝对路径指定了模块路径，如果在git push时将每个模块的go.mod文件都上传到了服务器，那么在git pull到其他机器，由于路径可能不一样，如果进行git push操作的是macOS或Linux，而进行git pull操作的是Windows，那路径肯定是不一样的。所以每一次git pull时，都要修改模块的路径，尤其是当模块很多时，简直是一场噩梦。当然，你可以选择不上传go.mod文件，但go modules机制要求每一个模块的根目录必须有一个go.mod文件，所以即使不上传go.mod文件，你仍然需要为每一个模块创建新的go.mod文件。
 
-[Go Modules Reference - The Go Programming Language](https://go.dev/ref/mod#go-get)
+##### go module模式使用
+
+**1.  go版本v1.11及以上**
+
+**2. GO111MODULE**
+
+GO111MODULE由三个值  on auto 和 off
+
+- GO111MODULE=off      go命令行将不会支持module功能，寻找依赖包的方式将会沿用旧版本那种通过vendor目录或者GOPATH模式来查找。通过`go get`命令下载的包都会在`$gopath/src/`目录下面
+
+- GO111MODULE=on      go命令行会支持go module的管理方式， 不论在哪里执行`go get` 都会将包下载到 `$gopath/pkg/mod/`，目录下。
+- GO111MODULE=auto  go命令行会视情况决定从哪导入包， 
+  - 当前目录包含合法的go.mod文件
+  - 当前目录在包含go.mod目录的子目录下
+
+**3. gotoolchain工具使用**
+
+- `go get `
+
+
+
+**4. goland注意添加配置go module生效**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [(26条消息) 史上最全的Go语言模块（Module）管理详解（基于Go1.19）_go module_蒙娜丽宁的博客-CSDN博客](https://blog.csdn.net/nokiaguy/article/details/126827058)
 

@@ -54,37 +54,81 @@ GO111MODULE由三个值  on auto 和 off
 **3. gotoolchain工具使用**
 
 - `go get `
-
-
+- 
 
 **4. goland注意添加配置go module生效**
 
+**5. go.mod文件格式**
+
+go.mod文件有四个关键字：
+
+- `module`     指定的包的名字(路径)
+
+- `require`   指定包的依赖项
+
+- `replace`   替换项目中的依赖项模块
+
+  出现在`go get`无法正常下载到包的情况。 因为**网络原因** 或者 **这个包无法直接放入$gopath/pkg/mod/ 目录下**， 可以使用这个关键字 修改项目对某一个包的依赖路径。
+
+- `exclude`   忽略依赖项模块
+
+  排除指定的包 （不想引用的包可能由重大bug或者有冲突等）。 go的包引用还会由很多被动引入， exlude可以用来避免这种被动引入某一个包的情况。
+
+```
+module moduleTest
+
+go 1.19
+
+require (
+	github.com/Bhinneka/golib v1.0.7
+	gopkg.in/rethinkdb/rethinkdb-go.v5 v5.1.0
+	github.com/feizzer/moduleA v0.0.1
+)
+
+replace github.com/feizzer/moduleA => ../moduleA
+
+require (
+	github.com/bitly/go-hostpool v0.1.0 // indirect
+	github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869 // indirect
+	github.com/cenkalti/backoff v2.0.0+incompatible // indirect
+	github.com/go-redis/redis v6.15.7+incompatible // indirect
+	github.com/golang/protobuf v1.2.0 // indirect
+	github.com/google/jsonapi v0.0.0-20200226002910-c8283f632fb7 // indirect
+	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
+	github.com/jinzhu/gorm v1.9.12 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
+	github.com/kr/pretty v0.1.0 // indirect
+	github.com/kr/text v0.1.0 // indirect
+	github.com/opentracing/opentracing-go v1.1.0 // indirect
+	github.com/sirupsen/logrus v1.4.2 // indirect
+	golang.org/x/crypto v0.0.0-20200320181102-891825fb96df // indirect
+	golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3 // indirect
+	golang.org/x/sync v0.1.0 // indirect
+	golang.org/x/sys v0.0.0-20200321134203-328b4cd54aae // indirect
+	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
+	gopkg.in/fatih/pool.v2 v2.0.0 // indirect
+)
+```
+
+#### go vendor模式
+
+##### 问题
+
+IDE工具goland中一个项目中有 vendor ， goland就会自动使用vendor模式查找依赖， 不再兼容使用 `go module项目管理`
+
+##### 下载安装govendor工具
+
+`go get -u  github.com/kardianos/govendor`
+
+`go install github.com/kardianos/govendor`
 
 
 
+#### go work工作区模式
 
+使用工作区管理Go模块必须使用Go1.18或以上版本，
 
+==暂时不做学习 使用==
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[(26条消息) 史上最全的Go语言模块（Module）管理详解（基于Go1.19）_go module_蒙娜丽宁的博客-CSDN博客](https://blog.csdn.net/nokiaguy/article/details/126827058)
-
-#### 工作区概念
+#### 

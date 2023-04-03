@@ -37,6 +37,12 @@ kubernetes的设计理念和功能实际就是一个类似linux的**分层架构
 
 
 
+<img src="kubernetes架构.assets/architecture.png" alt="Kubernetes 架构" style="zoom:57%;" />
+
+
+
+
+
 #### kubernetes中的核心技术概念和常见API对象
 
 **API对象**是Kubernetes集群中的管理操作单元。 Kubernetes集群系统每支持一项新功能， 引入一项新技术， 一定会新引入对应的API对象， 支持对改功能的管理操作。  每个API对象都有3大类属性：

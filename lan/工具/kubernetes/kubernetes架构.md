@@ -37,28 +37,33 @@ kubernetes的设计理念和功能实际就是一个类似linux的**分层架构
 
 
 
+#### k8s设计架构
+
+
+
 <img src="kubernetes架构.assets/architecture.png" alt="Kubernetes 架构" style="zoom:57%;" />
 
 
 
+kubernetes主要有一下几个核心组件组成：
 
+- **etcd**     持久化保存整个集群的状态
+- **apiserver** 提供了资源操作的唯一入口， 包括认证，授权， 访问控制， api注册， 发现等机制
+- **controller manager** 负责维护集群的状态， 比如故障检测， 自动拓展， 滚动机制等
+- **scheduler**   负责资源的调度， 按照预定的调度策略将pod调度到相应的node上
+- **kubectl**       负责维护容器的生命周期， 同时也负责 Volume（CSI）和网络（CNI）的管理；
+- **Container runtime**   负责管理镜像的管理以及pod和容器的正真运行（cri）
+- **kube-proxy** 同时也负责 Volume（CSI）和网络（CNI）的管理；
 
-#### kubernetes中的核心技术概念和常见API对象
+出了核心组件还有一些推荐组件， 有的已经称为CNCF的托管项项目
 
-**API对象**是Kubernetes集群中的管理操作单元。 Kubernetes集群系统每支持一项新功能， 引入一项新技术， 一定会新引入对应的API对象， 支持对改功能的管理操作。  每个API对象都有3大类属性：
+- CoreDNS 负责为整个集群提供 DNS 服务
+- Ingress Controller 为服务提供外网入口
+- Prometheus 提供资源监控
+- Dashboard 提供 GUI
+- Federation 提供跨可用区的集群
 
-- **元数据metadata**  元数据是用来表示API对象的， 每个对象至少有3个元数据：namespace;  name;  uid; 标签label是可选的
-- **规范spec**                描述了用户期望kubernetes集群中分布式系统达到的理想状态。
-- **状态status**            描述系统实际当前达到的状态
+整体架构图
 
-
-
-##### 常见API对象
-
-| 类别     | 名称                                                         |
-| :------- | ------------------------------------------------------------ |
-| 资源对象 | Pod、ReplicaSet、ReplicationController、Deployment、StatefulSet、DaemonSet、Job、CronJob、HorizontalPodAutoscaling、Node、Namespace、Service、Ingress、Label、CustomResourceDefinition |
-| 存储对象 | Volume、PersistentVolume、Secret、ConfigMap                  |
-| 策略对象 | SecurityContext、ResourceQuota、LimitRange                   |
-| 身份对象 | ServiceAccount、Role、ClusterRole                            |
+![Kuberentes 架构（图片来自于网络）](kubernetes架构.assets/kubernetes-high-level-component-archtecture.jpg)
 

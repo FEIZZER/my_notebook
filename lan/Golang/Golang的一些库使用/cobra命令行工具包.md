@@ -111,14 +111,23 @@ func Execute() {
 
 ##### flag参数的使用
 
-Flags提供了修饰符来控制命令的操作， 在cobra中有两种Flag
+Flags提供了修饰符来控制命令的操作， 在cobra中有两种Flag 
 
 - Persistent Falg    全局性的Flag， 可以用于该命令和该命令的所有子命令
 - Local Flag             局部Falg， 只能用于该命令。
 
-cobra 添加flag的方式
+###### cobra 添加PersistentFlag的方式
 
-```
-
+```go
+var (
+	filePath string
+	model    string
+	count    int32
+)
+func init() {
+	filePath = *rootCmd.PersistentFlags().StringP("filePath", "f", "default_path", "usage")
+	rootCmd.PersistentFlags().StringVar(&model, "model", "default_model", "usage")
+	rootCmd.PersistentFlags().Int32VarP(&count, "count", "c", 1, "usage")
+}
 ```
 

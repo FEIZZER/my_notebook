@@ -1,3 +1,13 @@
+### Service对象
+
+由于k8s中的pod具有生命周期，每次销毁创建， pod的ip都会重新获取。 所以使用pod的ip来提供服务是不稳定的。也因此定义了service这种资源
+
+> 
+
+
+
+
+
 #### Service 
 
 -  service通过label关联对应的Pod

@@ -90,7 +90,39 @@ pause容器就相当于是一个中间容器， 在pod中它必须第一个启�
 
 #### Pod的生命周期
 
+每一个pod资源都有一个 `status.phase` 字段， 可以以用来表示Pod生命周期阶段的一个简单表述。 phase可能的值：（不应该再假定Pod还有其他值）
+
+- **Pending 挂起**     pod已经被k8s系统接受，但是有一个或多个容器尚未创建
+- **running 运行中** 该pod已经被绑定一个node上了， 所有的容器均已经被创建。 至少有一个容器处于运行，重启或启动状态。
+- **succeed 成功**     pod中所有容器已经成功退出且不会再重启
+- **failed 失败**          pod中所有容器已经终止且不会重启， 且至少有一个容器终止状态为非0
+- **unknown 未知**   因为某些原因无法取得 Pod 的状态，通常是因为与 Pod 所在主机通信失败。
+
 ![Pod 的生命周期示意图（图片来自网络）](Pod.assets/kubernetes-pod-life-cycle.jpg)
+
+pod创建会首先运行初始化容器（init container）, 之后再运行主容器。 在主容器启动后，运行post start钩子函数，在主容器结束前运行pre stop钩子函数。 在主函数运行期间执行探针检测。
+
+
+
+
+
+![在这里插入图片描述](Pod.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ1NDA2MDky,size_16,color_FFFFFF,t_70.png)
+
+#### 容器探针
+
+探针是由kubelet来执行对容器执行的定期诊断（kubelet调用有容器实现的Handler）， 有三种类型的处理程序：
+
+- ExecAction：在容器内执行指定命令。如果命令退出时返回码为 0 则认为诊断成功。
+- TCPSocketAction：对指定端口上的容器的 IP 地址进行 TCP 检查。如果端口打开，则诊断被认为是成功的。
+- HTTPGetAction：对指定的端口和路径上的容器的 IP 地址执行 HTTP Get 请求。如果响应的状态码大于等于200 且小于 400，则诊断被认为是成功的。
+
+每次探针执行都会获得一下三种结果：
+
+- 成功：容器通过了诊断。
+- 失败：容器未通过诊断。
+- 未知：诊断失败，因此不会采取任何行动。
+
+
 
 
 

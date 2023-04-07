@@ -69,7 +69,7 @@
 
 上述的步骤中涉及到路由设置工作 则是**由kube-proxy来实现的**，
 
-> kube-proxy是每个节点运行网路代理，kube-proxy 维护节点上的网络规则。 用于处理单个主机子网的划分和向外部世界公开服务等
+> kube-proxy是每个节点运行网路代理，kube-proxy 维护节点上的网络规则。 用于处理单个主机子网的划分和向外部世界公开服务等 
 
  kube-proxy会通过informer得知service和endpoints的创建， 得到相应的CLUSTERIP和PORT， 创建iptable NAT规则做转发或通过ipvs模块创建VS服务器，这样经过CLUSTER-IP的流量都被转发到后端pod。
 [[lan/工具/kubernetes/kube-proxy]]

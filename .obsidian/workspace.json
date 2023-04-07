@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/linux/linux内核/linux内核组成.md",
+                "file": "lan/工具/kubernetes/Service.md",
                 "mode": "source",
                 "source": false
               }
@@ -90,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/linux/linux内核/linux内核组成.md",
+                "file": "lan/工具/kubernetes/Service.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,6 +118,8 @@
   },
   "active": "af603110e69f6ca0",
   "lastOpenFiles": [
+    "lan/工具/kubernetes/kubernetes资源对象.md",
+    "lan/linux/linux内核/linux内核组成.md",
     "lan/Golang/go命令行工具.assets/image-20230331143632846.png",
     "lan/Golang/go命令行工具.assets/image-20230331141159174.png",
     "lan/Golang/go命令行工具.assets",
@@ -151,7 +153,6 @@
     "lan/Golang/Go的一些标准包/unsafe包的常见使用.md",
     "lan/Golang/Go的一些标准包/异常处理.md",
     "lan/Golang/go中的接口与类的实践.md",
-    "lan/Golang/Go的一些标准包/reflect反射包.md",
-    "lan/Golang/go中的接口与实践.md"
+    "lan/Golang/Go的一些标准包/reflect反射包.md"
   ]
 }

@@ -63,7 +63,7 @@
 
 > endpoint资源是暴露一个服务的ip地址和port的列表， 并且endpoints是一个独立的资源并不是serivce的属性， endpoints名称必须和serivce的名称相符。
 
-> qa: 控制器是如何在service创建后自动创建endpoint的， 是通过informer监听service吗。
+> qa: 控制器是如何在service创建后自动创建endpoint的， 是通过informer监听service吗。 
 
 ![未命名文件 (6)](Service.assets/未命名文件 (6).png) 
 

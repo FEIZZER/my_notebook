@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/linux/linux使用firewalld配置防火墙.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "af603110e69f6ca0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lan/工具/kubernetes/Service.md",
+                "file": "网络基本功/数字证书原理.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -74,7 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 229.5
   },
   "right": {
     "id": "ba4d7acd620f8597",
@@ -90,13 +77,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/工具/kubernetes/Service.md",
+                "file": "网络基本功/数字证书原理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": true,
+                "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
@@ -105,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 160
+    "width": 313.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -116,8 +103,21 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "af603110e69f6ca0",
+  "active": "c7e1b5c6bd30e690",
   "lastOpenFiles": [
+    "网络基本功/数字证书原理.assets/image-20230412142647326.png",
+    "lan/linux/openssl使用.md",
+    "网络基本功/数字证书原理.md",
+    "lan/linux/linux使用firewalld配置防火墙.md",
+    "base/RSA加密原理.md",
+    "网络基本功/数字证书原理.assets/image-20230412105005692.png",
+    "网络基本功/数字证书原理.assets",
+    "Pasted image 20230412104953.png",
+    "未命名.canvas",
+    "math/欧拉函数.md",
+    "网络基本功/数据包的物理传输.md",
+    "网络基本功/overlay网络模型.md",
+    "lan/工具/kubernetes/Service.md",
     "lan/工具/kubernetes/kubernetes资源对象.md",
     "lan/linux/linux内核/linux内核组成.md",
     "lan/Golang/go命令行工具.assets/image-20230331143632846.png",
@@ -142,17 +142,7 @@
     "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.md",
     "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",
     "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md",
-    "Excalidraw/Drawing 2023-01-15 15.45.12.excalidraw.md",
     "未命名 1.canvas",
-    "未命名.canvas",
-    "Untitled.canvas",
-    "lan/linux/linux使用iptables配置防火墙.md",
-    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
-    "lan/数据库/mongodb/mongo聚合操作.md",
-    "lan/Golang/Go基础记录.md",
-    "lan/Golang/Go的一些标准包/unsafe包的常见使用.md",
-    "lan/Golang/Go的一些标准包/异常处理.md",
-    "lan/Golang/go中的接口与类的实践.md",
-    "lan/Golang/Go的一些标准包/reflect反射包.md"
+    "Untitled.canvas"
   ]
 }

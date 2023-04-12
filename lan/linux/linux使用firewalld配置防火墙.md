@@ -43,9 +43,9 @@ zone是firewall预设的几类防火墙策略模板， 一个有九类。其配�
 
 `firewall-cmd --get-default-zone`  查看网络连接或者接口的默认区域
 
-`firewall-cmd --get-zones`                 查看所有可用的zone
+`firewall-cmd --get-zones`               查看所有可用的zone
 
-`firewall-cmd --get-active-zone`  
+`firewall-cmd --get-active-zone`     
 
 
 

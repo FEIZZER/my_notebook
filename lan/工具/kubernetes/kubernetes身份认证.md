@@ -66,9 +66,9 @@
 
 #### serviceAccount认证
 
+pod中的进程也需要和apiserver进行交互。 在创建pod时通过 `spec.serviceAccount` 字段来设置使用那个serviceAccount。
 
-
-
+serviceAccount的作用域限制在namespace中， 每创建一个namespace， 都会从创建一个默认的serviceaccount并绑定默认的secret(*service account token类型*)。
 
 认证通过之后只是允许请求进入集群内部， 请求是否具有相应的权限还要通过 RBAC来实现。
 

@@ -13,8 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/工具/kubernetes/kubernetes身份认证.md",
+                "file": "lan/工具/kubernetes/kubernets网络.md",
                 "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "aa8362ed3362f61a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lan/工具/kubernetes/Service.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -77,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/工具/kubernetes/kubernetes身份认证.md",
+                "file": "lan/工具/kubernetes/kubernets网络.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,8 +117,14 @@
   },
   "active": "f5d5c65d45c52e67",
   "lastOpenFiles": [
-    "lan/工具/kubernetes/kubernetes安全机制.md",
+    "lan/工具/kubernetes/kubernets网络.assets/未命名文件 (11).png",
+    "lan/工具/kubernetes/kubernets网络.assets/未命名文件 (10).png",
+    "lan/工具/kubernetes/kubernets网络.assets",
+    "lan/工具/kubernetes/Service.md",
+    "lan/工具/kubernetes/kubernets网络.md",
+    "lan/工具/kubernetes/k8s网络.md",
     "lan/工具/kubernetes/kubernetes身份认证.md",
+    "lan/工具/kubernetes/kubernetes安全机制.md",
     "kubernetes安全机制.assets/未命名文件.md",
     "kubernetes安全机制.assets",
     "网络基本功/数字证书原理.md",
@@ -121,7 +139,6 @@
     "lan/工具/kubernetes/Untitled.md",
     "lan/工具/kubernetes/kubernetes身份认证.assets/image-20230413173657342.png",
     "lan/工具/kubernetes/kubernetes身份认证.assets/image-20230413173653315.png",
-    "lan/工具/kubernetes/kubernetes身份认证.assets/image-20230413173639811.png",
     "lan/工具/kubernetes/kubernetes身份认证.assets",
     "lan/linux/openssl使用.assets",
     "网络基本功/数字证书名词解释.md",
@@ -134,7 +151,6 @@
     "math/欧拉函数.md",
     "网络基本功/数据包的物理传输.md",
     "网络基本功/overlay网络模型.md",
-    "lan/工具/kubernetes/Service.md",
     "lan/工具/kubernetes/kubernetes资源对象.md",
     "lan/linux/linux内核/linux内核组成.md",
     "lan/Golang/go命令行工具.assets",
@@ -145,9 +161,6 @@
     "lan/Untitled.md",
     "lan/linux/linux内核/linux操作系统的分段机制.md",
     "base/计算机操作系统/cpu寄存器介绍.md",
-    "base/计算机操作系统/Untitled.md",
-    "lan/linux/linux内核/linux操作系统的分段分页机制.md",
-    "lan/linux/linux内核/linux操作系统的分页机制.md",
     "lan/linux/linux内核/linux内核组成.assets",
     "未命名 1.canvas",
     "Untitled.canvas"

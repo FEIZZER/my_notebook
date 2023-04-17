@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f5d5c65d45c52e67",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lan/工具/kubernetes/kubernets网络.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "aa8362ed3362f61a",
             "type": "leaf",
             "state": {
@@ -89,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/工具/kubernetes/kubernets网络.md",
+                "file": "lan/工具/kubernetes/Service.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,30 +103,33 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "f5d5c65d45c52e67",
+  "active": "aa8362ed3362f61a",
   "lastOpenFiles": [
-    "lan/工具/kubernetes/kubernets网络.assets/未命名文件 (11).png",
-    "lan/工具/kubernetes/kubernets网络.assets/未命名文件 (10).png",
+    "网络基本功/vlan.assets/未命名文件 (14).png",
+    "网络基本功/vlan.assets/未命名文件 (12).png",
+    "网络基本功/vlan.assets/7f69bab6e88237bc27a3abb99f5dbe67.png",
+    "网络基本功/vlan.assets/738ddb9e482d46bca206993eeff2534e.png",
+    "网络基本功/vlan.assets",
+    "网络基本功/vlan和vxlan.md",
+    "网络基本功/vlan.md",
+    "网络基本功/vlan和vxlan.assets/738ddb9e482d46bca206993eeff2534e.png",
+    "网络基本功/vlan和vxlan.assets/738ddb9e482d46bca206993eeff2534e-1681721905334-19.png",
+    "网络基本功/vlan和vxlan.assets/未命名文件 (14).png",
+    "网络基本功/vlan和vxlan.assets/未命名文件 (12).png",
+    "网络基本功/vlan和vxlan.assets/7f69bab6e88237bc27a3abb99f5dbe67-1681718605739-13.png",
+    "网络基本功/vlan和vxlan.assets/7f69bab6e88237bc27a3abb99f5dbe67-1681718605739-13-1681718605740-14.png",
+    "网络基本功/vlan和vxlan.assets/7f69bab6e88237bc27a3abb99f5dbe67-1681716791965-9.png",
+    "lan/工具/kubernetes/kubernets网络.md",
     "lan/工具/kubernetes/kubernets网络.assets",
     "lan/工具/kubernetes/Service.md",
-    "lan/工具/kubernetes/kubernets网络.md",
     "lan/工具/kubernetes/k8s网络.md",
     "lan/工具/kubernetes/kubernetes身份认证.md",
     "lan/工具/kubernetes/kubernetes安全机制.md",
     "kubernetes安全机制.assets/未命名文件.md",
     "kubernetes安全机制.assets",
     "网络基本功/数字证书原理.md",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/image-20230414135539118.png",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/image-20230414133405042.png",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/image-20230414132916869.png",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/image-20230414111529303.png",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/image-20230414110709681.png",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/image-20230414110622076.png",
-    "lan/工具/kubernetes/kubernetes安全机制.assets/未命名文件 (9).png",
     "lan/工具/kubernetes/kubernetes安全机制.assets",
     "lan/工具/kubernetes/Untitled.md",
-    "lan/工具/kubernetes/kubernetes身份认证.assets/image-20230413173657342.png",
-    "lan/工具/kubernetes/kubernetes身份认证.assets/image-20230413173653315.png",
     "lan/工具/kubernetes/kubernetes身份认证.assets",
     "lan/linux/openssl使用.assets",
     "网络基本功/数字证书名词解释.md",
@@ -159,8 +150,6 @@
     "lan/Golang/Golang性能/Untitled.md",
     "lan/语义化版本.md",
     "lan/Untitled.md",
-    "lan/linux/linux内核/linux操作系统的分段机制.md",
-    "base/计算机操作系统/cpu寄存器介绍.md",
     "lan/linux/linux内核/linux内核组成.assets",
     "未命名 1.canvas",
     "Untitled.canvas"

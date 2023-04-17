@@ -8,7 +8,7 @@
 
 ##### k8s环境中存在几种网络通信
 
-- 容器之间的通信： 同一个pod中多个容器的通信。
+- **容器之间的通信**： 同一个pod中多个容器的通信。
 - **pod之间的通信**：通过pod ip进行通信
 - **pod和service之间通信**： service的ip属于clusterIp， 基本是通过IPVS或iptables转发实现的 [Service](Service.md)
 - **service和集群外部通信**： 实现方式ingress， nodeport， loadbalance 
@@ -40,6 +40,13 @@ fannle会为每一个集群中的node分配一个网段， pod会从这个网段
 flannel的网络模式下数据包的在主机之间转发是由backend实现的， 目前支持的backend有：
 
 - VxLAN
+
+  > vxlan(virtual extensible local area network) 虚拟拓展网络， 是由IETF定义的NVO3(Network Virtualization over Layer3) 的标准技术之一， 是对传统VALN的一种拓展。 特点是将**layer2的以太帧封装到UDP的报文中， 并在layer3的网络中进行传输**。 
+
+  本质上vxlan是一种隧道技术。 在源网络设备与目的网络设备之间的ip网络上，建立一条逻辑隧道， 将用户侧报文经过特定的封装走这条隧道转发。对于通过这种方式通信的两台终端，就像是连接在一个虚拟交换机的不同端口一样
+
+  
+
 - host-gw
 - udp
 

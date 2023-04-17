@@ -102,3 +102,8 @@ Overlay网络和Underlay网络的区别如下所示：
 | 扩展性       | 底层网络一旦搭建好，新增设备较为困难，可扩展性差             | 扩展性强，例如[VLAN](https://info.support.huawei.com/info-finder/encyclopedia/zh/VLAN.html)最多可支持4096个标识符，而[VXLAN](https://info.support.huawei.com/info-finder/encyclopedia/zh/VXLAN.html)则提供多达1600万个标识符 |
 | 协议         | 以太网交换、VLAN、路由协议（OSPF、IS-IS、BGP等）             | VXLAN、NVGRE、SST、GRE、NVO3、[EVPN](https://info.support.huawei.com/info-finder/encyclopedia/zh/EVPN.html) |
 | 多租户管理   | 需要使用基于[NAT](https://info.support.huawei.com/info-finder/encyclopedia/zh/NAT.html)或者VRF的隔离，这在大型网络中是个巨大的挑战 | 能够管理多个租户之间的重叠IP地址                             |
+
+## overlay网络的实现
+
+### Vxlan
+

@@ -47,6 +47,8 @@ flannel的网络模式下数据包的在主机之间转发是由backend实现的
 
   
 
+  ==为什么cni0的mtu是1450==
+
 - host-gw
 - udp
 

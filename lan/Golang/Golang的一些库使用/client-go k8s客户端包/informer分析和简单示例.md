@@ -2,6 +2,8 @@
 
 cnblogs.com/wuchangblog/p/16730669.html
 
+https://www.jianshu.com/p/0c1c462c19d0
+
 ##### informer基本使用示例
 
 ```go

@@ -61,3 +61,51 @@ func PodInformerDynamic() {
 
 ### informer实现分析
 
+##### 使用示例分析
+
+1.  从创建informerFactory开始，` informers.NewSharedInformerFactory(clientSet, 5*time.Second)`, 这个函数返回一个 `k8s.io/client-go@v0.27.1/informers/factory.go：sharedInformerFactory` 结构体对象， 这个结构体实现了一个接口`pkg/mod/k8s.io/client-go@v0.27.1/informers/factory.go:SharedInformerFactory`，接口部分源码如下:
+
+   ```go
+   type SharedInformerFactory interface {
+   	internalinterfaces.SharedInformerFactory
+   
+   	Start(stopCh <-chan struct{})
+   
+   	Shutdown()
+   
+   	WaitForCacheSync(stopCh <-chan struct{}) map[reflect.Type]bool
+   
+   	ForResource(resource schema.GroupVersionResource) (GenericInformer, error)
+   
+   	InformerFor(obj runtime.Object, newFunc internalinterfaces.NewInformerFunc) cache.SharedIndexInformer
+   
+   	Admissionregistration() admissionregistration.Interface
+   	Internal() apiserverinternal.Interface
+   	Apps() apps.Interface
+   	Autoscaling() autoscaling.Interface
+   	Batch() batch.Interface
+   	Certificates() certificates.Interface
+   	Coordination() coordination.Interface
+       ......
+       ......
+   }
+   ```
+
+   显然的该接口定了一个仓库型类型， 用于指定返回一个具体资源组， 版本， 资源类型的informer*(这种实现方式和clientset一样， 不再赘述)*， 并且对由该factory产生的informer提供统一的启动 通知 管理方法， 对于这些方法的使用在上面的源码中用注释记录。
+
+2. 由informerFactory产生具体类型的informer， 每个资源类型都有自己的实现， 我们已pod为例， 在`k8s.io/client-go@v0.27.1/informers/core/v1/pod.go` 文件中可以看到他的实现：
+
+   ```go
+   type PodInformer interface {
+   	Informer() cache.SharedIndexInformer
+   	Lister() v1.PodLister
+   }
+   
+   type podInformer struct {
+   	factory          internalinterfaces.SharedInformerFactory
+   	tweakListOptions internalinterfaces.TweakListOptionsFunc
+   	namespace        string
+   }
+   ```
+
+   

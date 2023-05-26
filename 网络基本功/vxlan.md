@@ -12,8 +12,8 @@ VxLAN的实现由文档rfc7348详细定义。本质上VxLAN是一种隧道技术
 
  ![img](vxlan.assets/5652c940898f4.png)
 
-- **VTEP** (VXLAN Tunnel Endpoints): vxlan网络的比那元设备， 用来对报文进行处理（封包和捷解包）。 vtep可以是网络设备（如交换机）， 也可以是一台机器（如虚拟化集群中的宿主机）。
-- **VNI**   (VXLAN Network Identifier): VNI是每个vxlan的标识， 共有24位（2^24）, 一般一个VNI对应一个租户。 也就是说使用VNI搭建的公有云理论上可以支撑千万级别的租户。
+- **VTEP** (VXLAN Tunnel Endpoints): vxlan网络的边缘设备， 用来对报文进行处理（封包和解包）。 vtep可以是网络设备（如交换机）， 也可以是一台机器（如虚拟化集群中的宿主机）。
+- **VNI**   (VXLAN Network Identifier): VNI是每个vxlan的标识， 共有24位（2^24）, 一般一个VNI对应一个租户, 不同VNI之间的虚拟机不能主机而进行二层通信。 也就是说使用VNI搭建的公有云理论上可以支撑千万级别的租户。
 - **Tunnel**   隧道是一个逻辑上的概念， 在vxlan模型中并没有具体的物理实体对应。 整体来看， 每个vxlan网络像是位通信的虚拟机搭建了一个单独的通信通道，也就是隧道。
 
 
@@ -60,6 +60,14 @@ VxLAN首部由8个字节构成。
 #### vxlan网络的问题和优势
 
 
+
+
+
+
+
+我觉得这就是一种自信 :laughing:
+
+![image-20230526161341839](vxlan.assets/image-20230526161341839.png)  
 
 
 

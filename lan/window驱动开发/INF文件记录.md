@@ -8,7 +8,7 @@
 
 ##### INF文件的安装的实现机制
 
-
+在文件目录中右击会显示 **安装** 菜单选项。 计算机在windows操作系统安装的时候就注册了对ＩＮＦ文件的　**安装**　动作，　此安装动作的命令行程序基本形式为：`RunDll setupx.dll,InstallHinfSection section reboot-mode inf-name`　 
 
 #### INF文件的语法
 

@@ -229,11 +229,21 @@ Working directory（工作目录），stage index（暂存区），local reposit
 
 想要简化项目中分支合并路线的话可以使用 `git rebase` 代替： 在dev分支使用命令 `git rebase main` 会将main分支与dev分支分叉的commit点 重新定基到main分支的最新commit（可能有冲突需要解决），如下图所示 
 
-![202203121551765](https://s2.loli.net/2022/03/30/UdVmeE1Z5NQjCqG.gif)
+<img src="https://s2.loli.net/2022/03/30/UdVmeE1Z5NQjCqG.gif" alt="202203121551765" style="zoom:17%;" /> 
 
-这时候 main分支的HEAD点在 蓝色的D_commit处， dev分支的HEAD点在绿色的F_commit点。可以使用先切换到main分支 在使用`git rebase dev` 将HEAD移到最新处 *这时候dev和main两个分支其实已经是一样的了， 删除dev分支的话会真正的删除， 有点是简化， 缺点也是简化了一些信息*。
+这时候 main分支的HEAD点在 蓝色的D_commit处， dev分支的HEAD点在绿色的F_commit点。可以使用先切换到main分支 在使用`git rebase dev` 将HEAD移到最新处 *这时候dev和main两个分支其实已经是一样的了， 删除dev分支的话会真正的删除， 优点是简化， 缺点也是简化了一些信息*。
 
 
+
+
+
+#### git 比较信息
+
+- git  diff 检查当前没有被add 的修改的信息
+- git diff  --cached 检查已经add，没有被commit的修改信息
+- git diff HEAD  检查当前代码和本地代码仓库里的信息， 就是没有add和commit的修改信息。 *和git status非常类似*
+- git diff ver1 ver2 [src]对比两次commit之间src目录下文件的差异
+- git diff ver1 ver2 --name-only 列出两次commit之间有修改的文件
 
 #### 不小心提交一个铭敏感文件，并push到远程了 如何处理
 

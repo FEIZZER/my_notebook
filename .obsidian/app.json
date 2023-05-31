@@ -4,6 +4,6 @@
   "legacyEditor": false,
   "livePreview": true,
   "promptDelete": true,
-  "useMarkdownLinks": true,
+  "useMarkdownLinks": false,
   "newLinkFormat": "relative"
 }

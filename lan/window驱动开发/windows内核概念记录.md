@@ -4,7 +4,7 @@ windows操作系统的计算机又两种不同的模式： **用户模式**和**
 
 根据处理器上运行的代码的类型， 处理器会在两个模式之间切换。 核心操作系统的组件在内核模式工作， 多数驱动程序在内核态工作，某些驱动程序也可以在用户模式工作。
 
-![用户模式和内核模式组件的方块图。](windows内核概念记录.assets/userandkernelmode01.png)
+![用户模式和内核模式组件的方块图。](windows内核概念记录.assets/userandkernelmode01.png) 
 
 ##### **用户模式**  
 
@@ -20,8 +20,6 @@ windows操作系统的计算机又两种不同的模式： **用户模式**和**
 
 ### 虚拟地址空间
 
-[bk](https://zhuanlan.zhihu.com/p/65298260?utm_source=wechat_session)
-
 windows操作系统中处理器会使用虚拟地址来索引物理地址， 虚拟地址有很多优势：
 
 - 程序可以使用一系列连续的虚拟虚拟地址来访问物理内存中不连续的大内存缓冲区。
@@ -36,21 +34,50 @@ windows操作系统中处理器会使用虚拟地址来索引物理地址， 虚
 
 在64位的windows操作系统中， 虚拟地址空间的位128TB。
 
+#### 虚拟地址转换的实现
 
+将虚拟地址转换成物理地址的过程，需要MMU(Memory Management Unit)和页表(table page)的共同参与
 
+##### MMU
 
+MMU是处理器/核的一个硬件单元， 通常每一个核都有一个MMU。 MMU又有两部分组成： **TLB** 和 **table walk unit**。 
 
+##### page table
 
+page table是每个进程独有的， 是软件实现的， 是存储在main memory(比如DDR)中的。
+
+[地址转化的过程](https://zhuanlan.zhihu.com/p/65298260?utm_source=wechat_session)
 
 
 
 ### IRP请求
 
-应用程序会向计算机设备发送各种 I/O请求， 这些请求包*I/O request package(IRP)*  在内核开发中被封装成`IRP`结构体
+应用程序会向计算机设备发送各种 I/O请求， 这些请求包*I/O request package(IRP)*  在内核开发中被封装成`IRP`结构体. 由于IRP是响应上层应用的，常见的文件相关的IRP列表
 
+| IRP类型                        | 描述                     | 应用层调用者                                      |
+| ------------------------------ | ------------------------ | ------------------------------------------------- |
+| IRP_MJ_CREATE                  | 获取文件句柄             | 对应User下的CreateFile                            |
+| IRP_MJ_CLOSE                   | 关闭文件句柄             | 对应User下的CloseHandle                           |
+| IRP_MJ_READ                    | 从设备得到数据           | 对应ReadFile                                      |
+| IRP_MJ_WRITE                   | 传送数据到设备           | 对应WriteFile                                     |
+| IRP_MJ_DEVICE_CONTROL          | 控制操作(利用IOCTL宏)    | 对应DeviceIoControl，即可读又可写                 |
+| IRP_MJ_INTERNAL_DEVICE_CONTROL | 控制操作(只能被内核调用) | 和IRP_MJ_DEVICE_CONTROL差不多，但是只有Kernel可用 |
 
+分发例程必须保存在驱动对象的MajorFunction里面，且需要对应和驱动的连接状态：
 
+#### IRP数据结构详解
 
+IRP结构体在 `wdm.h`头文件中定义, 其中几个重要的成员变量的意义：
+
+- ##### MdlAddress
+
+  是一个MDL的指针， 当内核层和用户层采用共享内存的结构传递数据时， 这个时候MDL就会代表共享的内存数据(共享物理内存， 通过MDL映射)
+
+- ##### AssociatedIrp
+
+  这个成员是联合体
+
+  
 
 ### 事件
 

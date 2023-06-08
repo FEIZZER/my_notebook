@@ -110,6 +110,32 @@ page table是每个进程独有的， 是软件实现的， 是存储在main mem
 
 
 
+### IRQL （interrupt request level）
+
+[i](https://learn.microsoft.com/zh-cn/windows-hardware/drivers/kernel/managing-hardware-priorities)
+
+中断请求 (IRQ)一般有两种， 一种是外部中断即硬件产生的中断。 另一种是软件指令产生的中断。 windows则提出了一个中断请求级的概念，一共规定了32个请求级别， 0-2级是软件中断， 3-31是硬件中断。 *对于驱动开发， 一般只需要考虑0-2级中断就可以了。*
+
+##### PASSIVE_LEVEL 0
+
+IRQL的最低等级， 无法屏蔽其他的中断。  在这个级别上，线程执行用户模式， 可以访问分页内存， 可以使用 `KeGetCurrentIrql()`可以知道系统当前的IRQL 。 驱动程序的 `DriverEntry` 	 `AddDevice`	 `Reinitiabize`	`Unload` 	`大多数的派遣函数`   `驱动创建的线程`    `工作线程的回调函数` 都运行在这个IRQL上。
+
+
+
+##### APC_LEVEL 1
+
+在这个级别上， 只有处于APC级别的中断会被屏蔽， 可以访问分页内存。
+
+驱动的绝大部分dispatch函数都运行在 IRQL = PASSIVE_LEVEL上，但是如下的例外：
+
+ [看不懂](https://learn.microsoft.com/zh-cn/windows-hardware/drivers/kernel/dispatch-routines-and-irqls) 
+
+##### DISPATCH_LEVEL 2
+
+APC和DISPATCH级别的中断会被屏蔽， 可能会发生设备，时钟和电源故障中断。 只能访问非分页内存。
+
+
+
 
 
 ### IRP请求

@@ -108,11 +108,17 @@ page table是每个进程独有的， 是软件实现的， 是存储在main mem
 
 
 
+### windows的中断
+
+
+
+
+
 
 
 ### IRQL （interrupt request level）
 
-[i](https://learn.microsoft.com/zh-cn/windows-hardware/drivers/kernel/managing-hardware-priorities)
+[irql](https://learn.microsoft.com/zh-cn/windows-hardware/drivers/kernel/managing-hardware-priorities)
 
 中断请求 (IRQ)一般有两种， 一种是外部中断即硬件产生的中断。 另一种是软件指令产生的中断。 windows则提出了一个中断请求级的概念，一共规定了32个请求级别， 0-2级是软件中断， 3-31是硬件中断。 *对于驱动开发， 一般只需要考虑0-2级中断就可以了。*
 

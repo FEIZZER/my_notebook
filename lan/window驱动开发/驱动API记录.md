@@ -186,9 +186,14 @@ void IoDetachDevice(
 
     在wdm.h 中有一个宏定义 在适当的版本生效`#define NonPagedPool NonPagedPoolNx`, 所以用的时候一般都直接使用这个宏。
 
-  - PagedPool   分页池， 只能在 irql<dispatch_level 进行分配和fang'wen
+  - PagedPool   分页池， 只能在 irql<dispatch_level 进行分配和
 
+  
+  
   
 
 
 
+### 进程管理
+
+- `PsGetCurrentProcessId()`  获取当前进程id

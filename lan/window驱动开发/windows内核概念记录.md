@@ -230,11 +230,25 @@ NTSTATUS PsCreateSystemThread(
 
 
 
+### PE文件
 
+[博客园](https://www.cnblogs.com/cuixianglijian/p/16100267.html)
 
+##### 可执行文件
 
+PE文件是 portable file format(可移植文件)的简写， 例如DLL，exe文件都是可移植文件。 在windows64平台上 PE文件的结构叫做PE32+。
 
+> executable file是指可以由操作系统加载执行的文件。 linux平台的可执行文件是ELF(Executable and Linking Format)文件结构， windows平台是portable executable文件结构。二者都是由COFF发展而来的格式。
 
+#### pe文件结构
+
+PE文件使用的是一个平面地址空间， 所有的代码和数据都被组织到一起。 文件的内容会分割为不同的区块(section),  **section包含代码数据**，  **每个section按页边界来对齐** ， **section没有大小限制且是一个连续的结构**，  **每个section都有自己的属性，比如是否可读可写等**。
+
+一个PE文件并不是作为单一的一个内存映射文件被装入的内存的。
+
+![ ](windows内核概念记录.assets/9c338ac59b604f6b988f8c717a098671.png)
+
+[[PE文件结构详解]]
 
 
 

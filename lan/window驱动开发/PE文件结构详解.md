@@ -1,12 +1,38 @@
+
+
 ### PE文件结构
 
 ![PE文件结构](PE文件结构详解.assets/9c338ac59b604f6b988f8c717a098671.png)
 
+#### PE文件的基本概念
+
+- pe文件使用的是一个平面空间， 所有代码和数据并合并到一起，组成一个很大的结构
+- 文件的内容被分割成不同的区块， 区块中包含代码或数据。 各个区块之间按照也边界来对齐， 区块内部没有大小限制， 是一个连续的结构。
+- 每个区块在内存中有自己的属性， 比如是否包含代码，是否可读等等。
+- PE文件不是作为单一的内存映射文件装入内存的。 windows加载器(PE装载器)遍历PE文件并决定映射文件的哪些部分到内存(调式信息一般不会映射)， 并且是按照顺序映射的。
+
+
+
+#### PE文件的载入过程
+
+![img](PE文件结构详解.assets/8ff111a9f4a994e3cfcc8b464afe00d9.png) 
+
+现在大部分硬盘的扇区大小都是和内存一样的4k大小， 早期磁盘多是512字节的扇区大小， 从磁盘载入到内存的过程中会适当扩充一些填充符。
+
+windows在执行一个PE文件的时候， 并不是一开始就将整个文件读入内存。 windows装载器在装载的时候仅仅建立好虚拟地址和PE文件之间的映射关系， 当且仅当正真执行或访问到某一个页的数据的时候， 这个页面才会从磁盘装载到物理内存， 这种机制使得文件的读取速度和文件的大小没有直接的关系。
+
+windows在装载PE文件的 **DOS部分**， **PE文件头** ，  **section表部分** 是不进行特殊处理的， 在装载**section**部分的时候可能会处理一下的部分：
+
+- 内存页的属性
+- 节的偏移地址
+- 节的尺寸
+- 不进行映射的节
+
 #### Dos部分
 
-##### dos头    `_IAMGE_DOS-HEADER`结构
+##### dos头   
 
-dos的头部分实际上如下的一个结构体 ， 占64字节。 
+PE文件的第一个字节起始于一个传统的MS-DOS头部， 被称为`_IMAGE_DOS_HEADER` ， 占64字节。 
 
 ```c
 typedef struct _IMAGE_DOS_HEADER {   // DOS .EXE header
@@ -72,10 +98,14 @@ typedef struct _IMAGE_NT_HEADERS {
     DWORD  TimeDateStamp;     // 文件的创建时间。1970年1月1日以GMT计算的秒数,编译器填充的，不重要的值
     DWORD  PointerToSymbolTable; // 指向符号表（用于调试）
     DWORD  NumberOfSymbols;    // 符号表中符号的个数（用于调试）
-    WORD  SizeOfOptionalHeader; // IMAGE_OPTIONAL_HEADER32结构的大小，可改变，32位为E0,64位为F0
+    WORD  SizeOfOptionalHeader; // IMAGE_OPTIONAL_HEADER32结构的大小，可改变，32位为E0,64位为F0， 可能更大
     WORD  Characteristics;    // 文件属性
   } IMAGE_FILE_HEADER, *PIMAGE_FILE_HEADER;
   ```
+
+  - Characteristics字段可能是下面的一个或多个值
+
+    
 
 - **OptionalHeader**  `IMAGE_OPTIONAL_HEADER32`称为**可选映像头**或**拓展PE头**
 
@@ -125,7 +155,46 @@ typedef struct _IMAGE_NT_HEADERS {
   } IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;
   ```
 
+  - **AddressOfEntryPoint**  
   
+    是一个RVA， 表示文件被执行时的入口地址。 这个位置的代码将会被首先执行。
+  
+  - **SectionAlignment 和 FileAlignment** 分别代表内存中的对齐值1000h， 和磁盘中的对齐值200h。
+  
+  - **subsystem**  表示改可执行文件需要什么子系统
+  
+  - **DataDirectory[IMAGE_NUMBEROF_DIRECTORY_ENTRIES]** 一个共有十六个元素的数组。
+  
+    | 索引 | 预定义值                       | 作用                                                     |
+    | ---- | ------------------------------ | -------------------------------------------------------- |
+    | 0    | IMAGE_DIRECTORY_ENTRY_EXPORT   | 导出表信息， 多见于DLL可执行文件， 导出了函数API的意思。 |
+    | 1    | IMAGE_DIRECTORY_ENTRY_IMPORT   | 导入表信息，多见于exe可执行文件， 需要导入哪些信息。     |
+    | 2    | IMAGE_DIRECTORY_ENTRY_RESOURCE | 资源信息， 图标之类的。                                  |
+  
+     
+
+#### section表部分
 
 
+
+#### 输入表结构
+
+PE头文件中的 `IMAGE_OPTIONAL_HEADER32`结构体中 DataDirectory数组的第二个成员就是用于指向输入表的。 输入表是以一个 `IMAGE_IMPORT_DESCRIPTOR`（简称IID）结构体开始的数组
+
+
+
+```c
+typedef struct _IMAGE_IMPORT_DESCRIPTOR {
+    __C89_NAMELESS union {
+        DWORD Characteristics;
+        DWORD OriginalFirstThunk;
+    } DUMMYUNIONNAME;
+    
+    DWORD TimeDateStamp;
+    DWORD ForwarderChain;
+    DWORD Name;
+    DWORD FirstThunk;
+} IMAGE_IMPORT_DESCRIPTOR;
+typedef IMAGE_IMPORT_DESCRIPTOR UNALIGNED *PIMAGE_IMPORT_DESCRIPTOR;
+```
 

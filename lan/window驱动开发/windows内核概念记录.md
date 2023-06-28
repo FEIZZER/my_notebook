@@ -60,6 +60,25 @@ MMU是处理器/核的一个硬件单元， 通常每一个核都有一个MMU。
 
 page table是每个进程独有的， 是软件实现的， 是存储在main memory(比如DDR)中的。
 
+
+
+##### 虚拟地址的转换
+
+![img](windows内核概念记录.assets/v2-0e31467881f34c15094210a3048babbb_720w.webp)
+
+访问内存中的页表相对耗时(尤其是现在很多使用的多级页表)。 cpu会首先在它的硬件缓存**TLB**中寻找, TLB是集成进CPU的几乎可以以CPU的速度运行。
+
+1. 如果在TLB中找到了含有该虚拟地址的entry (TLB hit), 可以从改entry中直接获取对应的物理地址。
+2. 如果TLB miss了， 就需要去查当前进程的page table， 此时就需要使用 **table walk unit**。
+3. 使用**table walk unit**硬件单元来查找page table的方式被称为**hardware TLB miss handling**, 通常被CISC架构的处理器采用(IA-32). 如果在page table中还是找不到， 即发生了**page fault**，则会由操作系统处理
+4. 与之相对的通常被RISC架构的处理器（比如Alpha）采用的software TLB miss handling，TLB miss后CPU就不再参与了，由操作系统通过软件的方式来查找page table。使用硬件的方式更快，而使用软件的方式灵活性更强。IA-64提供了一种混合模式，可以兼顾两者的优点。
+5. 如果在**page table**中找到了对应虚拟地址的entry， 说明对应虚拟地址的物理内存页面驻留在内存当中，也就是**page hit**. 此时会进行两个操作：
+   - 更新TLB
+   - 进行权限检测， 包括可读/可写/可执行权限，user/supervisor模式权限等。如果没有正确的权限，将触发SIGSEGV（Segmantation Fault）
+6. 如果对应的entry的p位是0， 则触发 **page fault**， 可能是如下情况：
+   - 这个虚拟地址被分配后还从来没有被access过（比如malloc之后还没有操作分配到的空间，则不会真正分配物理内存）。触发page fault后分配物理内存，也就是demand paging，有了确定的demand了之后才分，然后将p位置1。
+   - 对应的这个物理页面的内容被换出到外部的disk/flash了，这个时候page table entry里存的是换出页面在外部swap area里暂存的位置，可以将其换回物理内存，再次建立映射，然后将p位置1。
+
 [地址转化的过程](https://zhuanlan.zhihu.com/p/65298260?utm_source=wechat_session)
 
 

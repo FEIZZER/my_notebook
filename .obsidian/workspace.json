@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/window驱动开发/windows内核概念记录.md",
-                "mode": "source",
+                "file": "网络基本功/所谓Base64.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/window驱动开发/windows内核概念记录.md",
+                "file": "网络基本功/所谓Base64.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,6 +131,8 @@
   },
   "active": "aa8362ed3362f61a",
   "lastOpenFiles": [
+    "未命名.canvas",
+    "lan/window驱动开发/windows内核概念记录.md",
     "lan/工具/vmware虚拟网络记录.md",
     "lan/工具/Untitled 1.md",
     "lan/window驱动开发/PE文件结构详解.assets/9c338ac59b604f6b988f8c717a098671.png",
@@ -143,7 +145,6 @@
     "lan/window驱动开发/windows内核概念记录.assets/userandkernelmode01.png",
     "lan/window驱动开发/windows内核概念记录.assets/userandkernelmode01-1685503610211-1.png",
     "lan/window驱动开发/windows内核概念记录.assets",
-    "lan/window驱动开发/windows内核概念记录.md",
     "lan/工具/kubernetes/Service.md",
     "网络基本功/vlan.assets/未命名文件 (14).png",
     "网络基本功/vlan.assets/未命名文件 (12).png",
@@ -168,7 +169,6 @@
     "lan/linux/linux使用firewalld配置防火墙.md",
     "base/RSA加密原理.md",
     "网络基本功/数字证书原理.assets",
-    "未命名.canvas",
     "math/欧拉函数.md",
     "网络基本功/数据包的物理传输.md",
     "网络基本功/overlay网络模型.md",
@@ -177,7 +177,6 @@
     "lan/Golang/go命令行工具.assets",
     "lan/Golang/go命令行工具.md",
     "lan/Golang/Untitled.md",
-    "lan/Golang/Golang性能/Untitled.md",
     "未命名 1.canvas",
     "Untitled.canvas"
   ]

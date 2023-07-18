@@ -5,5 +5,5 @@
   "livePreview": true,
   "promptDelete": true,
   "useMarkdownLinks": false,
-  "newLinkFormat": "absolute"
+  "newLinkFormat": "relative"
 }

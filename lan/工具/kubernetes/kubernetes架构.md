@@ -43,6 +43,8 @@ kubernetes的设计理念和功能实际就是一个类似linux的**分层架构
 
 <img src="kubernetes架构.assets/architecture.png" alt="Kubernetes 架构" style="zoom:57%;" />
 
+![在这里插入图片描述](kubernetes架构.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RlYWlkYWk=,size_16,color_FFFFFF,t_70.png)
+
 
 
 kubernetes主要有一下几个核心组件组成：

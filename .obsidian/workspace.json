@@ -4,35 +4,40 @@
     "type": "split",
     "children": [
       {
-        "id": "e9bd6bc01d2e2220",
+        "id": "e418c749c04f6b78",
         "type": "tabs",
         "children": [
           {
-            "id": "c7e1b5c6bd30e690",
+            "id": "aa8362ed3362f61a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lan/linux/linux使用firewalld配置防火墙.md",
-                "mode": "source",
+                "file": "网络基本功/所谓Base64.md",
+                "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "af603110e69f6ca0",
+            "id": "8c482ea8e0ac3481",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "fa76e12e6163de88",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
               "state": {
-                "file": "lan/linux/linux内核/linux内核组成.md",
-                "mode": "source",
-                "source": false
+                "currentVersion": "1.3.5"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -69,12 +74,20 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "3a414e2a4c765ac8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 229.5
   },
   "right": {
     "id": "ba4d7acd620f8597",
@@ -90,13 +103,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lan/linux/linux内核/linux内核组成.md",
+                "file": "网络基本功/所谓Base64.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": true,
+                "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
@@ -105,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 160
+    "width": 313.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -116,42 +129,55 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "af603110e69f6ca0",
+  "active": "aa8362ed3362f61a",
   "lastOpenFiles": [
-    "lan/Golang/go命令行工具.assets/image-20230331143632846.png",
-    "lan/Golang/go命令行工具.assets/image-20230331141159174.png",
+    "未命名.canvas",
+    "lan/window驱动开发/windows内核概念记录.md",
+    "lan/工具/vmware虚拟网络记录.md",
+    "lan/工具/Untitled 1.md",
+    "lan/window驱动开发/PE文件结构详解.assets/9c338ac59b604f6b988f8c717a098671.png",
+    "lan/window驱动开发/PE文件结构详解.assets/9c338ac59b604f6b988f8c717a098671-1686882796229-5.png",
+    "lan/window驱动开发/PE文件结构详解.assets",
+    "lan/window驱动开发/windows内核概念记录.assets/virtualaddressspace01.png",
+    "lan/window驱动开发/windows内核概念记录.assets/virtualaddressspace01-1685527785200-5.png",
+    "lan/window驱动开发/windows内核概念记录.assets/v2-98b97335e5fb1537744c93a08fa5b59d_720w.jpg",
+    "lan/window驱动开发/windows内核概念记录.assets/v2-98b97335e5fb1537744c93a08fa5b59d_720w-1685527716195-3.jpg",
+    "lan/window驱动开发/windows内核概念记录.assets/userandkernelmode01.png",
+    "lan/window驱动开发/windows内核概念记录.assets/userandkernelmode01-1685503610211-1.png",
+    "lan/window驱动开发/windows内核概念记录.assets",
+    "lan/工具/kubernetes/Service.md",
+    "网络基本功/vlan.assets/未命名文件 (14).png",
+    "网络基本功/vlan.assets/未命名文件 (12).png",
+    "网络基本功/vlan.assets",
+    "网络基本功/vlan和vxlan.md",
+    "网络基本功/vlan.md",
+    "lan/工具/kubernetes/kubernets网络.md",
+    "lan/工具/kubernetes/kubernets网络.assets",
+    "lan/工具/kubernetes/k8s网络.md",
+    "lan/工具/kubernetes/kubernetes身份认证.md",
+    "lan/工具/kubernetes/kubernetes安全机制.md",
+    "kubernetes安全机制.assets/未命名文件.md",
+    "kubernetes安全机制.assets",
+    "网络基本功/数字证书原理.md",
+    "lan/工具/kubernetes/kubernetes安全机制.assets",
+    "lan/工具/kubernetes/Untitled.md",
+    "lan/工具/kubernetes/kubernetes身份认证.assets",
+    "lan/linux/openssl使用.assets",
+    "网络基本功/数字证书名词解释.md",
+    "网络基本功/Untitled.md",
+    "lan/linux/openssl使用.md",
+    "lan/linux/linux使用firewalld配置防火墙.md",
+    "base/RSA加密原理.md",
+    "网络基本功/数字证书原理.assets",
+    "math/欧拉函数.md",
+    "网络基本功/数据包的物理传输.md",
+    "网络基本功/overlay网络模型.md",
+    "lan/工具/kubernetes/kubernetes资源对象.md",
+    "lan/linux/linux内核/linux内核组成.md",
     "lan/Golang/go命令行工具.assets",
     "lan/Golang/go命令行工具.md",
     "lan/Golang/Untitled.md",
-    "lan/Golang/Golang性能/Untitled.md",
-    "lan/语义化版本.md",
-    "lan/Untitled.md",
-    "lan/linux/linux内核/linux操作系统的分段机制.md",
-    "base/计算机操作系统/cpu寄存器介绍.md",
-    "base/计算机操作系统/Untitled.md",
-    "lan/linux/linux内核/linux操作系统的分段分页机制.md",
-    "lan/linux/linux内核/linux操作系统的分页机制.md",
-    "lan/linux/linux内核/linux操作系统的分页.md",
-    "lan/linux/linux内核/Untitled 1.md",
-    "lan/linux/linux内核/linux内核组成.assets/v2-6c70faca9dfa104ed7ab8f7948334919_720w.webp",
-    "lan/linux/linux内核/linux内核组成.assets/v2-6c70faca9dfa104ed7ab8f7948334919_720w-1679985165425-6.webp",
-    "lan/linux/linux内核/linux内核组成.assets",
-    "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.png",
-    "Excalidraw/Drawing 2023-02-28 21.04.09.excalidraw.md",
-    "Excalidraw/Drawing 2023-02-17 21.21.19.excalidraw.md",
-    "Excalidraw/Drawing 2023-02-06 18.06.37.excalidraw.md",
-    "Excalidraw/Drawing 2023-01-15 15.45.12.excalidraw.md",
     "未命名 1.canvas",
-    "未命名.canvas",
-    "Untitled.canvas",
-    "lan/linux/linux使用iptables配置防火墙.md",
-    "lan/Golang/Golang的一些库使用/mongo-driver驱动.md",
-    "lan/数据库/mongodb/mongo聚合操作.md",
-    "lan/Golang/Go基础记录.md",
-    "lan/Golang/Go的一些标准包/unsafe包的常见使用.md",
-    "lan/Golang/Go的一些标准包/异常处理.md",
-    "lan/Golang/go中的接口与类的实践.md",
-    "lan/Golang/Go的一些标准包/reflect反射包.md",
-    "lan/Golang/go中的接口与实践.md"
+    "Untitled.canvas"
   ]
 }

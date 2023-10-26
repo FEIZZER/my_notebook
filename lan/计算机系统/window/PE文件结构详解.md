@@ -142,7 +142,7 @@ typedef struct _IMAGE_NT_HEADERS {
     
     DWORD  ImageBase;       //内存镜像基址 ，可链接时自己设置
     DWORD  SectionAlignment;    //内存对齐   一般一页大小4k
-    DWORD  FileAlignment;     //文件对齐   一般一扇区大小512字节，现在也多4k
+    DWORD  FileAlignment;       //文件对齐   一般一扇区大小512字节，现在也多4k
     WORD  MajorOperatingSystemVersion; //标识操作系统版本号 主版本号
     WORD  MinorOperatingSystemVersion; //标识操作系统版本号 次版本号
     WORD  MajorImageVersion;   //PE文件自身的主版本号 
@@ -165,6 +165,8 @@ typedef struct _IMAGE_NT_HEADERS {
   } IMAGE_OPTIONAL_HEADER32, *PIMAGE_OPTIONAL_HEADER32;
   ```
 
+  - **ImageBase** 
+  
   - **AddressOfEntryPoint**  
   
     是一个RVA， 表示文件被执行时的入口地址。 这个位置的代码将会被首先执行。
@@ -185,31 +187,31 @@ typedef struct _IMAGE_NT_HEADERS {
 
 #### section表部分
 
+[IMAGE_SECTION_HEADER (winnt.h) - Win32 apps | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/win32/api/winnt/ns-winnt-image_section_header) 
+
 节表部分用来存储section节的属性信息， 节由`IMAGE_SECTION_HEADER`结构排列而成， 每一个结构描述一个节， 且是顺序一致的。
 
- 最后一个全空的`IMAGE_SECTION_HEADER`表示节表的结束。
-
- 节表总是紧挨着PE头的后方。
-
- 
-
-#### 输入表结构
-
-PE头文件中的 `IMAGE_OPTIONAL_HEADER32`结构体中 DataDirectory数组的第二个成员就是用于指向输入表的。 输入表是以一个 `IMAGE_IMPORT_DESCRIPTOR`（简称IID）结构体开始的数组
-
-
+ 最后一个全空的`IMAGE_SECTION_HEADER`表示节表的结束。 节表总是紧挨着PE头的后方。
 
 ```c
-typedef struct _IMAGE_IMPORT_DESCRIPTOR {
-    __C89_NAMELESS union {
-        DWORD Characteristics;
-        DWORD OriginalFirstThunk;
-    } DUMMYUNIONNAME;
-    
-    DWORD TimeDateStamp;
-    DWORD ForwarderChain;
-    DWORD Name;
-    DWORD FirstThunk;
-} IMAGE_IMPORT_DESCRIPTOR;
-typedef IMAGE_IMPORT_DESCRIPTOR UNALIGNED *PIMAGE_IMPORTDESCRIPTOR;
+typedef struct _IMAGE_SECTION_HEADER {
+  BYTE  Name[IMAGE_SIZEOF_SHORT_NAME];	// 节(section)的名字， 如.text .data等， 由于固定长度为8， 可能没有\0. 
+    									// 注意字节序 .text存储为  [78(e) 65(x) 74(t) 2e(.)] [00 00 00 74(t)]
+  union {
+    DWORD PhysicalAddress;				// 物理地址, 不清楚何时使用
+    DWORD VirtualSize;					// 虚拟大小， 应该是该节在没有对齐前的大小， 可能不准确。
+  } Misc;
+  DWORD VirtualAddress;					// 节的相对虚拟地址RVA，被加进内存后使用这个值
+  DWORD SizeOfRawData;					// 该节在文件对齐后的大小， 必定是 FileAlignment 的整数倍， 存在磁盘上时使用这个值。
+  DWORD PointerToRawData;				// 节在文件中的偏移量， 存在磁盘上时 使用这个值， 和VirtualAddress对应。
+  DWORD PointerToRelocations;			// 重定位偏移(obj中使用)
+  DWORD PointerToLinenumbers;			// 行号表偏移(调式使用)
+  WORD  NumberOfRelocations;			// 重定位的项目数
+  WORD  NumberOfLinenumbers;			// 行号表中行号的数目
+  DWORD Characteristics;				// 节的属性 
+} IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
 ```
+
+- **SizeOfRawData**的值在编译链接完成后就确定了, 且在加载进内存的过程中不会改变. **Misc.VirtualSize**在编译完成后, 在加载进内存的过程中**可能**会发生变化.比如c程序中有一个全局未初始化数组 `char test[10000];` 在编译生成的exe文件的data区段并不会有这个 10000个字节的空间, 同时 **Misc.VirtualSize**的值也就不带有这个10000. 当exe载入内存后, 内存映像里的data区段的长度和**Misc.VirtualSize**的值都会更新.
+
+![这里写图片描述](./PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3.assets/SouthEast.png) 

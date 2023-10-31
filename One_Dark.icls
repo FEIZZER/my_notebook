@@ -1,10 +1,10 @@
 <scheme name="One Dark copy" version="142" parent_scheme="Darcula">
   <option name="FONT_SCALE" value="1.0" />
   <metaInfo>
-    <property name="created">2023-02-27T20:45:20</property>
+    <property name="created">2023-10-23T21:44:39</property>
     <property name="ide">GoLand</property>
-    <property name="ideVersion">2021.3.4.0.0</property>
-    <property name="modified">2023-02-27T20:45:34</property>
+    <property name="ideVersion">2023.2.3.0.0</property>
+    <property name="modified">2023-10-23T21:44:47</property>
     <property name="originalScheme">One Dark copy</property>
   </metaInfo>
   <option name="CONSOLE_FONT_NAME" value="JetBrains Mono" />
@@ -666,6 +666,7 @@
     <option name="DEFAULT_KEYWORD">
       <value>
         <option name="FOREGROUND" value="c678dd" />
+        <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="DEFAULT_LABEL">
@@ -924,11 +925,6 @@
     <option name="GO_FUNCTION_PARAMETER">
       <value>
         <option name="FOREGROUND" value="d19a66" />
-      </value>
-    </option>
-    <option name="GO_KEYWORD">
-      <value>
-        <option name="FOREGROUND" value="c678dd" />
       </value>
     </option>
     <option name="GO_LINE_COMMENT">

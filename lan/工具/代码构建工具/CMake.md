@@ -67,11 +67,71 @@ install(TARGETS myLib
 
    
 
-   如果 myLib库不包含依赖, 或者 通过MODULE模式来查找依赖, 可以直接将 myLibTarget.cmake文件改为 myLibConifg.cmake, 不需要单独生成xxxConfig.cmake文件.
+   如果这个myLib库不需要再给使用者传递什么变量信息(如 myLib_INCLUDE_DIR) 且 没有什么依赖项需要添加, 可以直接将 myLibTarget.cmake文件改为 myLibConifg.cmake, 不需要单独生成xxxConfig.cmake文件.
 
    
 
 3. 单独生成 myLibConfig.cmake文件
+
+   ```cmake
+   # myLibConfig.cmake.in 文件
+   
+   @PACKAGE_INIT@
+   # 引入 CMakeFindDependencyMacro 以使用 find_dependency宏.
+   # 该宏一般是在Config.cmake文件中使用, 包含find_package的调用, 且不适用于find Module模式
+   include(CMakeFindDependencyMacro)
+   
+   set_and_check(myLib_INCLUDE_DIR "@PACKAGE_myLib_INCLUDE_DIR@")
+   include("${CMAKE_CURRENT_LIST_DIR}/myLibTarget.cmake") # 调用myLibTarget.cmake
+   ```
+
+   
+
+   ```cmake
+   # CMakeLists.txt 根据myLibConfig.cmake.in 文件生成 myLibConfig.cmake
+   include(CMakePackageConfigHelpers)
+   configure_package_config_file(
+           myLibConfig.cmake.in
+           ${CMAKE_CURRENT_BINARY_DIR}/myLibConfig.cmake
+           PATH_VARS myLib_INCLUDE_DIR
+           INSTALL_DESTINATION ${CMAKE_INSTALL_PREFIX}/cmake
+   )	
+   write_basic_package_version_file(
+           myLibConfigVersion.cmake
+           VERSION ${PACKAGE_VERSION}
+           COMPATIBILITY AnyNewerVersion
+   )
+   ```
+
+   
+
+   ```cmake
+   # 由 myLibConfig.cmake.in 生成的 myLibConfig.cmake
+   get_filename_component(PACKAGE_PREFIX_DIR "${CMAKE_CURRENT_LIST_DIR}/../" ABSOLUTE)
+   
+   macro(set_and_check _var _file)
+     set(${_var} "${_file}")
+     if(NOT EXISTS "${_file}")
+       message(FATAL_ERROR "File or directory ${_file} referenced by variable ${_var} does not exist !")
+     endif()
+   endmacro()
+   
+   macro(check_required_components _NAME)
+     foreach(comp ${${_NAME}_FIND_COMPONENTS})
+       if(NOT ${_NAME}_${comp}_FOUND)
+         if(${_NAME}_FIND_REQUIRED_${comp})
+           set(${_NAME}_FOUND FALSE)
+         endif()
+       endif()
+     endforeach()
+   endmacro()
+   
+   ####################################################################################
+   
+   include(CMakeFindDependencyMacro)
+   set_and_check(myLib_INCLUDE_DIR "E:/workbench/CmakeProject/myLib/include/")
+   include("${CMAKE_CURRENT_LIST_DIR}/myLibTarget.cmake")
+   ```
 
    
 

@@ -80,7 +80,7 @@ install(TARGETS myLib
    # 引入 CMakeFindDependencyMacro 以使用 find_dependency宏.
    # 该宏一般是在Config.cmake文件中使用, 包含find_package的调用, 且不适用于find Module模式
    include(CMakeFindDependencyMacro)
-   
+   # find_dependcy()
    set_and_check(myLib_INCLUDE_DIR "@PACKAGE_myLib_INCLUDE_DIR@")
    include("${CMAKE_CURRENT_LIST_DIR}/myLibTarget.cmake") # 调用myLibTarget.cmake
    ```
@@ -133,7 +133,27 @@ install(TARGETS myLib
    include("${CMAKE_CURRENT_LIST_DIR}/myLibTarget.cmake")
    ```
 
-   
+##### 命令参数介绍
+
+```cmake
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+	<input> # 输入的config.cmake.in，需要预先准备
+	<output> # 输出的文件
+	INSTALL_DESTINATION <path> # 输出的路径，可以是绝对路径，如果不是绝对路径，会基于最后一个参数INSTALL_PREFIX计算绝对路径
+  	[PATH_VARS <var1> <var2> ... <varN>] # 生成的变量，命名方式为`PACKAKE_VAR`，这些变量必须在config.cmake.in里使用
+  	[NO_SET_AND_CHECK_MACRO] # 不生成 set_and_check 宏，这个宏用于检查路径是否合法
+  	[NO_CHECK_REQUIRED_COMPONENTS_MACRO] # 不生成check_required_components宏，这个宏用于检查依赖项是否存在
+  	[INSTALL_PREFIX <path>]	# 安装路径，必须是绝对路径，不设置时默认使用 CMAKE_INSTALL_PREFIX
+  )
+  write_basic_package_version_file(
+        fileName				 # 文件名
+        VERSION 0.1.8			 # 版本信息
+        COMPATIBILITY (AnyNewerVersion|SameMajorVersion) # 兼容性 
+ )
+```
+
+
 
 #### `find_package `
 
@@ -146,7 +166,7 @@ find_package用于查找指定的package, 其支持两种搜索方法:
 
   config和version文件往往作为package的一部分被安装, 因此他们比 find modules更加可靠. 
 
-  > 
+  
 
 - **Module mode**:查找Findxxx.cmake文件, 如OpenCV库的FindCUDA.cmake文件. 通过 CMAKE_MODULE_PATH 变量来设置搜索路径
 

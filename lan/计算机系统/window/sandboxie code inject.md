@@ -77,12 +77,12 @@ bool Inject_LowLevel(long ProcessId) {
         return FALSE;
     }
     LONG_PTR myMessageBoxFunc = GetFuncPtr(myMsgDll, "MyMessageBox");
-    if (! myMessageBoxFunc) {
+    if (!myMessageBoxFunc) {
         printf("not find MyMessageBox in dll");
         return false;
     }
     LONG_PTR myMessageBox2Func = GetFuncPtr(myMsgDll, "MyMessageBox2");
-    if (! myMessageBox2Func) {
+    if (!myMessageBox2Func) {
         printf("not find MyMessageBox2 in dll");
         return false;
     }

@@ -64,7 +64,9 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
 
 ![img](./windows%20detours%20hook.assets/Detours_ovr_Technical_Figure_2.png)
 
-- detours会负责动态分配空间给**Trampoline Function**, 用于保存原**Target Function**
+detours事实上是通过修改进程内的二进制映像来实现hook.  他会修改两个方法的二进制指令, **Target Function**和**Trampoline Function**,
+
+- detours会负责动态分配空间给**Trampoline Function**, 用于保存原**Target Function**的指令, 以及在合适的位置`jmp to targetFunction+5`
 - 在**Target Function**的开头， 添加无条件跳转指令，跳转到**Detour Function**。 ==jmp指令需要占用一些空间，如果被Hook的Target Function小于5bytes， 则detours只能返回失败==，（比如ntdll!DbgBreakPoint函数）
 
 - 通过对`DetourTransactionBegin`和`DetourTransactionCommit`的调用来标记Hook事务。
@@ -128,9 +130,12 @@ BOOL APIENTRY DllMain( HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpRese
     }
     ```
 
-  - 远程线程的情况
+  - 不需要考虑远程线程的情况, 对于一个进程来说, 在进程启动和 DLL 初始化例程期间，可以创建新线程，但在为进程完成 DLL 初始化之前，这些线程不会开始执行. 及线程自身执行代码 和 dll初始化 必然是同步的, 不可能异步访问同一个指令.
 
-    - 
+
+
+
+#### detours关键代码
 
 
 

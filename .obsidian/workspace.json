@@ -4,37 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "e418c749c04f6b78",
+        "id": "2f7f30bcbaad50d1",
         "type": "tabs",
         "children": [
           {
-            "id": "aa8362ed3362f61a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "网络基本功/所谓Base64.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8c482ea8e0ac3481",
+            "id": "133ed7cd86454583",
             "type": "leaf",
             "state": {
               "type": "empty",
               "state": {}
-            }
-          },
-          {
-            "id": "fa76e12e6163de88",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.3.5"
-              }
             }
           }
         ]
@@ -103,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "网络基本功/所谓Base64.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,8 +107,9 @@
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": false
     }
   },
-  "active": "aa8362ed3362f61a",
+  "active": "133ed7cd86454583",
   "lastOpenFiles": [
+    "网络基本功/所谓Base64.md",
     "lan/c&cpp/c编译链接过程.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Fzc2lkdW91c19tZQ==,size_16,color_FFFFFF,t_70.png",
     "lan/c&cpp/c编译链接过程.assets/image-20230827174940743.png",
     "lan/c&cpp/c编译链接过程.assets/image-20230827174506190.png",
@@ -142,7 +120,6 @@
     "lan/c&cpp/c编译链接过程.assets/image-20230419164741037.png",
     "lan/c&cpp/c编译链接过程.assets/image-20230419163851682.png",
     "lan/c&cpp/c编译链接过程.assets/f7bb67584dea3f2333eff941110e9721.png",
-    "lan/c&cpp/c++版本记录.assets/839c9ccebbf3482c8fe60d3fd3d627e4.png",
     "lan/c&cpp/预处理指令.md",
     "lan/c&cpp/指针记录.md",
     "lan/c&cpp/预处理指令.assets",

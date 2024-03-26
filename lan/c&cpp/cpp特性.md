@@ -147,11 +147,26 @@ int main()
 
 
 
-### 关键字
+#### auto
 
-##### constexpr 
 
-##### auto
+
+#### constexpr 
+
+`constexpr`用于变量时本质上是`const`类型的加强, 它表明该变量不仅是常量 还是编译期可知的. 一个常见的使用场景是用来修饰一些**整数常量表达式**, 以表达数组大小,对齐修饰符等.
+
+```cpp
+#include <array>
+
+constexpr int arraySize = 14;
+std::array<int, arraySize> baseArray;
+```
+
+
+
+但是当`constexpr`用于函数时, 情况又有差别. 涉及到`constexpr`函数时，`constexpr`对象的使用情况就更有趣了。如果实参是编译期常量，这些函数将产出编译期常量；如果实参是运行时才能知道的值，它们就将产出运行时值。这里不做详细展开了.
+
+
 
 
 

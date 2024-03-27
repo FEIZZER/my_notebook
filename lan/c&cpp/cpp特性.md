@@ -146,13 +146,31 @@ int main()
 
 - 类型T 必须经由 **推导** 得到.  如模板函数的形参.
 
-  注意下面的情况就不属于universal reference
+  注意下面的情况, 其中 T&&就属于**rvalue reference**,  ValueType&&就属于**universal reference**.
 
   ```cpp
-  
+  template<typename T>
+  class Container
+  {
+  public:
+      //
+  	template<typename ValueType>
+  	void put(T&& t, ValueType&& value_type);
+  private:
+  };
   ```
-
   
+
+
+
+##### 表达式的value category(值类别)和value type(值类型), 毫不相关
+
+- **value category**指的是一个表达式的左值性或右值性
+- **value type**指的是一个只类型, 比如 int, float&, double&&, 都是一个值类型.
+
+
+
+
 
 ##### 引入右值引用后, 对cpp对象拷贝的优化
 
@@ -221,7 +239,31 @@ decltype类型推导的规则
 
 要理解模板如何实现类型的推导, 需要将模板需要推导的形参区分三种类型:
 
+```cpp
+template<typename T>
+void f(ParamType param);
+
+f(expr);                        //从expr中推导T和ParamType
+```
+
 - ##### 形参类型是一个指针或引用, 但不是通用引用
+
+  ```cpp
+  template<typename T>
+  void f(T& param);               //param是一个引用
+  
+  int x = 11, f(x);				//T的类型是int, param形参的类型为int&
+  const int cx = x, f(cx);		//T => const int, param => const int&
+  const int& crx = x, f(crx);		//T => const int, param => const int&
+  int&& rrx = x, f(rrx);			//T => int, param => int&
+  ```
+
+  考虑如上的模板函数定义, 类型推导会这样进行:
+
+  1. 如果实参`expr`的类型是一个引用, 则会直接忽略引用的部分
+  2. 然后根据 `expr`的类型和 `ParamType` 进行模式匹配来决定 `T`. **并且可以看到实参的cv限定符也会被保留为 `T` 的一部分**
+
+  如果将形参从 `T&` 改为 `const T&`,  推导行为不会有太多变化, **但是实参的const属性不再被推导为 类型`T` 的一部分了**
 
   
 

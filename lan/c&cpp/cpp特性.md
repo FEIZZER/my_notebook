@@ -127,25 +127,44 @@ int main()
 
 
 
-##### 右值引用和通用引用的区别
+##### 通用引用
 
+通用引用（universal reference）是Scott Meyers在C++ and Beyond 2012演讲中自创的一个词，用来特指一种引用的类型。这种引用在源代码中（`T&&`）看起来像右值引用，但是它们可以表现左值引用（即`T&`）的行为。它们的双重性质允许它们绑定右值（就像右值引用那样）和左值（就像左值引用那样）。而且，它们可以绑定const或者非const对象，可以绑定volatile和非volatile对象，还可以绑定const和volatile同时作用的对象。它们实际上可以绑定任何东西。要使得 `T&&` 表现出通用引用的性质, 必须满足以下两个条件:
 
+- 必须精确满足 `T&&` 这种形式, *甚至不能带上cv限定符*
+
+  ```cpp
+  template<typename T>
+  void template_universal_reference_parameter_test(T&& value)  // universal reference
+  
+  template<typename T>
+  void template_universal_reference_parameter_test(const T&& value)  // rvalue reference
+  
+  template<typename T>
+  void template_universal_reference_parameter_test(std::vector<T>&& value)  // rvalue reference
+  ```
+
+- 类型T 必须经由 **推导** 得到.  如模板函数的形参.
+
+  注意下面的情况就不属于universal reference
+
+  ```cpp
+  
+  ```
+
+  
 
 ##### 引入右值引用后, 对cpp对象拷贝的优化
 
 
 
-![image-20240325155448332](./cpp%E7%89%B9%E6%80%A7.assets/image-20240325155448332.png) 
+#### typeid *c++11 特性*
+
+> typeid是操作符, 不是函数, 和sizeof类似
 
 
 
-#### 模板的类型推导
-
-##### typeid *c++11 特性*
-
-
-
-##### decltype *c++11 特性*
+#### decltype *c++11 特性*
 
 > decltype可以用于在编译时推导一个表达式(expression)的类型
 
@@ -159,13 +178,35 @@ decltype可以推导出表达式的类型, 并且直接用于声明新的变量.
 
 decltype类型推导的规则
 
-1.  exp 是函数调用，decltype(exp) 和返回值的类型一致.
+1. exp 是函数调用，decltype(exp) 和返回值的类型一致.
 
-2.  exp 是变量 类访问表达式 计算表达式时，decltype(exp) 和 exp 的类型一致.
+   ```cpp
+   decltype((add(1, 2))) c = 1;
+   ```
 
-   1. 但是注意, 如果是赋值表达式, 赋值表达式的类型实际上是**左值引用到被赋值对象的类型**
+2. exp 是**变量** **类访问表达式** **计算表达式**时，decltype(exp) 和 exp 的类型一致.
 
-      
+   ```cpp
+   decltype(c) d = 2;						//变量
+   decltype(1 + 2) e = 3;					//计算表达式
+   decltype(base) base1 = Base("base1");	//类访问表达式
+   ```
+
+3. exp如果是赋值表达式, 推导出的类型则有所区别,   这是因为赋值表达式的类型实际上是**左值引用到被赋值对象的类型**
+
+   ```cpp
+   // decltype(c = 1 + 2) f = 1;	// error: f的类型是左值引用
+   decltype(c = 1 + 2) f = e;
+   ```
+
+4. 最抽象的一个特性是, ==当**变量**和**类访问表达式**, 加上括号会表现出**赋值表达式**一样的规则==
+
+   ```cpp
+   decltype(c) d = 2;		// int类型
+   decltype(c) e = 2; 		// error, e是int&类型
+   ```
+
+*decltype其实还有更多细节的情况可以探究, 如赋值表达式被赋值对象本身是引用类型, 类访问成员变量类型带有cv reference修饰时怎么表现等*
 
 
 
@@ -176,11 +217,21 @@ decltype类型推导的规则
 
 *`typename` 和 `class`关键字一般通用, 但是只有`typename`可以做为 一个型别 的前置标识符*
 
+#### 模板的类型推导模板类型约束
 
+要理解模板如何实现类型的推导, 需要将模板需要推导的形参区分三种类型:
 
-#### 模板类型约束
+- ##### 形参类型是一个指针或引用, 但不是通用引用
 
+  
 
+- ##### 形参类型是一个通用引用
+
+  
+
+- ##### 形参类型既不是指针也不是引用
+
+  
 
 ##### SFINAE (Substitution failure is not an error ) 
 

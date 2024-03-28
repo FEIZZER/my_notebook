@@ -127,11 +127,6 @@ int main()
 
 
 
-<<<<<<< HEAD
-##### 右值引用和通用引用的区别
-
-
-=======
 ##### 通用引用
 
 通用引用（universal reference）是Scott Meyers在C++ and Beyond 2012演讲中自创的一个词，用来特指一种引用的类型。这种引用在源代码中（`T&&`）看起来像右值引用，但是它们可以表现左值引用（即`T&`）的行为。它们的双重性质允许它们绑定右值（就像右值引用那样）和左值（就像左值引用那样）。而且，它们可以绑定const或者非const对象，可以绑定volatile和非volatile对象，还可以绑定const和volatile同时作用的对象。它们实际上可以绑定任何东西。要使得 `T&&` 表现出通用引用的性质, 必须满足以下两个条件:
@@ -165,7 +160,6 @@ int main()
   };
   ```
   
->>>>>>> 7b92ba74e180f9a2e81640015b1a264fc0be394a
 
 
 
@@ -182,28 +176,13 @@ int main()
 
 
 
-<<<<<<< HEAD
-![image-20240325155448332](./cpp%E7%89%B9%E6%80%A7.assets/image-20240325155448332.png) 
-
-
-
 #### 模板的类型推导
 
 ##### typeid *c++11 特性*
 
 
 
-##### decltype *c++11 特性*
-=======
-#### typeid *c++11 特性*
-
-> typeid是操作符, 不是函数, 和sizeof类似
-
-
-
 #### decltype *c++11 特性*
->>>>>>> 7b92ba74e180f9a2e81640015b1a264fc0be394a
-
 > decltype可以用于在编译时推导一个表达式(expression)的类型
 
 ```cpp
@@ -216,15 +195,6 @@ decltype可以推导出表达式的类型, 并且直接用于声明新的变量.
 
 decltype类型推导的规则
 
-<<<<<<< HEAD
-1.  exp 是函数调用，decltype(exp) 和返回值的类型一致.
-
-2.  exp 是变量 类访问表达式 计算表达式时，decltype(exp) 和 exp 的类型一致.
-
-   1. 但是注意, 如果是赋值表达式, 赋值表达式的类型实际上是**左值引用到被赋值对象的类型**
-
-      
-=======
 1. exp 是函数调用，decltype(exp) 和返回值的类型一致.
 
    ```cpp
@@ -250,11 +220,12 @@ decltype类型推导的规则
 
    ```cpp
    decltype(c) d = 2;		// int类型
-   decltype(c) e = 2; 		// error, e是int&类型
+   decltype((c)) e = 2; 		// error, e是int&类型
    ```
 
 *decltype其实还有更多细节的情况可以探究, 如赋值表达式被赋值对象本身是引用类型, 类访问成员变量类型带有cv reference修饰时怎么表现等*
->>>>>>> 7b92ba74e180f9a2e81640015b1a264fc0be394a
+
+
 
 
 
@@ -265,13 +236,13 @@ decltype类型推导的规则
 
 *`typename` 和 `class`关键字一般通用, 但是只有`typename`可以做为 一个型别 的前置标识符*
 
-<<<<<<< HEAD
+
 
 
 #### 模板类型约束
 
 
-=======
+
 #### 模板的类型推导模板类型约束
 
 要理解模板如何实现类型的推导, 需要将模板需要推导的形参区分三种类型:
@@ -310,8 +281,7 @@ f(expr);                        //从expr中推导T和ParamType
 
 - ##### 形参类型既不是指针也不是引用
 
-  
->>>>>>> 7b92ba74e180f9a2e81640015b1a264fc0be394a
+
 
 ##### SFINAE (Substitution failure is not an error ) 
 

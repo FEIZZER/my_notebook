@@ -236,14 +236,7 @@ decltype类型推导的规则
 
 *`typename` 和 `class`关键字一般通用, 但是只有`typename`可以做为 一个型别 的前置标识符*
 
-
-
-
-#### 模板类型约束
-
-
-
-#### 模板的类型推导模板类型约束
+#### 模板的类型推导
 
 要理解模板如何实现类型的推导, 需要将模板需要推导的形参区分三种类型:
 
@@ -271,17 +264,68 @@ f(expr);                        //从expr中推导T和ParamType
   1. 如果实参`expr`的类型是一个引用, 则会直接忽略引用的部分
   2. 然后根据 `expr`的类型和 `ParamType` 进行模式匹配来决定 `T`. **并且可以看到实参的cv限定符也会被保留为 `T` 的一部分**
 
-  如果将形参从 `T&` 改为 `const T&`,  推导行为不会有太多变化, **但是实参的const属性不再被推导为 类型`T` 的一部分了**
+  如果将形参从 `T&` 改为 `const T&`,  推导行为不会有太多变化, **但是实参的const属性不再被推导为 类型`T` 的一部分了**, 下面以 `ParamType`是一个const指针为例:
+
+  ```cpp
+  template<typename T>
+  void f(const T* param){}
+  
+  int x = 13;
+  const int* cpx = &x, f(cpx)		// T => int, param => const int*
+  ```
 
   
 
 - ##### 形参类型是一个通用引用
 
+  - 如果实参`expr`是左值, `T` 会被推导为左值引用, 然后由于**引用折叠**, `param`也会被视为**左值引用**. *实际上这是非常不寻常, 这是模板类型推导中唯一一种`T`被推导为引用的情况*
+  - 如果`expr`是右值, `T`的类型推导符合上述的规则一.
+
+  ```cpp
+  template<typename T>
+  void f(T&& param) {}
   
+  int x = 19, f(x);			//T => int&, param => int&
+  f(20);						//T => int , param => int&&
+  ```
+
+  > **引用折叠**
+  >
+  > T& & , T&& &, T& &&  => T&
+  >
+  > T&& &&  => T&&
 
 - ##### 形参类型既不是指针也不是引用
 
+  这意味着无论传递什么 `expr`,  形参`param`都会成为它的一份拷贝.  和之前一样如果实参是一个引用, 则会忽略引用部分.  **然后如果`expr`带有 cv修饰符, 也会忽略cv修饰符**
 
+  ```cpp
+  template<typename T>
+  void f(T param) {}
+  
+  const int& x = 19, f(x);			//T => int, param => int
+  ```
+
+#### 在使用模板函数类型推导时的注意事项
+
+- ##### 在模板类型推导时，数组名或者函数名实参会退化为指针，除非它们被用于初始化引用
+
+  ```cpp
+  template<typename T>
+  void f1(T param) {}
+  template<typename T>
+  void f2(T& param) {}
+  
+  int array[] = { 1, 2, 3, 4 };
+  f1(array);			// f1 模板函数的T被推导为  int[4]
+  f2(array);			// f2 的 T => int*
+  ```
+
+  
+
+#### 模板类型约束
+
+[雾里看花：真正意义上的理解 C++ 模板(Template) - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/655902377)
 
 ##### SFINAE (Substitution failure is not an error ) 
 
@@ -291,23 +335,17 @@ f(expr);                        //从expr中推导T和ParamType
 
 
 
-
-
-
-
-
-
 #### auto
 
+auto 类型推导的绝大部分情况都和模板类型推导完全一致. *但是`auto`类型推导假定花括号初始化代表`std::initializer_list`，而模板类型推导不这样做*
 
+这里不做详细演示了.
 
 #### constexpr 
 
 `constexpr`用于变量时本质上是`const`类型的加强, 它表明该变量不仅是常量 还是编译期可知的. 一个常见的使用场景是用来修饰一些**整数常量表达式**, 以表达数组大小,对齐修饰符等.
 
 ```cpp
-#include <array>
-
 constexpr int arraySize = 14;
 std::array<int, arraySize> baseArray;
 ```

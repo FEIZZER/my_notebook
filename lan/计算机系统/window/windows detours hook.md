@@ -184,7 +184,7 @@ bool InjectProcess(DWORD pid, char* dllPath, int len) {
         return false;
     }
 
-    WaitForSingleObject(ThreadHandle, INFINITE);
+    WaitForSingleObject(ThreadHandle, INFINITE);  
 
     CloseHandle(ProcessHandle);
     CloseHandle(ThreadHandle);

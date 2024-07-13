@@ -102,21 +102,45 @@ typedef struct
 } Elf32_Ehdr;
 ```
 
-上述的 Elf32_* 类型, 除了 Half是 16位, 其余都是32位 无符号整数类型.  下表记录 ELF文件头结构中 各个成员的含义.
+上述的 Elf32_* 类型, 除了 Half是 16位, 其余都是32位 无符号整数类型.  下面记录 ELF文件头结构中 各个成员的含义.
 
-| 成员名 | 含义 |
-| ------ | ---- |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
-|        |      |
+- **e_ident** 是一个16字节长度的数据，用来标识ELF文件的平台属性， 下面是linux一个32位目标文件的 e_ident示例
+
+  ![e_ident示例](D:\WorkBench\NOTEBOOK\lan\c&cpp\ELF文件解析.assets\e_ident示例.jpg)
+
+  - 前四个字节 是ELF文件的魔数， 分别是 `DEL` `E` `L` `F`  的ASCII码
+  - 第五个字节 表示文件的位数 . 0x01表示32位， 0x02表示64位.
+  - 第五个字节 表示该ELF文件时大端还是小端字节序.  0表示无效文件, 1表示小端格式, 2表示大端格式.
+  - 第六个字节 表示该ELF文件的主版本号, 一般是1.
+  - 后面九个字节未定义, 一般为0. 
+
+- **e_type** 表示ELF文件的类型, 即前面提到的三种类型. 1表示可重定位文件, 2表示可执行文件, 3表示共享目标文件, Linux下一般为.so文件.
+
+- **e_machine** 表示该文件适用的系统平台, ELF文件被设计为可以在多种系统下使用, 但并不意味着同一个ELF文件可以在不同系统下运行.  具体值不做记录.
+
+- //todo
 
 
+
+ 
 
 ##### ELF段表结构
+
+段表结构保存ELF文件中不同的段的基本信息, 如 段名 段的长度 段在文件中偏移地址 读写权限等. 段表结构也可以在 elf.h 文件中找到
+
+```c
+typedef struct
+{
+  Elf32_Word    sh_name;                /* Section name (string tbl index) */
+  Elf32_Word    sh_type;                /* Section type */
+  Elf32_Word    sh_flags;               /* Section flags */
+  Elf32_Addr    sh_addr;                /* Section virtual addr at execution */
+  Elf32_Off     sh_offset;              /* Section file offset */
+  Elf32_Word    sh_size;                /* Section size in bytes */
+  Elf32_Word    sh_link;                /* Link to another section */
+  Elf32_Word    sh_info;                /* Additional section information */
+  Elf32_Word    sh_addralign;           /* Section alignment */
+  Elf32_Word    sh_entsize;             /* Entry size if section holds table */
+} Elf32_Shdr;
+```
 

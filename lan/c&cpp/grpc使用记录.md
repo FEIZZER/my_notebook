@@ -10,3 +10,10 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=<grpc_cpp_plugin> *.proto
 ```
 
 其中 \<grpc_cpp_plugin\>是 grpc_cpp_plugin.exe 的完整路径, 如果是windows通过 vcpkg安装的话 可以在 `<vcpkg_install_dir>\packages\grpc_x64-windows\tools\grpc` 找到
+
+
+
+```cmake
+cmake -G "Visual Studio 16 2019" -B cmake-build -DCMAKE_TOOLCHAIN_FILE=<vcpkg_install_path>/scripts/buildsystems/vcpkg.cmake
+```
+
